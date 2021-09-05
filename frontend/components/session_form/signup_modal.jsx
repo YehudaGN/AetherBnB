@@ -18,6 +18,7 @@ class SignupModal extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.signup(this.state);
+        this.props.closeModal();
     }
 
     handleChange(field) {
@@ -39,7 +40,8 @@ class SignupModal extends React.Component {
     render() {
         return <div>
             <form onSubmit={this.handleSubmit}>
-                {this.renderErrors()}
+            <div onClick={this.props.closeModal} className="close-x">X</div>
+            {this.renderErrors()}
                 <label>Email
                     <input 
                         type="text"
