@@ -25,9 +25,6 @@ class LoginModal extends React.Component {
     handleDemoUser(e) {
         e.preventDefault();
         const demo = {email: 'demouser@gmail.com', password: 'demouser'}
-        // this.setState(demo);
-        // debugger
-        // this.props.login(this.state);
         this.props.login(demo);
     }
 
@@ -48,20 +45,20 @@ class LoginModal extends React.Component {
             <form onSubmit={this.handleSubmit}>
             <div onClick={this.props.closeModal} className="close-x">X</div>
             {this.renderErrors()}
-                <label>Email
+     
                     <input 
-                        type="text"
+                        type="email"
                         value={this.state.email}
+                        placeholder='Email'
                         onChange={this.handleChange('email')}    
                     />
-                </label>
-                <label>Password
+                
                     <input 
                         type="password"
                         value={this.state.password}
+                        placeholder='Password'
                         onChange={this.handleChange('password')}    
                     />
-                </label>
                 <button>Log In</button>
             </form>
             <button onClick={(e) => this.handleDemoUser(e)}>Log in as Demo User</button>

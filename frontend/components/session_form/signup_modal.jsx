@@ -42,40 +42,40 @@ class SignupModal extends React.Component {
             <form onSubmit={this.handleSubmit}>
             <div onClick={this.props.closeModal} className="close-x">X</div>
             {this.renderErrors()}
-                <label>Email
+                
                     <input 
-                        type="text"
+                        type="email"
                         value={this.state.email}
-                        onChange={this.handleChange('email')}    
+                        onChange={this.handleChange('email')}   
+                        placeholder='Email' 
                     />
-                </label>
-                <label>First Name
+                
                     <input 
                         type="text"
                         value={this.state.fname}
                         onChange={this.handleChange('fname')}    
+                        placeholder='First Name' 
                     />
-                </label>
-                <label>Last Name
+                
                     <input 
                         type="text"
                         value={this.state.lname}
-                        onChange={this.handleChange('lname')}    
+                        onChange={this.handleChange('lname')}   
+                        placeholder='Last Name'  
                     />
-                </label>
-                <label>Bio
+                
                     <textarea
                         value={this.state.bio}
-                        onChange={this.handleChange('bio')}    
+                        onChange={this.handleChange('bio')}  
+                        placeholder='Bio'   
                     />
-                </label>
-                <label>Password
+                
                     <input 
                         type="password"
                         value={this.state.password}
-                        onChange={this.handleChange('password')}    
+                        onChange={this.handleChange('password')}  
+                        placeholder='Password'  
                     />
-                </label>
                 <button>Sign Up</button>
             </form>
         </div>
