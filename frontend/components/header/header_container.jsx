@@ -3,7 +3,7 @@ import { logout } from '../../actions/session_actions';
 import Header from './header';
 
 const mSTP= ({ session }) => ({
-    currentUser: session.currentUser
+    currentUser: session.id
   });
 
 const mDTP = (dispatch) => ({
