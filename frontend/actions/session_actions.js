@@ -32,10 +32,9 @@ export const signup = user => (
         sessionAPIUtil.signup(user)
             .then(currentUser => (
                 dispatch(receiveCurrentUser(currentUser))
+            ), error => (
+                dispatch(receiveErrors(error.responseJSON))
             ))
-            // , error => (
-            //     dispatch(receiveErrors(error.responseJSON))
-            // ))
     )
 )
 
