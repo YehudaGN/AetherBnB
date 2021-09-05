@@ -11,4 +11,4 @@ const mDTP = dispatch => ({
     signup: user => dispatch(signup(user))
 })
 
-export default connect(mSTP, mDTP)(SignupModal)
+export default connect(mSTP, mDTP)(SignupModal);

@@ -24,13 +24,15 @@ class LoginModal extends React.Component {
     handleDemoUser(e) {
         e.preventDefault();
         const demo = {email: 'demouser@gmail.com', password: 'demouser'}
-        this.setState(demo);
-        this.props.login(this.state);
+        // this.setState(demo);
+        // debugger
+        // this.props.login(this.state);
+        this.props.login(demo);
     }
 
     renderErrors() {
         const mappedErrors = this.props.errors.map((error, i) => (
-            <li key={`error-${i}`}></li>
+            <li key={`error-${i}`}>{error}</li>
         ))
 
         return (
@@ -60,7 +62,7 @@ class LoginModal extends React.Component {
                 </label>
                 <button>Log In</button>
             </form>
-            <button onclick={(e) => this.handleDemoUser(e)}>Log in as Demo User</button>
+            <button onClick={(e) => this.handleDemoUser(e)}>Log in as Demo User</button>
         </div>
     }
 }
