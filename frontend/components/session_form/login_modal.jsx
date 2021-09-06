@@ -14,8 +14,8 @@ class LoginModal extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.login(this.state);
-        this.props.closeModal();
+        this.props.login(this.state)
+        .then(this.props.closeModal);
     }
 
     handleChange(field) {
@@ -25,7 +25,8 @@ class LoginModal extends React.Component {
     handleDemoUser(e) {
         e.preventDefault();
         const demo = {email: 'demouser@gmail.com', password: 'demouser'}
-        this.props.login(demo);
+        this.props.login(demo)
+        .then(this.props.closeModal);
     }
 
     renderErrors() {
