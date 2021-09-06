@@ -1,10 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import MenuIcon from '@material-ui/icons/Menu';
 
 class Header extends React.Component {
     constructor(props) {
-        super(props)  
+        super(props);  
+        this.menuContainer = React.createRef();
+        this.state = {
+            open: false
+        };
     }
+
+    componentDidMount() {
+        document.addEventListener("mousedown", this.handleClickOutside);
+    }
+
+    componentWillUnmount() {
+      document.removeEventListener("mousedown", this.handleClickOutside);
+    }
+
+    handleClickOutside = (event) => {
+        if (
+          this.menuContainer.current &&
+          !this.menuContainer.current.contains(event.target)
+        ) {
+          this.setState({
+            open: false,
+          });
+        }
+      };
 
     sessionLinks = () => (
         <ul className='login-signup-ul'>
@@ -14,7 +39,7 @@ class Header extends React.Component {
     );
 
     handleClick = () => {
-
+        this.setState({open: !this.state.open});
     };
 
     render() {
@@ -24,13 +49,18 @@ class Header extends React.Component {
                         {/* <Link to='/'></Link>  */}
                     </div >   
                         
-                        <div className='menu-container'>
-                            <button className='menu-button' onClick={this.handleClick}>☰</button>
+                        <div className='menu-container' ref={this.menuContainer}>
+                            <button className='menu-button' onClick={this.handleClick}>
+                                <MenuIcon style={{ fontSize: 30 }}/>
+                                <AccountCircleIcon style={{ fontSize: 30 }}/>
+                            </button>
+                            {this.state.open && (
                             <div className='dropdown'>
                                 {this.props.currentUser ? 
                                 <ul className='logout-ul'> <li className="menu-li" onClick={this.props.logout}>Log Out</li></ul>:
                                 this.sessionLinks()}
                             </div>
+                            )}
                         </div>
                 </div>
         )
