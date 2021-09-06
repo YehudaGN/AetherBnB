@@ -1,0 +1,94 @@
+.login-container, .signup-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    min-height: 50vh;
+    min-width: 28vw;
+    // max-width: 35vw;
+}
+
+.login-form, .signup-form {
+    display: flex;
+    flex-direction: column;
+    // align-items: space-between;
+    align-content: center;
+}
+
+.login-button, .signup-button {
+    height: 4vh;
+    align-self: center;
+    width: 90%;
+    background-color: rgba(214, 30, 76, 0.945);
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    margin-top: 3%;
+}
+
+.signup-button {
+    margin-bottom: 3%;
+    margin-top: 4%;
+}
+
+.demo-button {
+    height: 4vh;
+    align-self: center;
+    width: 60%;
+    background-color: rgba(214, 30, 76, 0.945);
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    margin-top: 3%;
+}
+
+#rounded-email {
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    
+}
+#rounded-password {
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    
+}
+
+.login-input, .signup-input {
+    height: 5vh;
+    width: 90%;
+    align-self: center;
+    border: 1px solid rgb(173, 170, 170);
+}
+
+
+.login-welcome {
+    text-align: center;
+    font-size: 35px;
+    margin-top: 8%;
+    margin-bottom: 15%;
+}
+
+.signup-welcome {
+    text-align: center;
+    font-size: 35px;
+    margin-top: 6%;
+    margin-bottom: 8%;
+}
+
+.close-x {
+    margin-top: 4%;
+    margin-left: 4%;
+    position: absolute;
+}
+
+textarea {
+    resize: none;
+    // padding-left: 5px;
+}
+
+.errors-ul {
+    margin-bottom: 8px;
+    text-align: center;
+    color: red
+}
+

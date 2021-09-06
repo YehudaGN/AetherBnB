@@ -31,19 +31,22 @@ class SignupModal extends React.Component {
         ))
 
         return (
-            <ul>
+            <ul className='errors-ul'>
                 {mappedErrors}
             </ul>
         )
     }
 
     render() {
-        return <div>
-            <form onSubmit={this.handleSubmit}>
+        return <div className='signup-container'>
             <div onClick={this.props.closeModal} className="close-x">X</div>
+            <h3 className='signup-welcome'>Welcome!</h3>
+            <form className='signup-form' onSubmit={this.handleSubmit}>
             {this.renderErrors()}
                 
                     <input 
+                        id='rounded-email'
+                        className='signup-input'
                         type="email"
                         value={this.state.email}
                         onChange={this.handleChange('email')}   
@@ -51,6 +54,7 @@ class SignupModal extends React.Component {
                     />
                 
                     <input 
+                        className='signup-input'
                         type="text"
                         value={this.state.fname}
                         onChange={this.handleChange('fname')}    
@@ -58,6 +62,7 @@ class SignupModal extends React.Component {
                     />
                 
                     <input 
+                        className='signup-input'
                         type="text"
                         value={this.state.lname}
                         onChange={this.handleChange('lname')}   
@@ -65,18 +70,21 @@ class SignupModal extends React.Component {
                     />
                 
                     <textarea
+                        className='signup-input'
                         value={this.state.bio}
                         onChange={this.handleChange('bio')}  
                         placeholder='Bio'   
                     />
                 
                     <input 
+                        id='rounded-password'
+                        className='signup-input'
                         type="password"
                         value={this.state.password}
                         onChange={this.handleChange('password')}  
                         placeholder='Password'  
                     />
-                <button>Sign Up</button>
+                <button className='signup-button'>Sign Up</button>
             </form>
         </div>
     }

@@ -34,19 +34,22 @@ class LoginModal extends React.Component {
         ))
 
         return (
-            <ul>
+            <ul className='errors-ul'>
                 {mappedErrors}
             </ul>
         )
     }
 
     render() {
-        return <div>
-            <form onSubmit={this.handleSubmit}>
+        return <div className='login-container'>
             <div onClick={this.props.closeModal} className="close-x">X</div>
+            <h3 className='login-welcome'>Welcome back!</h3>
+            <form onSubmit={this.handleSubmit} className='login-form'>
             {this.renderErrors()}
      
                     <input 
+                        id ='rounded-email'
+                        className='login-input'
                         type="email"
                         value={this.state.email}
                         placeholder='Email'
@@ -54,14 +57,16 @@ class LoginModal extends React.Component {
                     />
                 
                     <input 
+                        id ='rounded-password'
+                        className='login-input'
                         type="password"
                         value={this.state.password}
                         placeholder='Password'
                         onChange={this.handleChange('password')}    
                     />
-                <button>Log In</button>
+                <button className='login-button'>Log In</button>
             </form>
-            <button onClick={(e) => this.handleDemoUser(e)}>Log in as Demo User</button>
+            <button className='demo-button' onClick={(e) => this.handleDemoUser(e)}>Log in as Demo User</button>
         </div>
     }
 }
