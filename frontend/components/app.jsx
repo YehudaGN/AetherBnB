@@ -5,14 +5,15 @@ import HeaderContainer from './header/header_container';
 import LogInModalContainer from './session_form/login_modal_container';
 import SignUpModalContainer from './session_form/signup_modal_container';
 import Modal from './modal/modal';
+import { Route } from 'react-router';
+import Splash from './splash/splash';
 
 
 const App = () => (
   <div>
         <HeaderContainer />
         <Modal />
-        {/* <AuthRoute exact path="/login" component={LogInModalContainer} />
-        <AuthRoute exact path="/signup" component={SignUpModalContainer} /> */}
+        <Route path='/' component={Splash}/>
   </div>
 );
 
