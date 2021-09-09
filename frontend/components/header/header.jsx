@@ -46,7 +46,9 @@ class Header extends React.Component {
         return (
                 <div className='header-container'>       
                     <div className='logo'>
-                        {/* <Link to='/'></Link>  */}
+                        <Link className='logo-link' to='/'> 
+                            <img src={logo} alt="" />
+                        </Link> 
                     </div >   
                         
                         <div className='menu-container' ref={this.menuContainer}>
@@ -57,7 +59,13 @@ class Header extends React.Component {
                             {this.state.open && (
                             <div className='dropdown'>
                                 {this.props.currentUser ? 
-                                <ul className='logout-ul'> <li className="menu-li" onClick={this.props.logout}>Log Out</li></ul>:
+                                <div>
+                                    <Link to={`/users/show/${this.props.currentUser}`}>Account</Link>
+                                    <ul className='logout-ul'> 
+                                        <li className="menu-li" onClick={this.props.logout}>Log Out</li>
+                                    </ul>
+                                </div>
+                                :
                                 this.sessionLinks()}
                             </div>
                             )}

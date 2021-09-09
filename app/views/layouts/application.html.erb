@@ -8,6 +8,10 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <script type="text/javascript">
+      window.logo = "<%= image_url('logo.png') %>";
+      window.splash_bg = "<%= image_url('splash-bg.jpg') %>";
+    </script>
   </head>
 
   <body>

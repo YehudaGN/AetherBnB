@@ -3,7 +3,6 @@
     height: 100vh;
     top: -75px;
     z-index: -1;
-    background-image: url(<%= asset_path 'splash-bg.jpg'%>);
     background-position-x: left;
     background-position-y: top;
     background-repeat: no-repeat;

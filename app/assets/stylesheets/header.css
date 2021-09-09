@@ -11,12 +11,17 @@
     margin-top: 0.7%;
     width: 326px;
     height: 44px;
-    background-image: url(<%= asset_path 'logo.png'%>);
+    
     background-color: 'red';
     background-position-x: left;
     background-position-y: top;
     background-repeat: no-repeat;
 
+}
+
+.logo-link {
+  width: 326px;
+  height: 44px;
 }
 
 .menu-container {
