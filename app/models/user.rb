@@ -2,8 +2,11 @@ class User < ApplicationRecord
     validates :email, :session_token, presence: true, uniqueness: true
     validates :password_digest, :fname, :lname, presence: true
     validates :password, length: { minimum: 6, allow_nil: true}
-    # validates :bio
-
+    
+    has_many: :listings,
+        foreign_key: :host_id,
+        class_name: :Listing
+        
     attr_reader :password
 
     after_initialize :ensure_session_token
