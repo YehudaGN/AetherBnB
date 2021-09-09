@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom'
 
 const ListingItem = props => {
     return (
-        <li>
+        <li className='listing-blurb'>
             <Link to={`/listing/show/${props.listing.id}`}>
-                <h3>{props.listing.title}</h3>
+                <h3 className='listings-index-title'>{props.listing.title}</h3>
             </Link>
-            <p>{props.listing.description}</p>
+            <br />
             <p> {props.listing.city}, {props.listing.state}</p>
-            <p>Price: {props.listing.price}</p>
+            <br />
+            <p>${props.listing.price} / night</p>
         </li>
     )
 }

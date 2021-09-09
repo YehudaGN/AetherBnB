@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { fetchListings } from '../../actions/listings_actions'
-import ListingIndex from './listings_index'
+import Map from './map'
 
 
 
@@ -16,4 +16,4 @@ const mDTP = dispatch => ({
 })
 
 
-export default connect(mSTP, mDTP)(ListingIndex);
+export default connect(mSTP, mDTP)(Map);

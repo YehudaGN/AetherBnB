@@ -1,0 +1,24 @@
+.listings-index-container {
+    display: flex;
+    justify-content: space-between;
+    /* ^ remove later ? */
+}
+
+.listing-blurb {
+    border-bottom: 1px solid gray;
+    text-align: center;
+    margin-top: 10%;
+    margin-left: 20%;
+
+    padding: 3%;
+}
+
+.listings-index-title {
+    font-size: 30px;
+    color: rgb(19, 19, 19);
+}
+
+.map-container-container {
+    /* margin-top: 5%;
+    margin-right: 5%; */
+}
