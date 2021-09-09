@@ -7,12 +7,14 @@ import SignUpModalContainer from './session_form/signup_modal_container';
 import Modal from './modal/modal';
 import { Route } from 'react-router';
 import Splash from './splash/splash';
+import CreateListingContainer from './listings_forms/create_listing_container';
 
 
 const App = () => (
   <div>
         <HeaderContainer />
         <Modal />
+        <Route path = '/new/listing'  component={CreateListingContainer}/>
         <Route path='/' component={Splash}/>
   </div>
 );

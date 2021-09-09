@@ -1,19 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createListing } from '../../actions/listing_actions';
+import { createListing } from '../../actions/listings_actions';
+                                
 import CreateListing from './create_listing'
 
 const mSTP = state => ({
     listing: {
-        hostId: '',
         title: '',
         description: '',
         address: '',
         city: '',
         state: '',
-        zipCode: '',
-        numBeds: '',
-        longitute: '',
+        zip_code: '',
+        num_beds: '',
+        longitude: '',
         latitude: '',
         price: ''
     }

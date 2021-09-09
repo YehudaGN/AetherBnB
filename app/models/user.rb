@@ -3,7 +3,7 @@ class User < ApplicationRecord
     validates :password_digest, :fname, :lname, presence: true
     validates :password, length: { minimum: 6, allow_nil: true}
     
-    has_many: :listings,
+    has_many :listings,
         foreign_key: :host_id,
         class_name: :Listing
         

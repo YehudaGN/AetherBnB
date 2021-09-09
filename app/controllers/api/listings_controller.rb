@@ -25,6 +25,7 @@ class Api::ListingsController < ApplicationController
             render :show
         else
             render json: @listing.errors.full_messages
+        end
     end
 
     def destroy
