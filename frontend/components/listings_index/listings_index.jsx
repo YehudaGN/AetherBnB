@@ -8,8 +8,6 @@ class ListingIndex extends React.Component {
         this.props.fetchListings(this.props.match.params.city)
     }
 
-
-
     render(){
 
         let mappedListings = this.props.listings.map((listing, i)=> <ListingItem key={`${listing.title}${i}`} listing={listing} />)
@@ -24,10 +22,6 @@ class ListingIndex extends React.Component {
             </div>
         )
     }
-
-
-
-
 }
 
 

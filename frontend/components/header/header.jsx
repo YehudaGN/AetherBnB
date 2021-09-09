@@ -65,8 +65,10 @@ class Header extends React.Component {
                             {this.state.open && (
                             <div className='dropdown'>
                                 {this.props.currentUser ? 
-                                <div>
-                                    <Link to={`/users/show/${this.props.currentUser}`}>Account</Link>
+                                <div className='dropdown-container'>
+                                    <div className='account-link-div'>
+                                        <Link className='account-link' to={`/users/show/${this.props.currentUser}`}>Account</Link>
+                                    </div>
                                     <ul className='logout-ul'> 
                                         <li className="menu-li" onClick={this.props.logout}>Log Out</li>
                                     </ul>

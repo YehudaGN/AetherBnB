@@ -4,7 +4,9 @@
     align-items: center;
   
     z-index: 2;
-    position: sticky;
+    position: fixed;
+    top: 0;
+    height: 50px;
 }
 
 .logo {
@@ -69,10 +71,10 @@
 }
 
 .dropdown {
-  margin-top: 15%;
+  margin-top: 2%;
   position: absolute;
-  top: 100%;
-  right: 0;
+  top: 95%;
+  right: 12%;
   width: 150px;
   z-index: 2;
   border: 1px solid rgba(0, 0, 0, 0.04);
@@ -87,12 +89,17 @@
     margin: 0;
 }
 
-.menu-li {
+.menu-li, .account-link {
   padding: 8px 12px;
   border-radius: 10px;
 }
 
-.menu-li:hover {
+.account-link {
+  color: rgb(0, 0, 0);
+  display: block;
+}
+
+.menu-li:hover, .account-link:hover {
   background-color: rgba(0, 0, 0, 0.14);
   cursor: pointer;
 }
