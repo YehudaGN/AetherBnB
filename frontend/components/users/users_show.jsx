@@ -3,9 +3,21 @@ import { Link } from 'react-router-dom';
 import { fetchUser } from '../../actions/user_actions';
 
 class UserShow extends React.Component {
+    
+    constructor(props) {
+        super(props);  
+        this.state = {
+            open: false
+        };
+    }
+
     componentDidMount() {
         this.props.fetchUser(this.props.match.params.userId)
     }
+
+    handleClick = () => {
+        this.setState({open: !this.state.open});
+    };
 
     render() {
         if (!this.props.user) return null;
@@ -17,7 +29,7 @@ class UserShow extends React.Component {
 
                 <ul>
                     <h4>Listings</h4>
-                    <Link to='/new/listing'>Create Listing</Link>
+                    <li className='create-listing-li' onClick={() => this.props.openModal('create listing')}>Create Listing</li>
                 </ul>
                 <ul>
                     <h4>Bookings</h4>

@@ -5,17 +5,24 @@
     border-radius: 10px;
     min-height: 50vh;
     min-width: 28vw;
-    // max-width: 35vw;
 }
 
-.login-form, .signup-form, .listing-input {
+.create-listing-container {
     display: flex;
     flex-direction: column;
-    // align-items: space-between;
+    background-color: white;
+    border-radius: 10px;
+    min-height: 50vh;
+    min-width: 30vw;
+}
+
+.login-form, .signup-form, .listing-form{
+    display: flex;
+    flex-direction: column;
     align-content: center;
 }
 
-.login-button, .signup-button {
+.login-button, .signup-button, .create-listing-button {
     height: 4vh;
     align-self: center;
     width: 90%;
@@ -26,7 +33,7 @@
     margin-top: 3%;
 }
 
-.signup-button {
+.signup-button, .create-listing-button {
     margin-bottom: 3%;
     margin-top: 4%;
 }
@@ -42,18 +49,18 @@
     margin-top: 3%;
 }
 
-#rounded-email {
+#rounded-email, #rounded-title {
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
     
 }
-#rounded-password {
+#rounded-password, #rounded-price {
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
     
 }
 
-.login-input, .signup-input {
+.login-input, .signup-input, .listing-input {
     height: 5vh;
     width: 90%;
     align-self: center;
@@ -61,11 +68,18 @@
 }
 
 
-.login-welcome {
+.login-welcome{
     text-align: center;
     font-size: 35px;
     margin-top: 8%;
     margin-bottom: 15%;
+}
+
+.create-listing-h3 {
+    text-align: center;
+    font-size: 28px;
+    margin-top: 12%;
+    margin-bottom: 10%;
 }
 
 .signup-welcome {

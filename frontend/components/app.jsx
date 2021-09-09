@@ -9,12 +9,14 @@ import { Route } from 'react-router';
 import Splash from './splash/splash';
 import CreateListingContainer from './listings_forms/create_listing_container';
 import UserShowContainer from './users/users_show_container';
+import ListingShowContainer from './listing_show/listing_show_container';
 
 
 const App = () => (
-  <div>
+  <div className="app-container">
         <HeaderContainer />
         <Modal />
+        <Route path = '/listing/show/:listingId' component={ListingShowContainer}/>
         <ProtectedRoute path = '/new/listing'  component={CreateListingContainer}/>
         <ProtectedRoute path = '/users/show/:userId'  component={UserShowContainer}/>
         <Route exact path='/' component={Splash}/>

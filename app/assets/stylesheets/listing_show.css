@@ -1,0 +1,16 @@
+/* .listing-show-container {
+    display: flex;
+} */
+
+.listing-show {
+    text-align: center;
+    margin-top: 4%;
+}
+
+.listing-title {
+    font-size: 30px;
+}
+
+.home-icon {
+    color: red;
+}
