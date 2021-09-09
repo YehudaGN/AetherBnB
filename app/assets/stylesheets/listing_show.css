@@ -1,5 +1,6 @@
 /* .listing-show-container {
     display: flex;
+    text-align: center;
 } */
 
 .listing-show {
@@ -11,6 +12,11 @@
     font-size: 30px;
 }
 
-.home-icon {
-    color: red;
+.home-icon, .room-icon {
+    color: rgb(255, 0, 98);
 }
+/* 
+.address-beds {
+    display: flex;
+    align-content: center;
+} */

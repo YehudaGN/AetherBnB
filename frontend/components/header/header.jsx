@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import MenuIcon from '@material-ui/icons/Menu';
+import SearchIcon from '@material-ui/icons/Search';
 
 class Header extends React.Component {
     constructor(props) {
@@ -50,6 +51,11 @@ class Header extends React.Component {
                             <img src={logo} alt="" />
                         </Link> 
                     </div >   
+
+                    <div className='listings-search'>
+                        <Link className='link-search-text' to='/listings'>Listings</Link>  
+                        <SearchIcon className='search-icon'/>
+                    </div>
                         
                         <div className='menu-container' ref={this.menuContainer}>
                             <button className='menu-button' onClick={this.handleClick}>

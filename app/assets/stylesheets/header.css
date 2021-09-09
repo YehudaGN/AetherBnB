@@ -1,6 +1,6 @@
 .header-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
   
     z-index: 2;
@@ -8,6 +8,7 @@
 }
 
 .logo {
+  margin-left: 8%;
     margin-top: 0.7%;
     width: 326px;
     height: 44px;
@@ -24,12 +25,34 @@
   height: 44px;
 }
 
+.listings-search {
+  display: flex;
+  align-items: center;
+  margin-top: 1%;
+  border: 1px solid black;
+  padding: .5% 6% .5% 6%;
+  border-radius: 30px;
+  background-color: white;
+}
+.link-search-text {
+  text-decoration: none;
+  font-size: 20px;
+  color: rgb(73, 72, 72);
+}
+
+.search-icon {
+  color: rgb(255, 0, 85);
+  padding-left: 4%;
+}
+
 .menu-container {
     position: relative;
     display: inline-block;
 }
 
 .menu-button {
+  margin-top: 8%;
+  margin-right: 150px;
   padding: 0;
   width: 75px;
   height: 42px;
@@ -73,4 +96,6 @@
   background-color: rgba(0, 0, 0, 0.14);
   cursor: pointer;
 }
+
+
 
