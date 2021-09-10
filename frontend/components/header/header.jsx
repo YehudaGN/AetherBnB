@@ -45,6 +45,7 @@ class Header extends React.Component {
 
     render() {
         return (
+            <div className="header-container-container">
                 <div className='header-container'>       
                     <div className='logo'>
                         <Link className='logo-link' to='/'> 
@@ -79,6 +80,7 @@ class Header extends React.Component {
                             )}
                         </div>
                 </div>
+            </div>
             
         )
     }

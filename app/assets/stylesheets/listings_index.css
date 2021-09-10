@@ -5,20 +5,43 @@
 }
 
 .listing-blurb {
+    display: flex;
     border-bottom: 1px solid gray;
     text-align: center;
-    margin-top: 10%;
-    margin-left: 20%;
+    /* margin-top: 10%;
+    margin-left: 20%; */
 
     padding: 3%;
 }
 
 .listings-index-title {
-    font-size: 30px;
+    font-size: 22px;
     color: rgb(19, 19, 19);
+    margin-top: 5%;
 }
 
 .map-container-container {
     margin-top: 1%;
     /* margin-right: 5%; */
+}
+
+.listing-photos {
+    border-radius: 10px;
+}
+
+.listing-info-container {
+    padding-left: 3%;
+    display: flex;
+    align-items: flex-start;
+    width: 30vw;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    position: relative;
+}
+
+.listing-price {
+    align-self: flex-end;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
 }

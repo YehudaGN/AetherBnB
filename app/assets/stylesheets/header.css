@@ -1,3 +1,9 @@
+.header-container-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -8,12 +14,13 @@
     top: 0;
     left: 0;
     right: 0;
-    width: 100%;
+    /* width: 100%; */
+    width: 90%;
 }
 
 .logo {
-  margin-left: 8%;
-    margin-top: 0.7%;
+  /* margin-left: 8%; */
+    /* margin-top: 0.7%; */
     width: 326px;
     height: 44px;
     
@@ -37,6 +44,7 @@
   padding: .5% 6% .5% 6%;
   border-radius: 30px;
   background-color: white;
+  margin-right: 10%;
 }
 .link-search-text {
   text-decoration: none;
@@ -56,8 +64,8 @@
 
 .menu-button {
   margin-top: 8%;
-  margin-right: 150px;
-  padding: 0;
+  /* margin-right: 150px; */
+  /* padding: 0; */
   width: 75px;
   height: 42px;
   border: 0;

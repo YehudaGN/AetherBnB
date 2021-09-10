@@ -1,4 +1,19 @@
 #map {
-    width: 60vw; 
+    width: 50vw; 
     height: 88vh;
+    position: fixed;
+    right: 0;
+
+}
+
+.popup-title {
+    font-size: 20px;
+}
+
+.popup-city {
+    font-size: 15px;
+}
+
+.popup-img {
+    border-radius: 10px;
 }

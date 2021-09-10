@@ -31,10 +31,14 @@ class Map extends React.Component {
 
     marker(listing) {
         return (
-            `<div>
-                <h4>
+            `<div class='popup-container'>
+                <h4 class="popup-title">
                    ${listing.title}
                 </h4>
+                <p class='popup-city'>
+                    ${listing.city}
+                </p>
+                <img class = 'popup-img' src=${listing.photos[0]} height='100'/>
             </div>`
         )
     }

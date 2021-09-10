@@ -51,7 +51,7 @@ class ListingShow extends React.Component{
                             <HomeIcon 
                                 className='home-icon'
                                 style={{ fontSize: 20 }}
-                            /> {this.props.listing.num_beds}
+                            /> {this.props.listing.num_beds} guests
                         </li>
                     </div>
                     <br />
