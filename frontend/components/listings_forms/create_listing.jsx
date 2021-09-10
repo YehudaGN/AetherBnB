@@ -26,8 +26,23 @@ class CreateListing extends React.Component {
             limit: 1
         }).send().then(res => {
             this.setState({longitude: res.body.features[0].center[0], latitude: res.body.features[0].center[1]})
+
+            const formData = new FormData()
+            formData.append('listing[title]', this.state.title)
+            formData.append('listing[description]', this.state.description)
+            formData.append('listing[address]', this.state.address)
+            formData.append('listing[city]', this.state.city)
+            formData.append('listing[state]', this.state.state)
+            formData.append('listing[zip_code]', this.state.zip_code)
+            formData.append('listing[num_beds]', this.state.num_beds)
+            formData.append('listing[longitude]', this.state.longitude)
+            formData.append('listing[latitude]', this.state.latitude)
+            formData.append('listing[price]', this.state.price)
+            for (let i = 0; i < this.state.photos.length; i++) {
+                formData.append('listing[photos][]', this.state.photos[i])
+            }
             
-            this.props.createListing(this.state)
+            this.props.createListing(formData)
             .then(this.props.closeModal)
         })
 
@@ -99,6 +114,11 @@ class CreateListing extends React.Component {
                         value = {this.state.price} 
                         onChange= {this.handleChange('price')} 
                         placeholder = 'Price'
+                    />
+                    <input
+                        type="file"
+                        onChange={e => this.setState({ photos: e.target.files })}
+                        multiple
                     />
                     <button className='create-listing-button'>Create Listing</button>
                 </form>

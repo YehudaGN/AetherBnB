@@ -1,11 +1,11 @@
 class Api::ListingsController < ApplicationController
     
     def show
-        @listing = Listing.find_by(id: params[:id])
+        @listing = Listing.with_attached_photos.find_by(id: params[:id])
     end
 
     def index
-        @listings = Listing.all
+        @listings = Listing.with_attached_photos.all
         render :index # add sql for search by city
     end
 
@@ -36,6 +36,6 @@ class Api::ListingsController < ApplicationController
     private
 
     def listing_params
-        params.require(:listing).permit(:title, :description, :address, :city, :state, :zip_code, :num_beds, :longitude, :latitude, :price)
+        params.require(:listing).permit(:title, :description, :address, :city, :state, :zip_code, :num_beds, :longitude, :latitude, :price, photos: [])
     end
 end
