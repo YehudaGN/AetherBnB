@@ -15,13 +15,13 @@ import ListingIndexContainer from './listings_index/listings_index_container';
 
 const App = () => (
   <div className="app-container">
-        <HeaderContainer />
-        <Modal />
-        <Route path = '/listings' component={ListingIndexContainer}/>
-        <Route path = '/listing/show/:listingId' component={ListingShowContainer}/>
-        <ProtectedRoute path = '/new/listing'  component={CreateListingContainer}/>
-        <ProtectedRoute path = '/users/show/:userId'  component={UserShowContainer}/>
-        <Route exact path='/' component={Splash}/>
+      <HeaderContainer />
+      <Modal />
+      <Route path = '/listings' component={ListingIndexContainer}/>
+      <Route path = '/listing/show/:listingId' component={ListingShowContainer}/>
+      <ProtectedRoute path = '/new/listing'  component={CreateListingContainer}/>
+      <ProtectedRoute path = '/users/show/:userId'  component={UserShowContainer}/>
+      <Route exact path='/' component={Splash}/>
   </div>
 );
 

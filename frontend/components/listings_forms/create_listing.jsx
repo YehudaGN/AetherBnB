@@ -1,12 +1,12 @@
 import React from 'react';
+import mapboxgl from '!mapbox-gl';
+import mbxGeocoding from '@mapbox/mapbox-sdk/services/geocoding';
 
 class CreateListing extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.listing;
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.state.longitude = 2; // temp until map api
-        this.state.latitude = 1; // temp until map api
     }
 
     handleChange(field) {
@@ -16,8 +16,23 @@ class CreateListing extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        this.props.createListing(this.state)
+        mapboxgl.accessToken = 'pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA';
+        const geocoder = mbxGeocoding({
+            accessToken: mapboxgl.accessToken
+        });
+
+        geocoder.forwardGeocode({
+            query: `${this.state.address}, ${this.state.city}, ${this.state.state}`,
+            limit: 1
+        }).send().then(res => {
+            this.setState({longitude: res.body.features[0].center[0], latitude: res.body.features[0].center[1]})
+            
+            this.props.createListing(this.state)
             .then(this.props.closeModal)
+        })
+
+
+
     }
 
     render() {
