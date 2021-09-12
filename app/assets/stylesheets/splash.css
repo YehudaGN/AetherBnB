@@ -1,11 +1,78 @@
 .splash-container {
-    width: 100vw;
-    height: 90vh;
-    top: -75px;
-    z-index: -1;
-    background-position-x: left;
-    background-position-y: top;
-    background-repeat: no-repeat;
-    position: relative;
-    overflow-x: hidden;
+  top: -75px;
+  z-index: -1;
+  background-position-x: left;
+  background-position-y: top;
+  background-repeat: no-repeat;
+  position: relative;
+  /* overflow-x: hidden; */
+}
+
+.bg-img {
+  width: 100vw;
+  /* height: 30%; */
+}
+
+.explore-container-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.explore-container,
+.explore-h3-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.explore-h3-container {
+  margin-bottom: 20px;
+}
+
+.explore-h3 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.explore-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  justify-items: stretch;
+}
+
+.explore-location {
+  width: 250px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.location-img {
+    height: 100%;
+    border-radius: 10px;
+}
+
+.explore-location-text {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.footer-container-container {
+    display: flex;
+    width: 100%;
+    margin-top: 80px;
+    border-top: 1px solid lightgray;
+    justify-content: center;
+    border: 1px solid blue;
+}
+
+.footer-container {
+    width: 90%;
+    border: 1px solid black;
 }
