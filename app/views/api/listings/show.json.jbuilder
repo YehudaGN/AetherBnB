@@ -1,2 +1,2 @@
 json.partial! "api/listings/listing", listing: @listing
-json.host @listing.user, :id, :fname, :lname, :bio
+json.host @listing.user, :id, :fname, :lname, :bio, :created_at
