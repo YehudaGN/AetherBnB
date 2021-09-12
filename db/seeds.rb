@@ -12,14 +12,6 @@ demo_user = User.create!(
     bio: "I'm a demo user!"
 )
 
-# user = User.create! ({
-#     fname: Faker::Name.first_name,
-#     lname: Faker::Name.last_name,
-#     email: Faker::Internet.unique.email,
-#     password: "password",
-#     bio: Faker::Lorem.paragraph(sentence_count: 2, supplemental: true, random_sentences_to_add: 4)
-# })
-
 10.times do |i|
     User.create! ({
         fname: Faker::Name.first_name,
@@ -44,6 +36,6 @@ end
         latitude: Faker::Address.latitude,
         price: Faker::Number.within(range: 100..2000)
     })
-    listing.photos.attach(io: File.open('app/assets/images/antman.png'), filename: 'antman.png' )
+    listing.photos.attach(io: File.open('app/assets/images/sunset.jpg'), filename: 'sunset.jpg' )
 end
 
