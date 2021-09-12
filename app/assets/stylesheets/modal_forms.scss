@@ -36,20 +36,7 @@
 .signup-button, .create-listing-button, .incomplete-form-button {
     margin-bottom: 3%;
     margin-top: 4%;
-}
-
-.incomplete-form-button {
-    align-self: center;
-    text-align: center;
-    width: 90%;
-    background-color: rgba(214, 30, 76, 0.945);
-    border-radius: 10px;
-    color: white;
-    font-size: 15px;
-    margin-top: 3%;
-    opacity: .5;
-    padding-top: 3.5%;
-    padding-bottom: 3.5%;
+    cursor: pointer;
 }
 
 .incomplete-form {
@@ -86,11 +73,28 @@
     border: 1px solid rgb(173, 170, 170);
 }
 
-.photo-input {
+.file-input-container {
     align-self: center;
-    margin-top: 2%;
+    margin: 5px;
+    input {
+        display: none;
+    }
 }
 
+.input-label-listing {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.input-label-listing:hover {
+    transition: 0.5s;
+    background-color: rgba(214, 30, 76, 0.39);
+    border-radius: 10px;
+}
 
 .login-welcome{
     text-align: center;

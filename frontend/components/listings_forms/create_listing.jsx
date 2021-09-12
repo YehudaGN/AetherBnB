@@ -116,12 +116,21 @@ class CreateListing extends React.Component {
                         onChange= {this.handleChange('price')} 
                         placeholder = 'Price'
                     />
-                    <input
-                        className='photo-input'
-                        type="file"
-                        onChange={e => this.setState({ photos: e.target.files })}
-                        multiple
-                    />
+
+                    <div className='file-input-container'>
+                        <label htmlFor="file-input-listing">
+                            <div className='input-label-listing'>
+                                <BackupIcon /> 
+                                <p>Upload Photos</p>
+                            </div>
+                        </label>
+                        <input
+                            id='file-input-listing'
+                            type="file"
+                            onChange={e => this.setState({ photos: e.target.files })}
+                            multiple
+                        />
+                    </div>
 
                     <button className={`create-listing-button ${
                         this.state.title === '' || 

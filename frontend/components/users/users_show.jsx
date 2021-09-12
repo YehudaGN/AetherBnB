@@ -47,7 +47,6 @@ class UserShow extends React.Component {
             <div className='user-show-container'>
                 <div className='user-info-container'>
                     <div className='profile-picture-div'> 
-                        {/* <AccountCircleIcon className='account-circle-icon' style={{ fontSize: 150 }}/>  */}
                         <img className='user-icon' src={window.user_icon} alt="" />
                         <br />
                         <Link className='update-photo-link' to='/users/edit-photo'>Update Photo</Link>
