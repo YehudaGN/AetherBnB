@@ -87,20 +87,9 @@
     align-items: center;
 }
 
-/* .create-listing-li {
-    cursor: pointer;
-    font-size: 25px;
-    background-color: rgb(255, 0, 64);
-    width: 20%;
-    padding: .3%;
-    border-radius: 8px;
-    margin-top: 2%;
-    
-} */
-
 .create-listing-li {
     text-align: center;
-    width: 20%;
+    width: 180px;
     background-color: rgba(214, 30, 76, 0.945);
     border-radius: 10px;
     color: white;

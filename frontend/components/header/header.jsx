@@ -9,12 +9,21 @@ class Header extends React.Component {
         super(props);  
         this.menuContainer = React.createRef();
         this.state = {
-            open: false
+            open: false,
+            scrollClass: 'header-container-container'
         };
     }
 
     componentDidMount() {
         document.addEventListener("mousedown", this.handleClickOutside);
+        document.addEventListener("scroll", ()=> {
+            if (window.scrollY > 1) {
+                this.setState({scrollClass: "on-scroll"})
+            } else {
+                this.setState({scrollClass: "header-container-container"}) 
+            }
+
+        })
     }
 
     componentWillUnmount() {
@@ -45,41 +54,44 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div className="header-container-container">
-                <div className='header-container'>       
-                    <div className='logo'>
-                        <Link className='logo-link' to='/'> 
-                            <img src={logo} alt="" />
-                        </Link> 
-                    </div >   
+            <div>  
+                <div className={this.state.scrollClass}>
+                    <div className='header-container'>       
+                        <div className='logo'>
+                            <Link className='logo-link' to='/'> 
+                                <img src={logo} alt="" />
+                            </Link> 
+                        </div >   
 
-                    <div className='listings-search'>
-                        <Link className='link-search-text' to='/listings'>Listings</Link>  
-                        <SearchIcon className='search-icon'/>
-                    </div>
-                        
-                        <div className='menu-container' ref={this.menuContainer}>
-                            <button className='menu-button' onClick={this.handleClick}>
-                                <MenuIcon style={{ fontSize: 30 }}/>
-                                <AccountCircleIcon style={{ fontSize: 30 }}/>
-                            </button>
-                            {this.state.open && (
-                            <div className='dropdown'>
-                                {this.props.currentUser ? 
-                                <div className='dropdown-container'>
-                                    <div className='account-link-div'>
-                                        <Link className='account-link' to={`/users/show/${this.props.currentUser}`}>Account</Link>
-                                    </div>
-                                    <ul className='logout-ul'> 
-                                        <li className="menu-li" onClick={this.props.logout}>Log Out</li>
-                                    </ul>
-                                </div>
-                                :
-                                this.sessionLinks()}
-                            </div>
-                            )}
+                        <div className='listings-search'>
+                            <Link className='link-search-text' to='/listings'>Listings</Link>  
+                            <SearchIcon className='search-icon'/>
                         </div>
+                            
+                            <div className='menu-container' ref={this.menuContainer}>
+                                <button className='menu-button' onClick={this.handleClick}>
+                                    <MenuIcon style={{ fontSize: 30 }}/>
+                                    <AccountCircleIcon style={{ fontSize: 30 }}/>
+                                </button>
+                                {this.state.open && (
+                                <div className='dropdown'>
+                                    {this.props.currentUser ? 
+                                    <div className='dropdown-container'>
+                                        <div className='account-link-div'>
+                                            <Link className='account-link' to={`/users/show/${this.props.currentUser}`}>Account</Link>
+                                        </div>
+                                        <ul className='logout-ul'> 
+                                            <li className="menu-li" onClick={this.props.logout}>Log Out</li>
+                                        </ul>
+                                    </div>
+                                    :
+                                    this.sessionLinks()}
+                                </div>
+                                )}
+                            </div>
+                    </div>
                 </div>
+                <div className='header-cushion'></div>
             </div>
             
         )
