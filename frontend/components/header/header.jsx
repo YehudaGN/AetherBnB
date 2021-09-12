@@ -54,7 +54,7 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div>  
+            <div className='bgd'>  
                 <div className={this.state.scrollClass}>
                     <div className='header-container'>       
                         <div className='logo'>

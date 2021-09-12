@@ -15,6 +15,7 @@ class ListingShow extends React.Component{
 
     render(){
         if (!this.props.listing) return null;
+        if (!this.props.listing.host) return null;
         let deleteButton;
 
         if (this.props.listing.host_id === this.props.session){
@@ -23,9 +24,10 @@ class ListingShow extends React.Component{
 
         let photos = this.props.listing.photos.map(photo => <img src={photo} height="300" />);
         let host = this.props.listing.host
-
+        // debugger
         return (
             <div className='listing-show-container'>
+
                 <p>{host.fname}</p>
                 <div className='listing-show'>
                     <div className='photos-container'>
