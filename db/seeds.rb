@@ -3,6 +3,7 @@ require 'open-uri'
 
 User.destroy_all
 Listing.destroy_all
+Booking.destroy_all
 
 demo_user = User.create!(
     fname: "Demo",
@@ -38,4 +39,6 @@ end
     })
     listing.photos.attach(io: File.open('app/assets/images/sunset.jpg'), filename: 'sunset.jpg' )
 end
+
+booking = Booking.
 
