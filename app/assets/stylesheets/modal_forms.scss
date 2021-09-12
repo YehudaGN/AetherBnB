@@ -33,9 +33,28 @@
     margin-top: 3%;
 }
 
-.signup-button, .create-listing-button {
+.signup-button, .create-listing-button, .incomplete-form-button {
     margin-bottom: 3%;
     margin-top: 4%;
+}
+
+.incomplete-form-button {
+    align-self: center;
+    text-align: center;
+    width: 90%;
+    background-color: rgba(214, 30, 76, 0.945);
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    margin-top: 3%;
+    opacity: .5;
+    padding-top: 3.5%;
+    padding-bottom: 3.5%;
+}
+
+.incomplete-form {
+    opacity: .5;
+    cursor: not-allowed;
 }
 
 .demo-button {
@@ -65,6 +84,11 @@
     width: 90%;
     align-self: center;
     border: 1px solid rgb(173, 170, 170);
+}
+
+.photo-input {
+    align-self: center;
+    margin-top: 2%;
 }
 
 

@@ -9,7 +9,7 @@ demo_user = User.create!(
     lname: "User",
     email: "demouser@gmail.com",
     password: "demouser",
-    bio: ""
+    bio: "I'm a demo user!"
 )
 
 # user = User.create! ({

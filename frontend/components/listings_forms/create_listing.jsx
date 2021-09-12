@@ -1,6 +1,7 @@
 import React from 'react';
 import mapboxgl from '!mapbox-gl';
 import mbxGeocoding from '@mapbox/mapbox-sdk/services/geocoding';
+import BackupIcon from '@material-ui/icons/Backup';
 
 class CreateListing extends React.Component {
     constructor(props) {
@@ -116,11 +117,23 @@ class CreateListing extends React.Component {
                         placeholder = 'Price'
                     />
                     <input
+                        className='photo-input'
                         type="file"
                         onChange={e => this.setState({ photos: e.target.files })}
                         multiple
                     />
-                    <button className='create-listing-button'>Create Listing</button>
+
+                    <button className={`create-listing-button ${
+                        this.state.title === '' || 
+                        this.state.description === '' ||
+                        this.state.address === '' ||
+                        this.state.city === '' ||
+                        this.state.state === '' ||
+                        this.state.zip_code === '' ||
+                        this.state.num_beds === '' ||
+                        this.state.price === '' ? "incomplete-form" : ''
+                    }`}>Create Listing</button>
+                    
                 </form>
             </div>
         )
