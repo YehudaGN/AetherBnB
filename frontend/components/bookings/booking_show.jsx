@@ -1,8 +1,28 @@
 import React from "react";
+import mapboxgl from '!mapbox-gl'; 
+import MapContainer from '../mapbox/map_container';
 
 class BookingShow extends React.Component {
   componentDidMount() {
     this.props.fetchBooking(this.props.match.params.bookingId);
+  }
+
+  componentDidUpdate() {
+    //   debugger
+    mapboxgl.accessToken = 'pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA';
+        this.map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [this.props.booking.listing.longitude, this.props.booking.listing.latitude], // starting position [lng, lat]
+        zoom: 12 // starting zoom
+        });
+
+        const navigate = new mapboxgl.NavigationControl();
+        this.map.addControl(navigate, 'bottom-right')
+
+        new mapboxgl.Marker().setLngLat([this.props.booking.listing.longitude, this.props.booking.listing.latitude])
+        .addTo(this.map)
+        // .setPopup(new mapboxgl.Popup().setHTML(this.marker(this.props.booking.listing)))
   }
 
   cancelBooking() {
@@ -97,6 +117,10 @@ class BookingShow extends React.Component {
               </button>
             </div>
           </div>
+        </div>
+
+        <div className='mapbox-container'>
+            <MapContainer />
         </div>
       </div>
     );

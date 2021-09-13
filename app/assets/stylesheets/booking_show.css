@@ -112,7 +112,7 @@
 }
 
 .getting-there-container {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .getting-there-h3-container {
@@ -128,7 +128,7 @@
 }
 
 .address-h5-container {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .address-h5 {
@@ -153,4 +153,9 @@
   font-size: 16px;
   cursor: pointer;
   border-radius: 10px;
+}
+
+.mapbox-container {
+    width: 500px;
+    height: 500px;
 }

@@ -55,25 +55,25 @@
 }
 
 .location-img {
-    height: 100%;
-    border-radius: 10px;
+  height: 100%;
+  border-radius: 10px;
 }
 
 .explore-location-text {
-    font-size: 20px;
-    font-weight: 500;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .footer-container-container {
-    display: flex;
-    width: 100%;
-    margin-top: 80px;
-    border-top: 1px solid lightgray;
-    justify-content: center;
-    border: 1px solid blue;
+  display: flex;
+  width: 100%;
+  margin-top: 80px;
+  border-top: 1px solid lightgray;
+  justify-content: center;
+  border: 1px solid blue;
 }
 
 .footer-container {
-    width: 90%;
-    border: 1px solid black;
+  width: 90%;
+  border: 1px solid black;
 }

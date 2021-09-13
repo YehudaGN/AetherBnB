@@ -1,5 +1,4 @@
 import { connect } from "react-redux";
-import React from "react";
 import { createBooking } from "../../actions/bookings_actions";
 import CreateBooking from "./booking_form";
 import { withRouter } from "react-router";
@@ -12,7 +11,7 @@ const mSTP = (state, ownProps) => ({
     guest_id: state.session.id,
     listing_id: ownProps.match.params.listingId,
     num_guests: "",
-    price: ""
+    price: "",
   },
   listingPrice: state.entities.listings[ownProps.match.params.listingId].price,
 });

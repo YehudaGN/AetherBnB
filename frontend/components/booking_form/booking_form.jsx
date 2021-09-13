@@ -7,20 +7,30 @@ class CreateBooking extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.booking;
+    this.alreadyBooked = [];
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.setAlreadyBooked();
+  }
+
+  setAlreadyBooked() {
+    let that = this;
+    this.props.bookedDates.forEach(dateSet => {
+      let first = new Date(dateSet[0]);
+      let last = new Date(dateSet[1]);
+      const diff = (last - first) / (1000 * 3600 * 24);
+      for (let i = 0; i < diff - 1; i++) {
+        let temp = `${first.getFullYear()}/${first.getMonth() + 1}/${
+          first.getDate() + 1
+        }`;
+        that.alreadyBooked.push(first);
+        first = new Date(temp);
+      }
+    });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    // if (this.state.guest_id) {
-    //     let price = (
-    //         ((((Math.abs(new Date(this.state.end_date) - new Date(this.state.start_date)) / 1000) / 60) / 60) / 24) * this.props.listingPrice
-    //         )
-    //     this.setState({price: price}, () => this.props.createBooking(this.state).then(res => this.props.history.push(`/bookings/show/${res.booking.id}`)))
 
-    // } else {
-    //     this.props.openModal();
-    // }
     if (this.state.guest_id) {
       this.props
         .createBooking(this.state)
@@ -33,9 +43,10 @@ class CreateBooking extends React.Component {
   }
 
   setTotalCost() {
-    //   debugger
-    let amount = (this.state.end_date.getTime() - this.state.start_date.getTime()) / (1000 * 3600 * 24)
-    this.setState({price: amount * this.props.listingPrice})
+    let days =
+      (this.state.end_date.getTime() - this.state.start_date.getTime()) /
+      (1000 * 3600 * 24);
+    this.setState({ price: days * this.props.listingPrice });
   }
 
   handleChange(field) {
@@ -75,14 +86,6 @@ class CreateBooking extends React.Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        {/* <label>
-          Start Date
-          <input type="date" value={this.state.start_date} onChange={this.handleChange('start_date')} />
-        </label>
-        <label>
-          End Date
-          <input type="date" value={this.state.end_date} onChange={this.handleChange('end_date')} />
-        </label> */}
         <DateRange
           ranges={[selectionRange]}
           onChange={e => this.handleDates(e)}
@@ -93,8 +96,8 @@ class CreateBooking extends React.Component {
           showDateDisplay={false}
           showMonthAndYearPickers={true}
           minDate={new Date()}
-          disabledDates={this.dateRange}
-          // rangeColors={["blue"]}
+          disabledDates={this.alreadyBooked}
+          rangeColors={["rgba(214, 30, 76, 0.945)"]}
         />
         <input
           type="number"

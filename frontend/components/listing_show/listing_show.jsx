@@ -6,7 +6,7 @@ import StarIcon from "@material-ui/icons/Star";
 import mapboxgl from "mapbox-gl";
 
 // import CreateBooking from "../booking_form/booking_form";
-import CreateBookingContainer from '../booking_form/booking_form_container'
+import CreateBookingContainer from "../booking_form/booking_form_container";
 
 class ListingShow extends React.Component {
   componentDidMount() {
@@ -33,7 +33,12 @@ class ListingShow extends React.Component {
 
     if (this.props.listing.host_id === this.props.session) {
       deleteButton = (
-        <button className='delete-listing-button' onClick={() => this.handleDelete()}>Delete Listing</button>
+        <button
+          className="delete-listing-button"
+          onClick={() => this.handleDelete()}
+        >
+          Delete Listing
+        </button>
       );
     }
 
@@ -41,7 +46,6 @@ class ListingShow extends React.Component {
       <img src={photo} height="300" />
     ));
     let host = this.props.listing.host;
-    // debugger
     return (
       <div className="listing-show-container">
         <div className="listing-show">
@@ -111,12 +115,10 @@ class ListingShow extends React.Component {
                     <li className="night">/night</li>
                   </div>
                   <div className="booking-form-reviews">
-                    <StarIcon 
-                        className="star-icon" 
-                        style={{ fontSize: 20 }}
-                    /> Reviews
+                    <StarIcon className="star-icon" style={{ fontSize: 20 }} />{" "}
+                    Reviews
                   </div>
-                  <CreateBookingContainer />
+                  <CreateBookingContainer bookedDates={this.props.listing.bookings}/>
                 </div>
               </div>
               <br />
