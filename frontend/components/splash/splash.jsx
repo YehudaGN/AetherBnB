@@ -4,7 +4,7 @@ const Splash = () => {
     <div className="splash-container">
       <div>
         <div className="bg-img-container">
-          <img className="bg-img" src={splash_bg} alt="" height="800" />
+          <img className="bg-img" src={splash_bg} alt="" height="750" />
         </div>
       </div>
       <div className="explore-container-container">

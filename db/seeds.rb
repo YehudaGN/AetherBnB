@@ -19,15 +19,15 @@ demo_user = User.create!(
         lname: Faker::Name.last_name,
         email: Faker::Internet.unique.email,
         password: "password",
-        bio: Faker::Lorem.paragraph(sentence_count: 2, supplemental: true, random_sentences_to_add: 4)
+        bio: Faker::Quote.most_interesting_man_in_the_world
     })
 end
 
 20.times do |i|
     listing = Listing.create! ({
-        host_id: Faker::Number.within(range: 1..10),
-        title: Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 4),
-        description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: true, random_sentences_to_add: 4),
+        host_id: Faker::Number.within(range: 1..11),
+        title: Faker::Book.title,
+        description: Faker::Quote.famous_last_words,
         address: Faker::Address.street_address,
         city: Faker::Address.city,
         state: Faker::Address.state,
@@ -40,5 +40,5 @@ end
     listing.photos.attach(io: File.open('app/assets/images/sunset.jpg'), filename: 'sunset.jpg' )
 end
 
-booking = Booking.
+# booking = Booking.
 

@@ -4,3 +4,4 @@
         json.photos booking.listing.photos.map {|photo| url_for(photo)}
     end
 end
+

@@ -13,7 +13,7 @@ class CreateBooking extends React.Component {
         let price = (
             ((((Math.abs(new Date(this.state.end_date) - new Date(this.state.start_date)) / 1000) / 60) / 60) / 24) * this.props.listingPrice
             )
-        this.setState({price: price}, () => this.props.createBooking(this.state))
+        this.setState({price: price}, () => this.props.createBooking(this.state).then(res => this.props.history.push(`/bookings/show/${res.booking.id}`)))
         
     } else {
         this.props.openModal();
@@ -36,6 +36,7 @@ class CreateBooking extends React.Component {
           <input type="date" value={this.state.end_date} onChange={this.handleChange('end_date')} />
         </label>
         <input type="number" placeholder='Number of Guests' value={this.state.num_guests} onChange={this.handleChange('num_guests')}/>
+        {/* <p>Total: {}</p> */}
         <button>Book Listing</button>
       </form>
     );

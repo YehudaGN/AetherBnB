@@ -1,4 +1,7 @@
 json.extract! @booking, :id, :start_date, :end_date, :guest_id, :listing_id, :num_guests, :price
-json.guest @booking.user, :id, :fname, :lname
+
+json.guest @booking.guest, :id, :fname, :lname
+
 json.listing @booking.listing, :id, :title
-json.extract! @host, :id, :fname, :lname
+json.photos @booking.listing.photos.map {|photo| url_for(photo)}
+json.host @booking.listing.user, :id, :fname, :lname

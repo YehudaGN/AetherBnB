@@ -1,0 +1,113 @@
+.booking-show-container-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.booking-show-container {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 1px 1px 1px 1px rgb(226, 226, 226);
+}
+
+.home-res-header-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.home-res-header {
+  font-weight: 500;
+}
+
+.your-stay-at-host-container {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.your-stay-at-host {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.booking-listing-image-container {
+  margin-top: 20px;
+}
+
+.booking-listing-image {
+  width: 500px;
+  border-radius: 10px;
+}
+
+.booking-listing-title-container {
+  margin-top: 20px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid lightgray;
+}
+
+.booking-listing-title {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.check-in-check-out-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  /* border: 1px solid blue; */
+}
+
+.check-in-container,
+.check-out-container {
+  /* border: 1px solid black; */
+  padding-right: 70px;
+}
+
+.check-in {
+  font-weight: 600;
+  font-size: 17px;
+  margin-bottom: 7px;
+}
+
+.border-div {
+  height: 100fr;
+  border-left: 1px solid lightgray;
+}
+
+.check-out {
+  font-weight: 600;
+  font-size: 17px;
+  margin-bottom: 7px;
+}
+
+.booking-details-container {
+    margin-top: 50px;
+}
+
+.booking-details-h3-container {
+
+}
+
+.booking-details-h3 {
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.whos-coming-container {
+    margin-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid lightgray;
+}
+
+.whos-coming-h4 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.booking-details-guest-num {
+    margin-top: 10px;
+}

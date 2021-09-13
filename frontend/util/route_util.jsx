@@ -1,9 +1,13 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Redirect, withRouter, Route } from 'react-router';
+import React from "react";
+import { connect } from "react-redux";
+import { Redirect, withRouter, Route } from "react-router";
+import booking_form_container from "../components/booking_form/booking_form_container";
 
 const Auth = ({ component: Component, path, loggedIn, exact }) => (
-  <Route path={path} exact={exact} render={props =>
+  <Route
+    path={path}
+    exact={exact}
+    render={props =>
       !loggedIn ? <Component {...props} /> : <Redirect to="/" />
     }
   />
@@ -13,21 +17,20 @@ const mapStateToProps = state => {
   return { loggedIn: Boolean(state.session.id) };
 };
 
-export const AuthRoute = withRouter(
-  connect(mapStateToProps, null)(Auth)
-);
+export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
 
-const Protected = ({component: Component, path, loggedIn, exact}) => (
-  <Route path={path} exact={exact} render={props =>
-    loggedIn ? <Component {...props} /> : <Redirect to="/" />
-  }
-/>
-)
+const Protected = ({ component: Component, path, loggedIn, exact }) => (
+  <Route
+    path={path}
+    exact={exact}
+    render={props =>
+      loggedIn ? <Component {...props} /> : <Redirect to="/" />
+    }
+  />
+);
 
 const mSTP = state => {
   return { loggedIn: Boolean(state.session.id) };
 };
 
-export const ProtectedRoute = withRouter(
-  connect(mSTP, null)(Protected)
-);
+export const ProtectedRoute = withRouter(connect(mSTP, null)(Protected));
