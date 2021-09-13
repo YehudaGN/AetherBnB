@@ -6,8 +6,9 @@ class BookingShow extends React.Component {
   }
 
   cancelBooking() {
-    this.props.deleteBooking(this.props.match.params.bookingId)
-        .then(this.props.history.push('/'))
+    this.props
+      .deleteBooking(this.props.match.params.bookingId)
+      .then(this.props.history.push("/"));
   }
 
   render() {
@@ -72,8 +73,28 @@ class BookingShow extends React.Component {
               </p>
             </div>
 
-            <div className='cancel-booking-container'>
-                <button onClick={()=>this.cancelBooking()}>Cancel Booking</button>
+            <div className="getting-there-container">
+              <div className="getting-there-h3-container">
+                <h3 className="getting-there-h3">Getting there</h3>
+              </div>
+              <div className="address-container">
+                <div className="address-h5-container">
+                  <h5 className="address-h5">Address</h5>
+                </div>
+                <p className="booking-listing-address">{listing.address}</p>
+                <p className="booking-listing-state-city-zip">
+                  {listing.city}, {listing.state}, {listing.zip_code}
+                </p>
+              </div>
+            </div>
+
+            <div className="cancel-booking-container">
+              <button
+                className="cancel-booking-button"
+                onClick={() => this.cancelBooking()}
+              >
+                Cancel Booking
+              </button>
             </div>
           </div>
         </div>
