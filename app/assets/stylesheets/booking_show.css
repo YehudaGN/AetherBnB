@@ -1,8 +1,13 @@
 .booking-show-container-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   margin-top: 30px;
+}
+
+.booking-show-map-container {
+    display: flex;
+    justify-content: space-between;
 }
 
 .booking-show-container {
@@ -10,6 +15,7 @@
   border-radius: 10px;
   padding: 20px;
   box-shadow: 1px 1px 1px 1px rgb(226, 226, 226);
+  margin-left: 50px;
 }
 
 .home-res-header-container {
@@ -155,7 +161,10 @@
   border-radius: 10px;
 }
 
-.mapbox-container {
-    width: 500px;
-    height: 500px;
+#booking-map-container {
+    width: 60%;
+    /* height: 1000vw; */
+    height: 80%;
+    position: fixed;
+    right: 0;
 }

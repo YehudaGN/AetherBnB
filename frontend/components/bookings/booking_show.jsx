@@ -1,28 +1,38 @@
 import React from "react";
-import mapboxgl from '!mapbox-gl'; 
-import MapContainer from '../mapbox/map_container';
+import mapboxgl from "!mapbox-gl";
 
 class BookingShow extends React.Component {
+  constructor(props) {
+    super(props);
+    this.bookingMap;
+  }
+
   componentDidMount() {
     this.props.fetchBooking(this.props.match.params.bookingId);
   }
 
   componentDidUpdate() {
-    //   debugger
-    mapboxgl.accessToken = 'pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA';
-        this.map = new mapboxgl.Map({
-        container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/streets-v11', // style URL
-        center: [this.props.booking.listing.longitude, this.props.booking.listing.latitude], // starting position [lng, lat]
-        zoom: 12 // starting zoom
-        });
+    mapboxgl.accessToken =
+      "pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA";
+    this.bookingMap = new mapboxgl.Map({
+      container: "booking-map-container", // container ID
+      style: "mapbox://styles/mapbox/streets-v11", // style URL
+      center: [
+        this.props.booking.listing.longitude,
+        this.props.booking.listing.latitude,
+      ], // starting position [lng, lat]
+      zoom: 15, // starting zoom
+    });
 
-        const navigate = new mapboxgl.NavigationControl();
-        this.map.addControl(navigate, 'bottom-right')
+    const navigate = new mapboxgl.NavigationControl();
+    this.bookingMap.addControl(navigate, "bottom-right");
 
-        new mapboxgl.Marker().setLngLat([this.props.booking.listing.longitude, this.props.booking.listing.latitude])
-        .addTo(this.map)
-        // .setPopup(new mapboxgl.Popup().setHTML(this.marker(this.props.booking.listing)))
+    new mapboxgl.Marker()
+      .setLngLat([
+        this.props.booking.listing.longitude,
+        this.props.booking.listing.latitude,
+      ])
+      .addTo(this.bookingMap);
   }
 
   cancelBooking() {
@@ -51,76 +61,76 @@ class BookingShow extends React.Component {
     );
     return (
       <div className="booking-show-container-container">
-        <div className="booking-show-container">
-          <div className="home-res-header-container">
-            <h6 className="home-res-header">Your home reservation</h6>
-          </div>
-          <div className="your-stay-at-host-container">
-            <h3 className="your-stay-at-host">
-              Your stay at {booking.host.fname}'s place
-            </h3>
-          </div>
-          <div className="booking-listing-image-container">
-            <img
-              className="booking-listing-image"
-              src={booking.photos[0]}
-              alt=""
-            />
-          </div>
-          <div className="booking-listing-title-container">
-            <h3 className="booking-listing-title">{listing.title}</h3>
-          </div>
-          <div className="check-in-check-out-container">
-            <div className="check-in-container">
-              <h5 className="check-in">Check In</h5>
-              <p className="check-in-date">{checkInDate}</p>
+        <div className="booking-show-map-container">
+          <div className="booking-show-container">
+            <div className="home-res-header-container">
+              <h6 className="home-res-header">Your home reservation</h6>
             </div>
-            <div className="border-div"></div>
-            <div className="check-out-container">
-              <h5 className="check-out">Check Out</h5>
-              <p className="check-out-date">{checkOutDate}</p>
+            <div className="your-stay-at-host-container">
+              <h3 className="your-stay-at-host">
+                Your stay at {booking.host.fname}'s place
+              </h3>
             </div>
-          </div>
-
-          <div className="booking-details-container">
-            <div className="booking-details-h3-container">
-              <h3 className="booking-details-h3">Reservation Details</h3>
+            <div className="booking-listing-image-container">
+              <img
+                className="booking-listing-image"
+                src={booking.photos[0]}
+                alt=""
+              />
             </div>
-            <div className="whos-coming-container">
-              <h4 className="whos-coming-h4">Who's coming</h4>
-              <p className="booking-details-guest-num">
-                {booking.num_guests} guests
-              </p>
+            <div className="booking-listing-title-container">
+              <h3 className="booking-listing-title">{listing.title}</h3>
             </div>
-
-            <div className="getting-there-container">
-              <div className="getting-there-h3-container">
-                <h3 className="getting-there-h3">Getting there</h3>
+            <div className="check-in-check-out-container">
+              <div className="check-in-container">
+                <h5 className="check-in">Check In</h5>
+                <p className="check-in-date">{checkInDate}</p>
               </div>
-              <div className="address-container">
-                <div className="address-h5-container">
-                  <h5 className="address-h5">Address</h5>
-                </div>
-                <p className="booking-listing-address">{listing.address}</p>
-                <p className="booking-listing-state-city-zip">
-                  {listing.city}, {listing.state}, {listing.zip_code}
+              <div className="border-div"></div>
+              <div className="check-out-container">
+                <h5 className="check-out">Check Out</h5>
+                <p className="check-out-date">{checkOutDate}</p>
+              </div>
+            </div>
+
+            <div className="booking-details-container">
+              <div className="booking-details-h3-container">
+                <h3 className="booking-details-h3">Reservation Details</h3>
+              </div>
+              <div className="whos-coming-container">
+                <h4 className="whos-coming-h4">Who's coming</h4>
+                <p className="booking-details-guest-num">
+                  {booking.num_guests} guests
                 </p>
               </div>
-            </div>
 
-            <div className="cancel-booking-container">
-              <button
-                className="cancel-booking-button"
-                onClick={() => this.cancelBooking()}
-              >
-                Cancel Booking
-              </button>
+              <div className="getting-there-container">
+                <div className="getting-there-h3-container">
+                  <h3 className="getting-there-h3">Getting there</h3>
+                </div>
+                <div className="address-container">
+                  <div className="address-h5-container">
+                    <h5 className="address-h5">Address</h5>
+                  </div>
+                  <p className="booking-listing-address">{listing.address}</p>
+                  <p className="booking-listing-state-city-zip">
+                    {listing.city}, {listing.state}, {listing.zip_code}
+                  </p>
+                </div>
+              </div>
+
+              <div className="cancel-booking-container">
+                <button
+                  className="cancel-booking-button"
+                  onClick={() => this.cancelBooking()}
+                >
+                  Cancel Booking
+                </button>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className='mapbox-container'>
-            <MapContainer />
+          <div id="booking-map-container"></div>
         </div>
       </div>
     );
