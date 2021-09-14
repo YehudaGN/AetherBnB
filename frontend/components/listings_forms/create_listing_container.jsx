@@ -15,7 +15,8 @@ const mSTP = state => ({
         num_beds: '',
         longitude: '',
         latitude: '',
-        price: ''
+        price: '',
+        photos: []
     }
 })
 

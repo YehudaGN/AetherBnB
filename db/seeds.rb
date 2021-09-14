@@ -39,6 +39,3 @@ end
     })
     listing.photos.attach(io: File.open('app/assets/images/sunset.jpg'), filename: 'sunset.jpg' )
 end
-
-# booking = Booking.
-
