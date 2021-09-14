@@ -1,16 +1,13 @@
 class Api::ListingsController < ApplicationController
     
     def show
-        # debugger
         @listing = Listing.with_attached_photos.find_by(id: params[:id])
     end
 
-    def index
-
-        
+    def index 
         if !params[:searchParams]     
             @listings = Listing.with_attached_photos.all    
-        else
+        elsif params[:searchParams][:city]
             @listings = Listing.with_attached_photos.where(city: params[:searchParams][:city])
         end
         render :index
