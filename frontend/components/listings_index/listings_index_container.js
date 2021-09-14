@@ -12,7 +12,7 @@ const mSTP = (state) => {
 
 
 const mDTP = dispatch => ({
-    fetchListings: () => dispatch(fetchListings())
+    fetchListings: (searchParams) => dispatch(fetchListings(searchParams))
 })
 
 

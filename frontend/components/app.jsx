@@ -16,6 +16,8 @@ const App = () => (
     <HeaderContainer />
     <Modal />
     <Route path="/listings" component={ListingIndexContainer} />
+    <Route path="/listings/:city" component={ListingIndexContainer} />
+    {/* this needs working on ^ */}
     <Route path="/listing/show/:listingId" component={ListingShowContainer} />
     <ProtectedRoute
       path="/bookings/show/:bookingId"

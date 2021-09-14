@@ -1,12 +1,17 @@
 class Api::ListingsController < ApplicationController
     
     def show
+        # debugger
         @listing = Listing.with_attached_photos.find_by(id: params[:id])
     end
 
     def index
+        debugger
         @listings = Listing.with_attached_photos.all
         render :index # add sql for search by city
+
+     
+
     end
 
     def create

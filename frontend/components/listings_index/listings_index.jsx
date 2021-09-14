@@ -4,7 +4,7 @@ import MapContainer from "../mapbox/map_container";
 
 class ListingIndex extends React.Component {
   componentDidMount() {
-    this.props.fetchListings(this.props.match.params.city);
+    this.props.fetchListings({city: this.props.match.params.city});
   }
 
   render() {
