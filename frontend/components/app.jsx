@@ -9,14 +9,14 @@ import UserShowContainer from "./users/users_show_container";
 import ListingShowContainer from "./listing_show/listing_show_container";
 import ListingIndexContainer from "./listings_index/listings_index_container";
 import BookingShowContainer from "./bookings/booking_show_container";
-import Footer from "./footer/footer";
+
 
 const App = () => (
   <div className="app-container">
     <HeaderContainer />
     <Modal />
-    <Route path="/listings" component={ListingIndexContainer} />
-    <Route path="/listings/:city" component={ListingIndexContainer} />
+    <Route exact path="/listings" component={ListingIndexContainer} />
+    <Route exact path="/listings/:city" component={ListingIndexContainer} />
     {/* this needs working on ^ */}
     <Route path="/listing/show/:listingId" component={ListingShowContainer} />
     <ProtectedRoute
@@ -26,7 +26,6 @@ const App = () => (
     <ProtectedRoute path="/new/listing" component={CreateListingContainer} />
     <ProtectedRoute path="/users/show/:userId" component={UserShowContainer} />
     <Route exact path="/" component={Splash} />
-    <Footer />
   </div>
 );
 

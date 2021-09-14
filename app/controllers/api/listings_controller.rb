@@ -6,12 +6,14 @@ class Api::ListingsController < ApplicationController
     end
 
     def index
-        debugger
-        @listings = Listing.with_attached_photos.all
-        render :index # add sql for search by city
 
-     
-
+        
+        if !params[:searchParams]     
+            @listings = Listing.with_attached_photos.all    
+        else
+            @listings = Listing.with_attached_photos.where(city: params[:searchParams][:city])
+        end
+        render :index
     end
 
     def create

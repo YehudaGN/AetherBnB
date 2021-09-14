@@ -1,6 +1,8 @@
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 import { fetchListings } from '../../actions/listings_actions'
 import Map from './map'
+
 
 
 
@@ -12,8 +14,8 @@ const mSTP = (state) => {
 
 
 const mDTP = dispatch => ({
-    fetchListings: () => dispatch(fetchListings())
+    fetchListings: (searchParams) => dispatch(fetchListings(searchParams))
 })
 
 
-export default connect(mSTP, mDTP)(Map);
+export default withRouter(connect(mSTP, mDTP)(Map));
