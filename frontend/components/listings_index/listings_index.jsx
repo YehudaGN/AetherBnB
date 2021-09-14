@@ -1,24 +1,49 @@
 import React from "react";
 import ListingItem from "./listing_item";
 import MapContainer from "../mapbox/map_container";
+import { ThumbUpAlt } from "@material-ui/icons";
+
+// var MESSAGE = null;
 
 class ListingIndex extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { noListing: false };
+  }
+
   componentDidMount() {
-    // debugger
-    this.props.fetchListings({
-      city: this.props.match.params.city,
-      // state: this.props.match.params.state,
-    });
+    this.props
+      .fetchListings({
+        city: this.props.match.params.city,
+        // state: this.props.match.params.state,
+      })
+      .then(listings => {
+        if (Object.values(listings.listings).length === 0) {
+          this.setState({ noListing: true });
+        }
+      });
   }
 
   render() {
-    if (this.props.listings.length === 0) return null;
-    if (this.props.listings.length === 1) {
-      return <div className='no-listings'>{this.props.listings[0]}</div>
+    if (this.props.listings.length === 0 && !this.state.noListing) return null;
+
+    if (this.state.noListing)
+      return <div className="no-listings">No Listings Here :(</div>;
+
+    let filteredListings;
+    let mappedListings;
+    if (this.props.match.params.city) {
+      filteredListings = this.props.listings.filter(
+        listing => listing.city === this.props.match.params.city
+      );
+      mappedListings = filteredListings.map((listing, i) => (
+        <ListingItem key={`${listing.title}${i}`} listing={listing} />
+      ));
+    } else {
+      mappedListings = this.props.listings.map((listing, i) => (
+        <ListingItem key={`${listing.title}${i}`} listing={listing} />
+      ));
     }
-    let mappedListings = this.props.listings.map((listing, i) => (
-      <ListingItem key={`${listing.title}${i}`} listing={listing} />
-    ));
     return (
       <div className="listings-index-container">
         <ul className="listings">{mappedListings}</ul>

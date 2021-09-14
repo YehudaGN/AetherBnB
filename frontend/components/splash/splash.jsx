@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Footer from "../footer/footer";
 
 const Splash = () => {
@@ -17,35 +18,35 @@ const Splash = () => {
           <div className="explore-container">
             <div className="explore-location">
               <img className="location-img" src={window.night_sky} alt="" />
-              <p className="explore-location-text">New York</p>
+              <Link to={`/listings/New York`}className="explore-location-text">New York</Link>
             </div>
             <div className="explore-location">
               <img className="location-img" src={window.night_sky} alt="" />
-              <p className="explore-location-text">Anchorage</p>
+              <Link to={`/listings/Anchorage`} className="explore-location-text">Anchorage</Link>
             </div>
             <div className="explore-location">
               <img className="location-img" src={window.night_sky} alt="" />
-              <p className="explore-location-text">Philadelphia</p>
+              <Link to={`/listings/Philadelphia`} className="explore-location-text">Philadelphia</Link>
             </div>
             <div className="explore-location">
               <img className="location-img" src={window.night_sky} alt="" />
-              <p className="explore-location-text">Boston</p>
+              <Link to={`/listings/Boston`} className="explore-location-text">Boston</Link>
             </div>
             <div className="explore-location">
               <img className="location-img" src={window.night_sky} alt="" />
-              <p className="explore-location-text">Arlington</p>
+              <Link to={`/listings/Arlington`} className="explore-location-text">Arlington</Link>
             </div>
             <div className="explore-location">
               <img className="location-img" src={window.night_sky} alt="" />
-              <p className="explore-location-text">Virginia Beach</p>
+              <Link to={`/listings/Virginia Beach`} className="explore-location-text">Virginia Beach</Link>
             </div>
             <div className="explore-location">
               <img className="location-img" src={window.night_sky} alt="" />
-              <p className="explore-location-text">San Diego</p>
+              <Link to={`/listings/San Diego`} className="explore-location-text">San Diego</Link>
             </div>
             <div className="explore-location">
               <img className="location-img" src={window.night_sky} alt="" />
-              <p className="explore-location-text">Austin</p>
+              <Link to={`/listings/Austin`} className="explore-location-text">Austin</Link>
             </div>
           </div>
         </div>

@@ -7,7 +7,8 @@ import ListingIndex from './listings_index'
 
 const mSTP = (state) => {
     return {
-    listings: Object.values(state.entities.listings)
+    listings: Object.values(state.entities.listings),
+    message: null
 }}
 
 

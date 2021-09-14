@@ -1,5 +1,6 @@
 import mapboxgl from "!mapbox-gl";
 import React from "react";
+import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 
 class Map extends React.Component {
   constructor(props) {
@@ -13,12 +14,39 @@ class Map extends React.Component {
     //   state: this.props.match.params.state,
     });
 
+
     mapboxgl.accessToken =
       "pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA";
+
+    let cityLon;
+    let cityLat;
+
+    const geocoder = mbxGeocoding({
+      accessToken: mapboxgl.accessToken,
+    });
+
+    geocoder
+      .forwardGeocode({
+        // query: `${this.props.match.params.city}`,
+        query: "miami",
+        limit: 1,
+      })
+      .send()
+      .then(res => {
+        // console.log(res);
+        cityLon = res.body.features[0].center[0]
+        cityLat = res.body.features[0].center[1]
+      });
+
+
+
+    
+
     this.map = new mapboxgl.Map({
       container: "map", // container ID
       style: "mapbox://styles/mapbox/streets-v11", // style URL
       center: [-74.5, 40], // starting position [lng, lat]
+      // center: [cityLon, cityLat], // starting position [lng, lat]
       zoom: 9, // starting zoom
     });
 
@@ -48,6 +76,7 @@ class Map extends React.Component {
   }
 
   render() {
+    if (this.props.listings.length === 0) return null;
     return <div id="map"></div>;
   }
 }

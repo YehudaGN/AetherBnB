@@ -3,4 +3,4 @@
         json.partial! "api/listings/listing", listing: listing
     end
 end
-json.noListing ['No Listings Here :(']
+
