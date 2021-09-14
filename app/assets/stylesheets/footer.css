@@ -1,13 +1,36 @@
 .footer-container-container {
-    display: flex;
-    width: 100%;
-    margin-top: 80px;
-    border-top: 1px solid lightgray;
-    justify-content: center;
-    border: 1px solid blue;
-  }
-  
-  .footer-container {
-    width: 90%;
-    border: 1px solid black;
-  }
+  display: flex;
+  width: 100%;
+  margin-top: 80px;
+  padding-top: 50px;
+  border-top: 1px solid lightgray;
+  justify-content: center;
+  border-top: 1px solid lightgray;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  margin-bottom: 30px;
+}
+
+.footer-title-h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.footer-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-link {
+    color: rgb(70, 70, 70);
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
