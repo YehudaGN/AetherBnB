@@ -50,15 +50,14 @@ class CreateBooking extends React.Component {
   }
 
   handleChange(field) {
-    return e =>
-      this.setState({ [field]: e.currentTarget.value }, () =>
-        this.setTotalCost()
-      );
+    return e => this.setState({ [field]: e.currentTarget.value });
   }
 
   handleDates(e) {
     let { startDate, endDate } = e.selection;
-    this.setState({ start_date: startDate, end_date: endDate });
+    this.setState({ start_date: startDate, end_date: endDate }, () =>
+      this.setTotalCost()
+    );
   }
 
   render() {
@@ -84,12 +83,28 @@ class CreateBooking extends React.Component {
       };
     }
 
+    let numGuestInput;
+    if (this.state.start_date === "" || this.state.end_date === "") {
+      numGuestInput = "";
+    } else {
+      numGuestInput = (
+        <input
+          className="num-of-guests"
+          type="number"
+          min="1"
+          placeholder="Number of Guests"
+          value={this.state.num_guests}
+          onChange={this.handleChange("num_guests")}
+        />
+      );
+    }
+
     return (
       <div className="booking-form-container">
         <form onSubmit={this.handleSubmit}>
           <div className="calander-container">
             <DateRange
-              className='calendar'
+              className="calendar"
               ranges={[selectionRange]}
               onChange={e => this.handleDates(e)}
               editableDateInputs={true}
@@ -104,25 +119,22 @@ class CreateBooking extends React.Component {
             />
           </div>
 
-          <div className="num-guests-container">
-            <input
-              className="num-of-guests"
-              type="number"
-              placeholder="Number of Guests"
-              value={this.state.num_guests}
-              onChange={this.handleChange("num_guests")}
-            />
-          </div>
+          <div className="num-guests-container">{numGuestInput}</div>
           <div className="total-cost-container">
             <p className="total-cost">Total Cost: {this.state.price}</p>
           </div>
           <div className="book-listing-button-container">
-            <button className={`book-listing-button ${
-              this.state.num_guests === '' ||
-              this.state.start_date === '' ||
-              this.state.end_date === '' 
-              ? 'incomplete-form' : ''
-            }`}>Reserve</button>
+            <button
+              className={`book-listing-button ${
+                this.state.num_guests === "" ||
+                this.state.start_date === "" ||
+                this.state.end_date === ""
+                  ? "incomplete-form"
+                  : ""
+              }`}
+            >
+              Reserve
+            </button>
           </div>
         </form>
       </div>

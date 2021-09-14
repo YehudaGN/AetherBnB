@@ -135,23 +135,25 @@ class ListingShow extends React.Component {
                         </li>
                         <li className="night">/night</li>
                       </div>
-                      <div className="booking-form-reviews">
+                      <div className="booking-form-reviews-container">
                         <StarIcon
                           className="star-icon"
                           style={{ fontSize: 20 }}
                         />{" "}
-                        Reviews
+                        <div className="booking-form-reviews">Reviews</div>
                       </div>
-                      <CreateBookingContainer
-                        bookedDates={this.props.listing.bookings}
-                      />
                     </div>
+                    <CreateBookingContainer
+                      bookedDates={this.props.listing.bookings}
+                    />
                   </div>
                   <br />
                 </div>
               </div>
               <br />
               <div id="listing-map-container"></div>
+              <br />
+              <div className='reviews-container'>SUCH REVIEWS!! MUCH WOW</div>
               <br />
               {deleteButton}
             </div>

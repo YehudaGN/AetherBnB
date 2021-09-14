@@ -115,12 +115,14 @@
   display: flex;
   justify-content: space-between;
   gap: 30px;
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .booking-price-container {
   display: flex;
   gap: 4px;
+  margin-left: 20px;
 }
 
 .booking-price {
@@ -129,11 +131,15 @@
   margin-left: 10px;
 }
 
-.booking-form-reviews {
+.booking-form-reviews-container {
   display: flex;
   align-items: center;
-  margin-right: 10px;
+  margin-right: 20px;
   gap: 3px;
+}
+
+.booking-form-reviews {
+
 }
 
 .delete-listing-button {
@@ -151,4 +157,9 @@
   height: 700px;
   border-radius: 20px;
   box-shadow: 2px 2px 2px 2px rgba(104, 104, 104, 0.35);
+}
+
+.reviews-container {
+  margin-top: 50px;
+  font-size: 50px;
 }

@@ -1,0 +1,49 @@
+.booking-form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-container {
+}
+
+.calendar {
+  border-radius: 10px;
+}
+
+.num-guests-container {
+}
+
+.num-of-guests {
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.num-of-guests:focus {
+    outline: 0;
+  }
+
+.total-cost-container {
+}
+
+.total-cost {
+}
+
+.book-listing-button-container {
+}
+
+.book-listing-button {
+  background: linear-gradient(
+    to right,
+    rgb(230, 30, 77) 0%,
+    rgb(227, 28, 95) 50%,
+    rgb(215, 4, 102) 100%
+  );
+  padding: 14px 24px;
+  width: 200px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}

@@ -9,6 +9,7 @@ import UserShowContainer from "./users/users_show_container";
 import ListingShowContainer from "./listing_show/listing_show_container";
 import ListingIndexContainer from "./listings_index/listings_index_container";
 import BookingShowContainer from "./bookings/booking_show_container";
+import Footer from "./footer/footer";
 
 const App = () => (
   <div className="app-container">
@@ -23,6 +24,7 @@ const App = () => (
     <ProtectedRoute path="/new/listing" component={CreateListingContainer} />
     <ProtectedRoute path="/users/show/:userId" component={UserShowContainer} />
     <Route exact path="/" component={Splash} />
+    <Footer />
   </div>
 );
 
