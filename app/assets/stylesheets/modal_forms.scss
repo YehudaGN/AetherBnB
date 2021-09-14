@@ -26,11 +26,12 @@
     height: 4vh;
     align-self: center;
     width: 90%;
-    background-color: rgba(214, 30, 76, 0.945);
+    background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
     border-radius: 10px;
     color: white;
     font-size: 15px;
     margin-top: 3%;
+    border: none;
 }
 
 .signup-button, .create-listing-button, .incomplete-form-button {
@@ -48,11 +49,12 @@
     height: 4vh;
     align-self: center;
     width: 60%;
-    background-color: rgba(214, 30, 76, 0.945);
+    background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
     border-radius: 10px;
     color: white;
     font-size: 15px;
     margin-top: 3%;
+    border: none;
 }
 
 #rounded-email, #rounded-title {
@@ -135,3 +137,48 @@ textarea {
     color: red
 }
 
+
+.booking-form-container {
+    display: flex;
+    flex-direction: column;
+    // border: 1px solid black;
+}
+
+.calendar-container {
+
+}
+
+.calendar {
+    border-radius: 10px;
+    // border: 1px solid rebeccapurple;
+}
+
+.num-guests-container {
+
+}
+
+.num-of-guests {
+
+}
+
+.total-cost-container {
+
+}
+
+.total-cost {
+
+}
+
+.book-listing-button-container {
+
+}
+
+.book-listing-button {
+    background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
+    padding: 14px 24px;
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}

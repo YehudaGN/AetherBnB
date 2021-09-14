@@ -119,6 +119,8 @@
 
 .getting-there-container {
   margin-top: 20px;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 20px;
 }
 
 .getting-there-h3-container {
@@ -131,6 +133,7 @@
 }
 
 .address-container {
+  
 }
 
 .address-h5-container {
@@ -148,9 +151,55 @@
 .booking-listing-state-city-zip {
 }
 
+.host-container {
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.host-display-h3 {
+  font-size: 23px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.host-link {
+  color: black;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.payment-info-container {
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.payment-info-h3-container {
+
+}
+
+.total-cost-display-container {
+  margin-top: 20px;
+}
+
+.total-cost-display-h5 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.total-cost-display {
+  margin-top: 10px;
+}
+
+.payment-info-h3 {
+  font-size: 23px;
+  font-weight: 500;
+}
+
 .cancel-booking-button {
   margin-top: 20px;
-  background-color: #fa005360;
+  background: linear-gradient(to right, rgb(255, 0, 0) 0%, rgb(255, 0, 85) 50%, rgb(255, 5, 151) 100%);
   border: none;
   color: white;
   padding: 15px 32px;
@@ -159,6 +208,7 @@
   font-size: 16px;
   cursor: pointer;
   border-radius: 10px;
+  opacity: .5;
 }
 
 #booking-map-container {

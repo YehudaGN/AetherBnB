@@ -7,7 +7,8 @@ import { fetchListings } from '../../actions/listings_actions';
 
 const mSTP = (state, ownProps) => ({
     user: state.entities.users[ownProps.match.params.userId],
-    listings: Object.values(state.entities.listings)
+    listings: Object.values(state.entities.listings),
+    currentUserId: state.session.id
 })
 
 const mDTP = dispatch => ({

@@ -42,6 +42,12 @@ class UserShow extends React.Component {
                 </li>
             )
         })
+        let createListingButton;
+        if (this.props.user.id === this.props.currentUserId) {
+            createListingButton = <li className='create-listing-li' onClick={() => this.props.openModal('create listing')}>Create Listing</li>
+        } else {
+            createListingButton = ''
+        }
 
         return (
             <div className='user-show-container'>
@@ -86,7 +92,7 @@ class UserShow extends React.Component {
                             </ul>
 
                         </ul>
-                        <li className='create-listing-li' onClick={() => this.props.openModal('create listing')}>Create Listing</li>
+                        {createListingButton}
                     </div>
 
                     <br />

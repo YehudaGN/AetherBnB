@@ -90,7 +90,7 @@
 .create-listing-li {
     text-align: center;
     width: 180px;
-    background-color: rgba(214, 30, 76, 0.945);
+    background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
     border-radius: 10px;
     color: white;
     font-size: 15px;

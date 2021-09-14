@@ -1,5 +1,6 @@
 import React from "react";
 import mapboxgl from "!mapbox-gl";
+import { Link } from "react-router-dom";
 
 class BookingShow extends React.Component {
   constructor(props) {
@@ -59,6 +60,22 @@ class BookingShow extends React.Component {
       "en-US",
       options
     );
+    let today = new Date();
+    let cancelButtonDiv;
+    if (new Date(booking.start_date) >= today) {
+      cancelButtonDiv = (
+        <div className="cancel-booking-container">
+          <button
+            className="cancel-booking-button"
+            onClick={() => this.cancelBooking()}
+          >
+            Cancel Reservation
+          </button>
+        </div>
+      );
+    } else {
+      cancelButtonDiv = <div></div>;
+    }
     return (
       <div className="booking-show-container-container">
         <div className="booking-show-map-container">
@@ -119,14 +136,28 @@ class BookingShow extends React.Component {
                 </div>
               </div>
 
-              <div className="cancel-booking-container">
-                <button
-                  className="cancel-booking-button"
-                  onClick={() => this.cancelBooking()}
+              <div className="host-container">
+                <h3 className="host-display-h3">
+                  Your host, {booking.host.fname}
+                </h3>
+                <Link
+                  className="host-link"
+                  to={`/users/show/${booking.host.id}`}
                 >
-                  Cancel Booking
-                </button>
+                  Show profile
+                </Link>
               </div>
+
+              <div className="payment-info-container">
+                <div className="payment-info-h3-container">
+                  <h3 className="payment-info-h3">Payment Info</h3>
+                </div>
+                <div className="total-cost-display-container">
+                  <h5 className="total-cost-display-h5">Total cost</h5>
+                  <p className="total-cost-display">${booking.price}</p>
+                </div>
+              </div>
+              {cancelButtonDiv}
             </div>
           </div>
 

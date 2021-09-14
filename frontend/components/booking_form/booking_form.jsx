@@ -85,29 +85,47 @@ class CreateBooking extends React.Component {
     }
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <DateRange
-          ranges={[selectionRange]}
-          onChange={e => this.handleDates(e)}
-          editableDateInputs={true}
-          showSelectionPreview={true}
-          months={1}
-          direction="vertical"
-          showDateDisplay={false}
-          showMonthAndYearPickers={true}
-          minDate={new Date()}
-          disabledDates={this.alreadyBooked}
-          rangeColors={["rgba(214, 30, 76, 0.945)"]}
-        />
-        <input
-          type="number"
-          placeholder="Number of Guests"
-          value={this.state.num_guests}
-          onChange={this.handleChange("num_guests")}
-        />
-        <p>Total Cost: {this.state.price}</p>
-        <button>Book Listing</button>
-      </form>
+      <div className="booking-form-container">
+        <form onSubmit={this.handleSubmit}>
+          <div className="calander-container">
+            <DateRange
+              className='calendar'
+              ranges={[selectionRange]}
+              onChange={e => this.handleDates(e)}
+              editableDateInputs={true}
+              showSelectionPreview={true}
+              months={1}
+              direction="vertical"
+              showDateDisplay={false}
+              showMonthAndYearPickers={true}
+              minDate={new Date()}
+              disabledDates={this.alreadyBooked}
+              rangeColors={["rgba(214, 30, 76, 0.945)"]}
+            />
+          </div>
+
+          <div className="num-guests-container">
+            <input
+              className="num-of-guests"
+              type="number"
+              placeholder="Number of Guests"
+              value={this.state.num_guests}
+              onChange={this.handleChange("num_guests")}
+            />
+          </div>
+          <div className="total-cost-container">
+            <p className="total-cost">Total Cost: {this.state.price}</p>
+          </div>
+          <div className="book-listing-button-container">
+            <button className={`book-listing-button ${
+              this.state.num_guests === '' ||
+              this.state.start_date === '' ||
+              this.state.end_date === '' 
+              ? 'incomplete-form' : ''
+            }`}>Reserve</button>
+          </div>
+        </form>
+      </div>
     );
   }
 }
