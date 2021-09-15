@@ -12,27 +12,11 @@ class CreateReview extends React.Component {
   }
 
   handleSubmit(e) {
-    //   debugger
     e.preventDefault();
-    let rating = (this.state.cleanliness + this.state.communication + this.state.check_in + this.state.accuracy + this.state.location + this.state.value) / 6.0
+    let rating = (parseInt(this.state.cleanliness) + parseInt(this.state.communication) + parseInt(this.state.check_in) + parseInt(this.state.accuracy) + parseInt(this.state.location) + parseInt(this.state.value)) / 6.0
     this.setState({rating: rating}, () => {
-        this.props.createReview(this.state)
+        this.props.createReview(this.state).then(()=> this.props.closeModal())
     })
-    
-    // .then(()=>{
-    //     this.setState({
-    //         body: "",
-    //         rating: "",
-    //         guest_id: "",
-    //         listing_id: "",
-    //         cleanliness: "",
-    //         communication: "",
-    //         check_in: "",
-    //         accuracy: "",
-    //         location: "",
-    //         value: "",
-    //       });
-    //     })
   }
 
   render() {
@@ -205,7 +189,7 @@ class CreateReview extends React.Component {
               type="radio"
               id="accuracy4"
               name="accuracy"
-              value="4"
+              value='4'
               onChange={this.handleChange("accuracy")}
             />
             <label htmlFor="accuracy5">5</label>

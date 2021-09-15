@@ -2,7 +2,6 @@ class Api::ReviewsController < ApplicationController
     # may want to remove show and index
     def show 
         @review = Review.find(params[:id])
-        render :show
     end
 
     def index 
@@ -12,9 +11,7 @@ class Api::ReviewsController < ApplicationController
 
     def create 
         @review = Review.create!(review_params)
-        # if @review.save 
-        #     render :index
-        # end
+        render :show
     end
 
     def update
