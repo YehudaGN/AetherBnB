@@ -3,7 +3,7 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import HeaderContainer from "./header/header_container";
 import Modal from "./modal/modal";
 import { Route } from "react-router";
-import Splash from "./splash/splash";
+import SplashContainer from "./splash/splash_container";
 import CreateListingContainer from "./listings_forms/create_listing_container";
 import UserShowContainer from "./users/users_show_container";
 import ListingShowContainer from "./listing_show/listing_show_container";
@@ -26,7 +26,7 @@ const App = () => (
     />
     <ProtectedRoute path="/new/listing" component={CreateListingContainer} />
     <ProtectedRoute path="/users/show/:userId" component={UserShowContainer} />
-    <Route exact path="/" component={Splash} />
+    <Route exact path="/" component={SplashContainer} />
   </div>
 );
 
