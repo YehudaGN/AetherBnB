@@ -72,8 +72,6 @@ class ListingShow extends React.Component {
       </li>
     );
 
-
-// debugger  
     return (
       <div className="flex-container-listing-show">
         <div className="listing-show-map-container">
