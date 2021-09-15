@@ -77,14 +77,6 @@ class Header extends React.Component {
                 <img src={logo} alt="" />
               </Link>
             </div>
-
-            {/* <div className="listings-search">
-              <Link className="link-search-text" to="/listings">
-                Listings
-              </Link>
-              <SearchIcon className="search-icon" />
-            </div> */}
-
             <div className="listings-search-container">
               <form className="listings-search" onSubmit={this.handleSubmit}>
                 <input
@@ -97,7 +89,6 @@ class Header extends React.Component {
               </form>
               <SearchIcon className="search-icon" />
             </div>
-
             <div className="menu-container" ref={this.menuContainer}>
               <button className="menu-button" onClick={this.handleClick}>
                 <MenuIcon style={{ fontSize: 30 }} />

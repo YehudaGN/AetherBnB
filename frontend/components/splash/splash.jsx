@@ -36,14 +36,23 @@ class Splash extends React.Component {
       );
     }
 
-
-
     return (
       <>
         <div className="splash-container">
           <div>
             <div className="bg-img-container">
-              <img className="bg-img" src={splash_bg} alt="" height="750" />
+              <img className="bg-img" src={splash_bg} alt=""  />
+
+              <div className="flexible-container">
+                <div className="flexible-text-container">
+                  <p className="flexible-text">Not sure where to go?</p>
+                </div>
+                <div className="flexible-button-container">
+                  <Link className="flexible-button" to="/listings">
+                    I'm flexible
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
           <div className="explore-container-container">

@@ -10,7 +10,6 @@ import ListingShowContainer from "./listing_show/listing_show_container";
 import ListingIndexContainer from "./listings_index/listings_index_container";
 import BookingShowContainer from "./bookings/booking_show_container";
 
-
 const App = () => (
   <div className="app-container">
     <HeaderContainer />
