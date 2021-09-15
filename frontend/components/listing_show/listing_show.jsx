@@ -151,9 +151,13 @@ class ListingShow extends React.Component {
                 </div>
               </div>
               <br />
-              <div id="listing-map-container"></div>
+              <div className="reviews-container">
+                <div className='reviews-h3-container'>
+                  <h3 className='reviews-h3'>SUCH REVIEWS!! MUCH WOW</h3>
+                </div>
+              </div>
               <br />
-              <div className='reviews-container'>SUCH REVIEWS!! MUCH WOW</div>
+              <div id="listing-map-container"></div>
               <br />
               {deleteButton}
             </div>

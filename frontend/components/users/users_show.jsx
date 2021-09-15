@@ -21,7 +21,6 @@ class UserShow extends React.Component {
 
   render() {
     if (!this.props.user) return null;
-    // listings -- reviews -- bookings
     let selectedListings = this.props.listings.filter(
       listing => listing.host_id === this.props.user.id
     );
@@ -60,6 +59,35 @@ class UserShow extends React.Component {
     } else {
       createListingButton = "";
     }
+    // debugger
+    let userBookings;
+    if (
+      (parseInt(this.props.match.params.userId) === this.props.currentUserId) &&
+      this.props.user.user_bookings
+    ) {
+      userBookings = this.props.user.user_bookings.map(booking => (
+        <div className="user-bookings-container">
+          <div className="user-bookings-listing-title">
+            <Link to={`/listing/show/${booking.listing.id}`}>{booking.listing.title}</Link>
+          </div>
+        </div>
+      ));
+    }
+    let userReviews;
+    if (
+      (parseInt(this.props.match.params.userId) === this.props.currentUserId) &&
+      this.props.user.user_reviews
+    ) {
+      userReviews = this.props.user.user_reviews.map(review => (
+        <div className="user-reviews-container">
+          <div className="user-reviews-listing-title">
+            <h5>{review.listing.title}</h5>
+          </div>
+        </div>
+      ))
+    }
+
+
 
     return (
       <div className="user-show-container">
@@ -109,6 +137,7 @@ class UserShow extends React.Component {
           <div className="bookings-container">
             <ul>
               <h4>Bookings</h4>
+              {userBookings}
             </ul>
           </div>
 
@@ -117,6 +146,7 @@ class UserShow extends React.Component {
           <div className="reviews-container">
             <ul>
               <h4>Reviews by you</h4>
+              {userReviews}
             </ul>
           </div>
         </div>

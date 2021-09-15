@@ -44,10 +44,14 @@
 .host-info-booking-form-flex {
   display: flex;
   justify-content: center;
+  padding-bottom: 40px;
+  border-bottom: 1px solid lightgray;
+  
 }
 
 .host-info-booking-form-container {
   display: flex;
+  
 }
 
 .host-info-listing-desc-container {
@@ -152,6 +156,15 @@
   color: white;
 }
 
+.reviews-container {
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.reviews-h3 {
+  font-size: 50px;
+}
+
 #listing-map-container {
   width: 100%;
   height: 700px;
@@ -159,7 +172,3 @@
   box-shadow: 2px 2px 2px 2px rgba(104, 104, 104, 0.35);
 }
 
-.reviews-container {
-  margin-top: 50px;
-  font-size: 50px;
-}
