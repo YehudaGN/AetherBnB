@@ -3,8 +3,6 @@ import ListingItem from "./listing_item";
 import MapContainer from "../mapbox/map_container";
 import { ThumbUpAlt } from "@material-ui/icons";
 
-// var MESSAGE = null;
-
 class ListingIndex extends React.Component {
   constructor(props) {
     super(props);

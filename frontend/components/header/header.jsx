@@ -79,15 +79,22 @@ class Header extends React.Component {
             </div>
             <div className="listings-search-container">
               <form className="listings-search" onSubmit={this.handleSubmit}>
-                <input
-                  type="text"
-                  placeholder="Search City"
-                  value={this.state.city}
-                  onChange={this.handleChange("city")}
-                />
-                <button>Search</button>
+                <div className="search-input-container">
+                  <input
+                    className="search-input"
+                    type="text"
+                    placeholder="Search City"
+                    value={this.state.city}
+                    onChange={this.handleChange("city")}
+                  />
+                  <button className="search-listings-button">
+                    <SearchIcon
+                      className="search-icon"
+                      style={{ fontSize: 17 }}
+                    />
+                  </button>
+                </div>
               </form>
-              <SearchIcon className="search-icon" />
             </div>
             <div className="menu-container" ref={this.menuContainer}>
               <button className="menu-button" onClick={this.handleClick}>
