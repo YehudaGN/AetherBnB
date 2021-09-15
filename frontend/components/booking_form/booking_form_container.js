@@ -4,7 +4,8 @@ import CreateBooking from "./booking_form";
 import { withRouter } from "react-router";
 import { openModal } from "../../actions/modal_actions";
 
-const mSTP = (state, ownProps) => ({
+const mSTP = (state, ownProps) => {
+  return{
   booking: {
     start_date: "",
     end_date: "",
@@ -14,7 +15,8 @@ const mSTP = (state, ownProps) => ({
     price: "",
   },
   listingPrice: state.entities.listings[ownProps.match.params.listingId].price,
-});
+ 
+}};
 
 const mDTP = dispatch => ({
   createBooking: booking => dispatch(createBooking(booking)),

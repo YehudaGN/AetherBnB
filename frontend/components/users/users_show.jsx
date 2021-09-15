@@ -59,7 +59,6 @@ class UserShow extends React.Component {
     } else {
       createListingButton = "";
     }
-    // debugger
     let userBookings;
     if (
       (parseInt(this.props.match.params.userId) === this.props.currentUserId) &&

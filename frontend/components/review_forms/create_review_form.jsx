@@ -3,6 +3,7 @@ import React from "react";
 class CreateReview extends React.Component {
   constructor(props) {
     super(props);
+    this.state = this.props.review;
     this.handleSubmit - this.handleSubmit.bind(this);
   }
 
@@ -13,15 +14,28 @@ class CreateReview extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.action(this.state);
-    this.setState({});
+    this.setState({
+      body: "",
+      rating: "",
+      guest_id: "",
+      listing_id: "",
+      cleanliness: "",
+      communication: "",
+      check_in: "",
+      accuracy: "",
+      location: "",
+      value: "",
+    });
   }
 
   render() {
-    return <div className="review-form-container">
+    return (
+      <div className="review-form-container">
         <form onSubmit={this.handleSubmit}>
-            <textarea onChange={this.handleChange('body')}/>
+          <textarea onChange={this.handleChange("body")} />
         </form>
-    </div>;
+      </div>
+    );
   }
 }
 

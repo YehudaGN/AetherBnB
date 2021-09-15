@@ -61,6 +61,19 @@ class ListingShow extends React.Component {
       <img src={photo} height="300" />
     ));
     let host = this.props.listing.host;
+
+
+    let createReviewButton = (
+      <li
+        className="create-review-li"
+        onClick={() => this.props.openModal("create review")}
+      >
+        Leave Review
+      </li>
+    );
+
+
+// debugger  
     return (
       <div className="flex-container-listing-show">
         <div className="listing-show-map-container">
@@ -153,6 +166,7 @@ class ListingShow extends React.Component {
               <br />
               <div className="reviews-container">
                 <div className='reviews-h3-container'>
+                  {createReviewButton}
                   <h3 className='reviews-h3'>SUCH REVIEWS!! MUCH WOW</h3>
                 </div>
               </div>

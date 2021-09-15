@@ -1,4 +1,3 @@
-import React from "react";
 import { connect } from "react-redux";
 import { createListing } from "../../actions/listings_actions";
 import CreateListing from "./create_listing";

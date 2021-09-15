@@ -14,6 +14,7 @@ class CreateBooking extends React.Component {
 
   setAlreadyBooked() {
     let that = this;
+    // debugger
     this.props.bookedDates.forEach(dateSet => {
       let first = new Date(dateSet[0]);
       let last = new Date(dateSet[1]);
