@@ -4,9 +4,16 @@ class Api::ListingsController < ApplicationController
         @listing = Listing.with_attached_photos.find_by(id: params[:id])
     end
 
-    def index
-        @listings = Listing.with_attached_photos.all
-        render :index # add sql for search by city
+    def index 
+        if !params[:searchParams]     
+            @listings = Listing.with_attached_photos.all    
+        elsif params[:searchParams][:city]
+            @listings = Listing.with_attached_photos.where(city: params[:searchParams][:city])
+         
+            # city = params[:searchParams][:city].split.map{|word| word.capitalize}.join(' ')
+            # @listings = Listing.with_attached_photos.where(city: city)
+        end
+        render :index
     end
 
     def create

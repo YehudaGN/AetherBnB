@@ -1,139 +1,197 @@
-.login-container, .signup-container {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border-radius: 10px;
-    min-height: 50vh;
-    min-width: 28vw;
+.login-container,
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  min-height: 50vh;
+  min-width: 28vw;
 }
 
 .create-listing-container {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    border-radius: 10px;
-    min-height: 50vh;
-    min-width: 30vw;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  min-height: 50vh;
+  min-width: 30vw;
 }
 
-.login-form, .signup-form, .listing-form{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
+.login-form,
+.signup-form,
+.listing-form {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
 
-.login-button, .signup-button, .create-listing-button {
-    height: 4vh;
-    align-self: center;
-    width: 90%;
-    background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
-    border-radius: 10px;
-    color: white;
-    font-size: 15px;
-    margin-top: 3%;
-    border: none;
+.login-button,
+.signup-button,
+.create-listing-button,
+.leave-review-button {
+  height: 4vh;
+  align-self: center;
+  width: 80%;
+  background: linear-gradient(
+    to right,
+    rgb(230, 30, 77) 0%,
+    rgb(227, 28, 95) 50%,
+    rgb(215, 4, 102) 100%
+  );
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  margin-top: 3%;
+  border: none;
 }
 
-.signup-button, .create-listing-button, .incomplete-form-button {
-    margin-bottom: 3%;
-    margin-top: 4%;
-    cursor: pointer;
+.signup-button,
+.create-listing-button,
+.incomplete-form-button {
+  margin-bottom: 5%;
+  margin-top: 4%;
+  cursor: pointer;
 }
 
 .incomplete-form {
-    opacity: .5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .demo-button {
-    height: 4vh;
-    align-self: center;
-    width: 60%;
-    background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
-    border-radius: 10px;
-    color: white;
-    font-size: 15px;
-    margin-top: 3%;
-    border: none;
+  height: 4vh;
+  align-self: center;
+  width: 60%;
+  background: linear-gradient(
+    to right,
+    rgb(230, 30, 77) 0%,
+    rgb(227, 28, 95) 50%,
+    rgb(215, 4, 102) 100%
+  );
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  margin-top: 3%;
+  border: none;
 }
 
-#rounded-email, #rounded-title {
-    border-top-right-radius: 6px;
-    border-top-left-radius: 6px;
-    
+#rounded-email,
+#rounded-title {
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
 }
-#rounded-password, #rounded-price {
-    border-bottom-right-radius: 6px;
-    border-bottom-left-radius: 6px;
-    
+#rounded-password,
+#rounded-price {
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 
-.login-input, .signup-input, .listing-input {
-    height: 5vh;
-    width: 90%;
-    align-self: center;
-    border: 1px solid rgb(173, 170, 170);
+.login-input,
+.signup-input,
+.listing-input {
+  height: 5vh;
+  width: 90%;
+  align-self: center;
+  border: 1px solid rgb(173, 170, 170);
 }
 
 .file-input-container {
-    align-self: center;
-    margin: 5px;
-    input {
-        display: none;
-    }
+  align-self: center;
+  margin: 5px;
+  input {
+    display: none;
+  }
 }
 
 .input-label-listing {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 15px;
-    cursor: pointer;
-    padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  cursor: pointer;
+  padding: 5px;
 }
 
 .input-label-listing:hover {
-    transition: 0.5s;
-    background-color: rgba(214, 30, 76, 0.39);
-    border-radius: 10px;
+  transition: 0.5s;
+  background-color: rgba(214, 30, 76, 0.39);
+  border-radius: 10px;
 }
 
-.login-welcome{
-    text-align: center;
-    font-size: 35px;
-    margin-top: 8%;
-    margin-bottom: 15%;
+.login-welcome {
+  text-align: center;
+  font-size: 35px;
+  margin-top: 8%;
+  margin-bottom: 15%;
 }
 
 .create-listing-h3 {
-    text-align: center;
-    font-size: 28px;
-    margin-top: 12%;
-    margin-bottom: 10%;
+  text-align: center;
+  font-size: 28px;
+  margin-top: 12%;
+  margin-bottom: 10%;
 }
 
 .signup-welcome {
-    text-align: center;
-    font-size: 35px;
-    margin-top: 6%;
-    margin-bottom: 8%;
+  text-align: center;
+  font-size: 35px;
+  margin-top: 6%;
+  margin-bottom: 8%;
 }
 
 .close-x {
-    margin-top: 4%;
-    margin-left: 4%;
-    position: absolute;
-    cursor: pointer;
+  margin-top: 4%;
+  margin-left: 4%;
+  position: absolute;
+  cursor: pointer;
 }
 
 textarea {
-    resize: none;
-    // padding-left: 5px;
+  resize: none;
+  // padding-left: 5px;
 }
 
 .errors-ul {
-    margin-bottom: 8px;
-    text-align: center;
-    color: red
+  margin-bottom: 8px;
+  text-align: center;
+  color: red;
 }
 
+.review-form-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  min-height: 50vh;
+  min-width: 35vw;
+  align-items: center;
+}
+
+.create-review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.review-body {
+  padding: 10px;
+  border: 1px solid rgb(134, 134, 134);
+  border-radius: 10px;
+  margin-top: 30px;
+  width: 80%;
+  height: 80px;
+  align-self: center;
+}
+
+.review-body:focus {
+  outline: none;
+}
+
+.review-rating-section-container {
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+}
+
+.review-rating-section-h6 {
+}

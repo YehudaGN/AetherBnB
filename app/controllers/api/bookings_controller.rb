@@ -9,7 +9,7 @@ class Api::BookingsController < ApplicationController
     end
 
     def index
-        @bookings = Booking.all
+        @bookings = Booking.where(params[:userId] === :guest_id)
         render :index
     end
 

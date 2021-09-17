@@ -14,6 +14,7 @@ const mSTP = (state, ownProps) => ({
     price: "",
   },
   listingPrice: state.entities.listings[ownProps.match.params.listingId].price,
+ 
 });
 
 const mDTP = dispatch => ({

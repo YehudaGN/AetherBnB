@@ -5,6 +5,7 @@ const ListingItem = props => {
   return (
     <li className="listing-blurb">
       <div className="listing-photo-container">
+        
         <img
           className="listing-photos"
           src={props.listing.photos[0]}

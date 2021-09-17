@@ -1,6 +1,5 @@
 .splash-container {
   top: -75px;
-  z-index: -1;
   background-position-x: left;
   background-position-y: top;
   background-repeat: no-repeat;
@@ -8,8 +7,55 @@
   overflow-x: hidden;
 }
 
+.bg-img-container {
+  height: 750px;
+}
+
 .bg-img {
   width: 100vw;
+  height: 750px;
+}
+
+.flexible-container {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  align-items: center;
+  transform: translate(-50%, -50%);
+}
+
+.flexible-text-container {
+  display: flex;
+  justify-content: center;
+}
+
+.flexible-text {
+  font-size: 30px;
+  font-weight: 600;
+  color: rgba(255, 255, 82, 0.685);
+}
+
+.flexible-button-container {
+  display: flex;
+  justify-content: center;
+  
+  
+  margin-top: 18px;
+}
+
+.flexible-button {
+  font-size: 20px;
+  font-weight: 700;
+  background-color: white;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  border-radius: 30px;
+  width: 180px;
+  text-align: center;
+  color: rgb(103, 1, 143);
 }
 
 .explore-container-container {
@@ -21,7 +67,7 @@
 
 .explore-container,
 .explore-h3-container {
-  width: 90%;
+  width: 83%;
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -50,7 +96,7 @@
   height: 72px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .location-img {
@@ -59,6 +105,57 @@
 }
 
 .explore-location-text {
+  color: black;
   font-size: 20px;
   font-weight: 500;
+}
+
+.try-hosting-container-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.try-hosting-container {
+  width: 83%;
+  position: relative;
+  text-align: center;
+}
+
+.try-hosting-img-container {
+  width: 100%;
+  background-color: rgb(75, 75, 75);
+  border-radius: 20px;
+}
+
+.try-hosting-img {
+  width: 100%;
+  border-radius: 20px;
+  opacity: 0.8;
+}
+
+.try-hosting-text-container {
+  position: absolute;
+  top: 30%;
+  left: 7%;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 300px;
+}
+
+.try-hosting-h3 {
+  font-size: 50px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.try-hosting-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  width: 300px;
+  margin-bottom: 10px;
 }

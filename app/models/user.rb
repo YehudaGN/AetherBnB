@@ -10,6 +10,10 @@ class User < ApplicationRecord
     has_many :bookings,
         foreign_key: :guest_id,
         class_name: :Booking
+
+    has_many :reviews,
+        foreign_key: :guest_id,
+        class_name: :Review
         
     attr_reader :password
 

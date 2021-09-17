@@ -11,7 +11,9 @@ class Header extends React.Component {
     this.state = {
       open: false,
       scrollClass: "header-container-container",
+      city: "",
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -55,6 +57,16 @@ class Header extends React.Component {
     this.setState({ open: !this.state.open });
   };
 
+  handleChange(field) {
+    return e => this.setState({ city: e.currentTarget.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.history.push(`/listings/${this.state.city}`);
+    this.setState({ city: "" });
+  }
+
   render() {
     return (
       <div className="bdd">
@@ -65,14 +77,25 @@ class Header extends React.Component {
                 <img src={logo} alt="" />
               </Link>
             </div>
-
-            <div className="listings-search">
-              <Link className="link-search-text" to="/listings">
-                Listings
-              </Link>
-              <SearchIcon className="search-icon" />
+            <div className="listings-search-container">
+              <form className="listings-search" onSubmit={this.handleSubmit}>
+                <div className="search-input-container">
+                  <input
+                    className="search-input"
+                    type="text"
+                    placeholder="Search City"
+                    value={this.state.city}
+                    onChange={this.handleChange("city")}
+                  />
+                  <button className="search-listings-button">
+                    <SearchIcon
+                      className="search-icon"
+                      style={{ fontSize: 17 }}
+                    />
+                  </button>
+                </div>
+              </form>
             </div>
-
             <div className="menu-container" ref={this.menuContainer}>
               <button className="menu-button" onClick={this.handleClick}>
                 <MenuIcon style={{ fontSize: 30 }} />
