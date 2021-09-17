@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import Footer from "../footer/footer";
 
 class BookingIndex extends React.Component {
   componentDidMount() {
@@ -49,8 +50,8 @@ class BookingIndex extends React.Component {
                 <h4 className="booking-index-listing-title">
                   {booking.listing.title}
                 </h4>
-                <h4 className='booking-index-listing-title-arrow'>
-                    <ArrowForwardIosIcon style={{ fontSize: 14 }}/>
+                <h4 className='booking-index-listing-title-arrow-container'>
+                    <ArrowForwardIosIcon className='arrow-icon' style={{ fontSize: 13, fontWeight: 500 }}/>
                 </h4>
               </div>
             </div>
@@ -67,6 +68,7 @@ class BookingIndex extends React.Component {
           <h3 className="trips-h3">Trips</h3>
         </div>
         <div className="bookings-index-container">{mappedBookings}</div>
+        <Footer />
       </div>
     );
   }

@@ -1,22 +1,24 @@
 .bookings-index-flex-container {
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
-    /* align-content: center; */
 }
 
 .bookings-index-container {
     width: 76%;
     display: flex;
     align-self: center;
-    gap: 30px;
+    gap: 3%;
     flex-wrap: wrap;
 }
 
 .trips-h3-container {
     margin-top: 30px;
     margin-bottom: 30px;
+    padding-bottom: 30px;
     width: 76%;
     align-self: center;
+    border-bottom: 1px solid lightgray;
 }
 
 .trips-h3 {
@@ -26,20 +28,16 @@
 }
 
 .booking-container {
-    width: 30%;
+    width: 31%;
     color: black;
     display: flex;
     flex-direction: column;
 }
 
-.booking-listing-index-photo-container {
-    /* width: 80%; */
-}
-
 .booking-listing-index-photo {
     width: 100%;
-    height: 200px;
-    overflow-y: hidden;
+    height: 180px;
+    /* overflow-y: hidden; */
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
 }
@@ -75,13 +73,11 @@
 .booking-index-listing-title-container {
     display: flex;
     justify-content: space-between;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     align-content: center;
+    width: 100%;
 }
 
-.booking-index-listing-img-container {
-
-}
 
 .booking-index-listing-img {
     width: 40px;
@@ -93,6 +89,11 @@
     font-size: 18px;
     font-weight: 500;
     color: rgb(73, 73, 73);
+}
+
+.booking-index-listing-title-arrow-container {
+    display: flex;
+    align-items: center;
 }
 
 .more-trip-plans-container {
