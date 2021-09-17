@@ -20,7 +20,7 @@ const App = () => (
     {/* <Route exact path="/listings/state/:state" component={ListingIndexContainer} /> */}
     {/* this needs working on ^ */}
     <Route path="/listing/show/:listingId" component={ListingShowContainer} />
-    <Route path='/trips' component={BookingIndexContainer} />
+    <ProtectedRoute path='/trips' component={BookingIndexContainer} />
     <ProtectedRoute
       path="/bookings/show/:bookingId"
       component={BookingShowContainer}
