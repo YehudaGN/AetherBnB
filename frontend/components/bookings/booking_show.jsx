@@ -76,6 +76,33 @@ class BookingShow extends React.Component {
     } else {
       cancelButtonDiv = <div></div>;
     }
+    // temp beneath
+    let createReviewButton = (
+      <li
+        className="create-review-li"
+        onClick={() => this.props.openModal("create review")}
+      >
+        Leave Review
+      </li>
+    );
+    // let createReviewButton;
+    // debugger;
+    // if (
+    //   booking.guest_id === this.props.session &&
+    //   new Date(booking.end_date) < today
+    // ) {
+    //   createReviewButton = (
+    //     <li
+    //       className="create-review-li"
+    //       onClick={() => this.props.openModal("create review")}
+    //     >
+    //       Leave Review
+    //     </li>
+    //   );
+    // } else {
+    //   createReviewButton = <div></div>
+    // }
+
     return (
       <div className="booking-show-container-container">
         <div className="booking-show-map-container">
@@ -158,6 +185,7 @@ class BookingShow extends React.Component {
                 </div>
               </div>
               {cancelButtonDiv}
+              {createReviewButton}
             </div>
           </div>
 

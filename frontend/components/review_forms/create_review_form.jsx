@@ -13,10 +13,17 @@ class CreateReview extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let rating = (parseInt(this.state.cleanliness) + parseInt(this.state.communication) + parseInt(this.state.check_in) + parseInt(this.state.accuracy) + parseInt(this.state.location) + parseInt(this.state.value)) / 6.0
-    this.setState({rating: rating}, () => {
-        this.props.createReview(this.state).then(()=> this.props.closeModal())
-    })
+    let rating =
+      (parseInt(this.state.cleanliness) +
+        parseInt(this.state.communication) +
+        parseInt(this.state.check_in) +
+        parseInt(this.state.accuracy) +
+        parseInt(this.state.location) +
+        parseInt(this.state.value)) /
+      6.0;
+    this.setState({ rating: rating }, () => {
+      this.props.createReview(this.state).then(() => this.props.closeModal());
+    });
   }
 
   render() {
@@ -29,6 +36,7 @@ class CreateReview extends React.Component {
             placeholder="Review"
             value={this.state.body}
           />
+
           <div className="review-rating-section-container">
             <h6 className="review-rating-section-h6">Cleanliness</h6>
             <label htmlFor="cleanliness1">1</label>
@@ -189,7 +197,7 @@ class CreateReview extends React.Component {
               type="radio"
               id="accuracy4"
               name="accuracy"
-              value='4'
+              value="4"
               onChange={this.handleChange("accuracy")}
             />
             <label htmlFor="accuracy5">5</label>
@@ -287,6 +295,7 @@ class CreateReview extends React.Component {
               onChange={this.handleChange("value")}
             />
           </div>
+
           <button className="leave-review-button">Leave Review</button>
         </form>
       </div>
