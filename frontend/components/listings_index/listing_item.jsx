@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const ListingItem = props => {
   return (
-    <li className="listing-blurb">
+    <Link to={`/listing/show/${props.listing.id}`} className="listing-blurb">
       <div className="listing-photo-container">
         
         <img
@@ -13,14 +13,15 @@ const ListingItem = props => {
         />
       </div>
       <div className="listing-info-container">
-        <Link to={`/listing/show/${props.listing.id}`}>
+        <div >
           <h3 className="listings-index-title">{props.listing.title}</h3>
-        </Link>
+        </div>
         <br />
         <p>{props.listing.num_beds} guests</p>
-        <p className="listing-price">${props.listing.price} / night</p>
+        <p className="listing-price"><span className='listing-price-text'>${props.listing.price}</span> / night</p>
       </div>
-    </li>
+      
+    </Link>
   );
 };
 

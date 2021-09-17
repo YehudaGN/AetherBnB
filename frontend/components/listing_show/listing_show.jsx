@@ -62,15 +62,6 @@ class ListingShow extends React.Component {
     ));
     let host = this.props.listing.host;
 
-    let createReviewButton = (
-      <li
-        className="create-review-li"
-        onClick={() => this.props.openModal("create review")}
-      >
-        Leave Review
-      </li>
-    );
-
     let listingReviews;
     if (this.props.listing.listing_reviews) {
       listingReviews = this.props.listing.listing_reviews.map(review => (
@@ -180,7 +171,6 @@ class ListingShow extends React.Component {
               <br />
               <div className="reviews-container">
                 <div className="reviews-h3-container">
-                  {createReviewButton}
                   <h3 className="reviews-h3">SUCH REVIEWS!! MUCH WOW</h3>
                   {listingReviews}
                 </div>

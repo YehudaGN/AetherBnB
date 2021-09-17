@@ -44,7 +44,7 @@ class ListingIndex extends React.Component {
     }
     return (
       <div className="listings-index-container">
-        <ul className="listings">{mappedListings}</ul>
+        <div className="listings">{mappedListings}</div>
         <div className="map-container-container">
           <MapContainer />
         </div>
