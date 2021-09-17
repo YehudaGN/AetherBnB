@@ -9,6 +9,7 @@ import UserShowContainer from "./users/users_show_container";
 import ListingShowContainer from "./listing_show/listing_show_container";
 import ListingIndexContainer from "./listings_index/listings_index_container";
 import BookingShowContainer from "./bookings/booking_show_container";
+import BookingIndexContainer from './bookings/booking_index_container';
 
 const App = () => (
   <div className="app-container">
@@ -19,6 +20,7 @@ const App = () => (
     {/* <Route exact path="/listings/state/:state" component={ListingIndexContainer} /> */}
     {/* this needs working on ^ */}
     <Route path="/listing/show/:listingId" component={ListingShowContainer} />
+    <Route path='/trips' component={BookingIndexContainer} />
     <ProtectedRoute
       path="/bookings/show/:bookingId"
       component={BookingShowContainer}

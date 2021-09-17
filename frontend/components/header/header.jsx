@@ -105,6 +105,11 @@ class Header extends React.Component {
                 <div className="dropdown">
                   {this.props.currentUser ? (
                     <div className="dropdown-container">
+                      <div className="your-trips-div">
+                        <Link className="trips-link" to="/trips">
+                          Trips
+                        </Link>
+                      </div>
                       <div className="account-link-div">
                         <Link
                           className="account-link"

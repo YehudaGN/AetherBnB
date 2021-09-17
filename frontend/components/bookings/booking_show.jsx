@@ -44,6 +44,7 @@ class BookingShow extends React.Component {
 
   render() {
     if (!this.props.booking) return null;
+    if (!this.props.booking.guest) return null;
     let booking = this.props.booking;
     let listing = booking.listing;
     let options = (options = {
@@ -86,7 +87,7 @@ class BookingShow extends React.Component {
       </li>
     );
     // let createReviewButton;
-    // debugger;
+    // // debugger;
     // if (
     //   booking.guest_id === this.props.session &&
     //   new Date(booking.end_date) < today

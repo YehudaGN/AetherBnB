@@ -151,18 +151,21 @@
 }
 
 .menu-li,
-.account-link {
+.account-link,
+.trips-link {
   padding: 8px 12px;
   border-radius: 10px;
 }
 
-.account-link {
+.account-link,
+.trips-link {
   color: rgb(0, 0, 0);
   display: block;
 }
 
 .menu-li:hover,
-.account-link:hover {
+.account-link:hover,
+.trips-link:hover {
   background-color: rgba(0, 0, 0, 0.14);
   cursor: pointer;
 }
