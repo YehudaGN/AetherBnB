@@ -25,9 +25,24 @@
   }
 
 .total-cost-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid lightgray;
 }
 
 .total-cost {
+  font-size: 17px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-cost-text {
+  margin-left: 20px;
+}
+
+.total-cost-price {
+  margin-right: 20px;
 }
 
 .book-listing-button-container {

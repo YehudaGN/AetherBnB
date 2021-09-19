@@ -179,10 +179,13 @@ class ListingShow extends React.Component {
                       </div>
                       <div className="booking-form-reviews-container">
                         <StarIcon
-                          className="star-icon"
-                          style={{ fontSize: 20 }}
+                          className="booking-form-star-icon"
+                          style={{ fontSize: 18 }}
                         />{" "}
-                        <div className="booking-form-reviews">Reviews</div>
+                        <div className="booking-form-reviews">
+                          <span className='booking-form-reviews-rating'>{reviewRating}</span>
+                          <span className='booking-form-reviews-num-reviews'>({numReviews} reviews)</span>
+                        </div>
                       </div>
                     </div>
                     <CreateBookingContainer
@@ -209,55 +212,99 @@ class ListingShow extends React.Component {
 
                 <div className="individual-ratings-grid">
                   <div className="individual-rating-container">
-                    <span className='individual-rating-text'>Cleanliness</span>
+                    <span className="individual-rating-text">Cleanliness</span>
                     <div className="meter-container">
-                      <meter className='reviews-meter' min="1" max="5" value={cleanlinessRating}></meter>
-                      <span className='individual-rating-num'>{cleanlinessRating}</span>
+                      <meter
+                        className="reviews-meter"
+                        min="1"
+                        max="5"
+                        value={cleanlinessRating}
+                      ></meter>
+                      <span className="individual-rating-num">
+                        {cleanlinessRating}
+                      </span>
                     </div>
                   </div>
                   <div className="individual-rating-container">
-                    <span className='individual-rating-text'>Communication</span>
+                    <span className="individual-rating-text">
+                      Communication
+                    </span>
                     <div className="meter-container">
-                      <meter className='reviews-meter' min="1" max="5" value={communicationRating}>
+                      <meter
+                        className="reviews-meter"
+                        min="1"
+                        max="5"
+                        value={communicationRating}
+                      >
                         {" "}
                       </meter>
-                      <span className='individual-rating-num'>{communicationRating}</span>
+                      <span className="individual-rating-num">
+                        {communicationRating}
+                      </span>
                     </div>
                   </div>
                   <div className="individual-rating-container">
-                    <span className='individual-rating-text'>Check-in</span>
+                    <span className="individual-rating-text">Check-in</span>
                     <div className="meter-container">
-                      <meter className='reviews-meter' min="1" max="5" value={checkInRating}>
+                      <meter
+                        className="reviews-meter"
+                        min="1"
+                        max="5"
+                        value={checkInRating}
+                      >
                         {" "}
                       </meter>
-                      <span className='individual-rating-num'>{checkInRating}</span>
+                      <span className="individual-rating-num">
+                        {checkInRating}
+                      </span>
                     </div>
                   </div>
                   <div className="individual-rating-container">
-                    <span className='individual-rating-text'>Accuracy</span>
+                    <span className="individual-rating-text">Accuracy</span>
                     <div className="meter-container">
-                      <meter className='reviews-meter' min="1" max="5" value={accuracyRating}>
+                      <meter
+                        className="reviews-meter"
+                        min="1"
+                        max="5"
+                        value={accuracyRating}
+                      >
                         {" "}
                       </meter>
-                      <span className='individual-rating-num'>{accuracyRating}</span>
+                      <span className="individual-rating-num">
+                        {accuracyRating}
+                      </span>
                     </div>
                   </div>
                   <div className="individual-rating-container">
-                    <span className='individual-rating-text'>Location</span>
+                    <span className="individual-rating-text">Location</span>
                     <div className="meter-container">
-                      <meter className='reviews-meter' min="1" max="5" value={locationRating}>
+                      <meter
+                        className="reviews-meter"
+                        min="1"
+                        max="5"
+                        value={locationRating}
+                      >
                         {" "}
                       </meter>
-                      <span className='individual-rating-num'>{locationRating}</span>
+                      <span className="individual-rating-num">
+                        {locationRating}
+                      </span>
                     </div>
                   </div>
                   <div className="individual-rating-container">
-                    <span className='individual-rating-text'>Value</span>
+                    <span className="individual-rating-text">Value</span>
                     <div className="meter-container">
-                      <meter className='reviews-meter' min="1" max="5" value={valueRating}>
+                      <meter
+                        className="reviews-meter"
+                        min="1"
+                        max="5"
+                        value={valueRating}
+                      >
                         {" "}
                       </meter>
-                      <span className='individual-rating-num'>{valueRating}</span>
+                      <span className="individual-rating-num">
+                        {valueRating}
+                      </span>
                     </div>
                   </div>
                 </div>

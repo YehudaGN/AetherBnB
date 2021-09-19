@@ -37,7 +37,8 @@
 
 .home-icon,
 .room-icon,
-.star-icon {
+.booking-form-star-icon,
+.listing-reviews-header-star-icon {
   color: rgb(255, 0, 98);
 }
 
@@ -141,8 +142,21 @@
   gap: 3px;
 }
 
-.booking-form-reviews {
+.booking-form-star-icon {
+  margin-bottom: 2px;
+}
 
+.booking-form-reviews {
+  display: flex;
+  gap: 5px;
+}
+
+.booking-form-reviews-rating {
+  
+}
+
+.booking-form-reviews-num-reviews {
+  color: rgb(78, 78, 78);
 }
 
 .delete-listing-button {
@@ -166,9 +180,7 @@
   gap: 5px;
 }
 
-.listing-reviews-header-star-icon {
-  color: rgb(255, 0, 85);
-}
+
 
 .listing-reviews-rating-h4 {
   font-size: 25px;

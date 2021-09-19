@@ -35,7 +35,9 @@ class CreateBooking extends React.Component {
       this.props
         .createBooking(this.state)
         .then(res =>
-          this.props.history.push(`/listing/${res.booking.listing_id}/booking/${res.booking.id}`)
+          this.props.history.push(
+            `/listing/${res.booking.listing_id}/booking/${res.booking.id}`
+          )
         );
     } else {
       this.props.openModal();
@@ -118,11 +120,7 @@ class CreateBooking extends React.Component {
               rangeColors={["rgba(214, 30, 76, 0.945)"]}
             />
           </div>
-
           <div className="num-guests-container">{numGuestInput}</div>
-          <div className="total-cost-container">
-            <p className="total-cost">Total Cost: {this.state.price}</p>
-          </div>
           <div className="book-listing-button-container">
             <button
               className={`book-listing-button ${
@@ -135,6 +133,14 @@ class CreateBooking extends React.Component {
             >
               Reserve
             </button>
+            <div className="total-cost-container">
+              <div className="total-cost">
+                <span className="total-cost-text">Total</span>
+                <span className="total-cost-price">
+                  {this.state.price !== "" ? `$${this.state.price}` : '$0'}
+                </span>
+              </div>
+            </div>
           </div>
         </form>
       </div>
