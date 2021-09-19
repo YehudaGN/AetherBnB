@@ -155,13 +155,81 @@
   color: white;
 }
 
-.reviews-container {
+.reviews-section-container {
   margin-top: 30px;
   margin-bottom: 50px;
 }
 
-.reviews-h3 {
-  font-size: 50px;
+.listing-reviews-header-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.listing-reviews-header-star-icon {
+  color: rgb(255, 0, 85);
+}
+
+.listing-reviews-rating-h4 {
+  font-size: 25px;
+  font-weight: 600;
+  display: flex;
+  gap: 4px;
+}
+
+.reviews-rating-num-separator {
+  font-weight: 900;
+}
+
+.individual-ratings-grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 41% 41%;
+  grid-template-rows: repeat(3, 1fr);
+  column-gap: 100px;
+  row-gap: 10px;
+}
+
+.individual-rating-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.individual-rating-text {
+  font-size: 17px;
+  justify-self: flex-start;
+  color: rgb(44, 44, 44)
+}
+
+.meter-container {
+  display: flex;
+  gap: 10px;
+  align-self: flex-end;
+}
+
+.reviews-meter {
+  width: 120px;
+  height: 12px;
+}
+
+.reviews-meter::-webkit-meter-bar {
+  background: rgb(230, 230, 230);
+}
+
+.reviews-meter::-webkit-meter-optimum-value {
+  background: black;
+}
+
+.individual-rating-num {
+  width: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.listing-reviews-container {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #listing-map-container {

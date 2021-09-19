@@ -4,14 +4,12 @@ import CreateReview from "./create_review_form";
 import { createReview } from "../../actions/reviews_actions";
 import { withRouter } from "react-router";
 
-const mSTP = (state, ownProps) => {
-  // debugger
-  return{
+const mSTP = (state, ownProps) => ({
   review: {
     body: '',
     rating: '',
     guest_id: state.session.id,
-    listing_id: parseInt(ownProps.location.pathname.slice(15)),
+    listing_id: parseInt(ownProps.location.pathname.split('/')[2]),
     cleanliness: '',
     communication: '',
     check_in: '',
@@ -19,7 +17,7 @@ const mSTP = (state, ownProps) => {
     location: '',
     value: '',
   },
-}};
+});
 
 const mDTP = dispatch => ({
   createReview: review => dispatch(createReview(review)),

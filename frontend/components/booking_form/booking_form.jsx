@@ -35,7 +35,7 @@ class CreateBooking extends React.Component {
       this.props
         .createBooking(this.state)
         .then(res =>
-          this.props.history.push(`/bookings/show/${res.booking.id}`)
+          this.props.history.push(`/listing/${res.booking.listing_id}/booking/${res.booking.id}`)
         );
     } else {
       this.props.openModal();

@@ -22,7 +22,7 @@ const App = () => (
     <Route path="/listing/show/:listingId" component={ListingShowContainer} />
     <ProtectedRoute path='/trips' component={BookingIndexContainer} />
     <ProtectedRoute
-      path="/bookings/show/:bookingId"
+      path="/listing/:listingId/booking/:bookingId"
       component={BookingShowContainer}
     />
     <ProtectedRoute path="/new/listing" component={CreateListingContainer} />
