@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import UserReviewItem from "./user_review_item";
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -59,34 +59,20 @@ class UserShow extends React.Component {
     } else {
       createListingButton = "";
     }
-    let userBookings;
-    if (
-      (parseInt(this.props.match.params.userId) === this.props.currentUserId) &&
-      this.props.user.user_bookings
-    ) {
-      userBookings = this.props.user.user_bookings.map(booking => (
-        <div className="user-bookings-container">
-          <div className="user-bookings-listing-title">
-            <Link to={`/listing/show/${booking.listing.id}`}>{booking.listing.title}</Link>
-          </div>
-        </div>
-      ));
-    }
+
     let userReviews;
     if (
-      (parseInt(this.props.match.params.userId) === this.props.currentUserId) &&
+      parseInt(this.props.match.params.userId) === this.props.currentUserId &&
       this.props.user.user_reviews
     ) {
       userReviews = this.props.user.user_reviews.map(review => (
-        <div className="user-reviews-container">
-          <div className="user-reviews-listing-title">
-            <h5>{review.listing.title}</h5>
-          </div>
+        <div>
+          <h4>Reviews by you</h4>
+          <h5>Reviews you've written</h5>
+          <UserReviewItem review={review} />
         </div>
-      ))
+      ));
     }
-
-
 
     return (
       <div className="user-show-container">
@@ -133,20 +119,8 @@ class UserShow extends React.Component {
 
           <br />
 
-          <div className="bookings-container">
-            <ul>
-              <h4>Bookings</h4>
-              {userBookings}
-            </ul>
-          </div>
-
-          <br />
-
           <div className="reviews-container">
-            <ul>
-              <h4>Reviews by you</h4>
-              {userReviews}
-            </ul>
+            <div>{userReviews}</div>
           </div>
         </div>
       </div>

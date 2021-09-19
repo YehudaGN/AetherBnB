@@ -4,9 +4,8 @@ import HomeIcon from "@material-ui/icons/Home";
 import RoomIcon from "@material-ui/icons/Room";
 import StarIcon from "@material-ui/icons/Star";
 import mapboxgl from "mapbox-gl";
-
-// import CreateBooking from "../booking_form/booking_form";
 import CreateBookingContainer from "../booking_form/booking_form_container";
+import ListingReviewItem from "./listing_review_item";
 
 class ListingShow extends React.Component {
   constructor(props) {
@@ -62,23 +61,17 @@ class ListingShow extends React.Component {
     ));
     let host = this.props.listing.host;
 
+      debugger
+    let ratingSum = 0.0;
     let listingReviews;
     if (this.props.listing.listing_reviews) {
-      listingReviews = this.props.listing.listing_reviews.map(review => (
-        <div className="listing-reviews-container">
-          <div className="listing-reviewer-container">
-            <h5 className="listing-reviewer-name">{review.reviewer.fname}</h5>
-            <span className="listing-review-created-at">
-              {review.created_at}
-            </span>
-          </div>
-          <div className="review-body-container">
-            <span>{review.body}</span>
-          </div>
-        </div>
-      ));
+      listingReviews = this.props.listing.listing_reviews.map(review => {
+        ratingSum += review.rating;
+        return <ListingReviewItem review={review} /> 
+      });
     }
-
+    let reviewRating = ratingSum /  this.props.listing.listing_reviews.length
+    // debugger
     return (
       <div className="flex-container-listing-show">
         <div className="listing-show-map-container">

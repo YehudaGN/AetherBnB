@@ -24,6 +24,7 @@ class BookingIndex extends React.Component {
       let checkOutDate = new Date(booking.end_date)
         .toLocaleDateString("en-US", options)
         .slice(9);
+        debugger
       return (
         <Link to={`/bookings/show/${booking.id}`} className="booking-container">
           <div className="booking-listing-index-photo-container">

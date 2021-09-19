@@ -6,6 +6,7 @@ class BookingShow extends React.Component {
   constructor(props) {
     super(props);
     this.bookingMap;
+    this.state = {listingId: null}
   }
 
   componentDidMount() {
@@ -41,7 +42,7 @@ class BookingShow extends React.Component {
       .deleteBooking(this.props.match.params.bookingId)
       .then(this.props.history.push("/"));
   }
-
+  
   render() {
     if (!this.props.booking) return null;
     if (!this.props.booking.guest) return null;
@@ -78,6 +79,7 @@ class BookingShow extends React.Component {
       cancelButtonDiv = <div></div>;
     }
     // temp beneath
+    // debugger
     let createReviewButton = (
       <li
         className="create-review-li"
@@ -103,7 +105,6 @@ class BookingShow extends React.Component {
     // } else {
     //   createReviewButton = <div></div>
     // }
-
     return (
       <div className="booking-show-container-container">
         <div className="booking-show-map-container">

@@ -21,7 +21,7 @@ function Modal({modal, closeModal}) {
       component = <CreateListingContainer />;
       break;
     case 'create review':
-      component = <CreateReviewContainer />;
+      component = <CreateReviewContainer/>;
       break;
     default:
       return null;

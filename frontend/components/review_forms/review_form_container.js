@@ -11,7 +11,7 @@ const mSTP = (state, ownProps) => {
     body: '',
     rating: '',
     guest_id: state.session.id,
-    listing_id: parseInt(ownProps.location.pathname.slice(14)),
+    listing_id: parseInt(ownProps.location.pathname.slice(15)),
     cleanliness: '',
     communication: '',
     check_in: '',
