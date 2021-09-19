@@ -76,7 +76,7 @@ class UserShow extends React.Component {
           <div className="profile-picture-div">
             <img className="user-icon" src={window.user_icon} alt="" />
             <br />
-            <Link className="update-photo-link" to="/users/edit-photo">
+            <Link className="update-photo-link" to={`/user/${this.props.user.id}/edit-photo`}>
               Update Photo
             </Link>
           </div>

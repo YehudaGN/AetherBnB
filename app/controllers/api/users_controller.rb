@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
 
 
     def show
-        @user = User.find_by(id: params[:id])
+        @user = User.with_attached_photo.find_by(id: params[:id])
         render :show
     end
 
@@ -21,14 +21,17 @@ class Api::UsersController < ApplicationController
         end
     end
 
-    # def update
-    #     @user = User.find_by(id: params[:id])
-    #     if @user && @user.update(user_params) # <--- is this wrong
-    #         render '/api/users/show'
-    #     else
-    #         render json: @user.errors.full_messages
-    #     end
-    # end
+    def update
+        @user = User.find_by(id: params[:id])
+        debugger # trying to figure out add photo to user
+        if @user && @user.update(user_update_params) # <--- is this wrong
+            debugger
+            render '/api/users/show'
+        else
+            debugger
+            render json: @user.errors.full_messages
+        end
+    end
 
     # def destroy
 
@@ -38,5 +41,9 @@ class Api::UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:email, :fname, :lname, :password, :bio)
+    end
+
+    def user_update_params
+        params.require(:user).permit(:email, :fname, :lname, :bio, :photo)
     end
 end

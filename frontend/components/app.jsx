@@ -10,7 +10,7 @@ import ListingShowContainer from "./listing_show/listing_show_container";
 import ListingIndexContainer from "./listings_index/listings_index_container";
 import BookingShowContainer from "./bookings/booking_show_container";
 import BookingIndexContainer from './bookings/booking_index_container';
-
+import UpdateUserPhotoContainer from './update_user/update_user_photo_container'
 const App = () => (
   <div className="app-container">
     <HeaderContainer />
@@ -27,6 +27,7 @@ const App = () => (
     />
     <ProtectedRoute path="/new/listing" component={CreateListingContainer} />
     <ProtectedRoute path="/users/show/:userId" component={UserShowContainer} />
+    <ProtectedRoute path="/user/:userId/edit-photo" component={UpdateUserPhotoContainer} />
     <Route exact path="/" component={SplashContainer} />
   </div>
 );
