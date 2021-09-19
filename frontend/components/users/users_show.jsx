@@ -66,11 +66,7 @@ class UserShow extends React.Component {
       this.props.user.user_reviews
     ) {
       userReviews = this.props.user.user_reviews.map(review => (
-        <div>
-          <h4>Reviews by you</h4>
-          <h5>Reviews you've written</h5>
-          <UserReviewItem review={review} />
-        </div>
+        <UserReviewItem review={review} />
       ));
     }
 
@@ -119,9 +115,15 @@ class UserShow extends React.Component {
 
           <br />
 
-          <div className="reviews-container">
-            <div>{userReviews}</div>
-          </div>
+          {parseInt(this.props.match.params.userId) ===
+          this.props.currentUserId ? (
+            <div className="reviews-container">
+              <h4>Reviews by you</h4>
+              <div>{userReviews}</div>
+            </div>
+          ) : (
+            <div></div>
+          )}
         </div>
       </div>
     );
