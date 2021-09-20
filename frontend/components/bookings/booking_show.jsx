@@ -79,7 +79,6 @@ class BookingShow extends React.Component {
       cancelButtonDiv = <div></div>;
     }
     // temp beneath
-    // debugger
     let createReviewButton = (
       <li
         className="create-review-li"
@@ -89,7 +88,6 @@ class BookingShow extends React.Component {
       </li>
     );
     // let createReviewButton;
-    // // debugger;
     // if (
     //   booking.guest_id === this.props.session &&
     //   new Date(booking.end_date) < today

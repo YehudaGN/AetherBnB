@@ -18,7 +18,6 @@ class Header extends React.Component {
 
   componentDidMount() {
     if (this.props.currentUser) {
-      // debugger
       this.props.fetchUser(this.props.currentUser)};
     document.addEventListener("mousedown", this.handleClickOutside);
     document.addEventListener("scroll", () => {
@@ -70,16 +69,13 @@ class Header extends React.Component {
     this.setState({ city: "" });
   }
   render() {
-    // debugger
     if (this.props.currentUser && !this.props.user) return null;
 
     let profilePic;
     if (this.props.currentUser && this.props.user.photo) {
       profilePic = this.props.user.photo
     } else {
-      // debugger
       profilePic = window.user_icon
-      //  <AccountCircleIcon style={{ fontSize: 30 }} />
     }
     return (
       <div className="bdd">
