@@ -24,7 +24,6 @@ class UserShow extends React.Component {
     let selectedListings = this.props.listings.filter(
       listing => listing.host_id === this.props.user.id
     );
-
     let mappedSelectedListings = selectedListings.map(listing => {
       return (
         <li className="listing-blurb">
@@ -69,12 +68,19 @@ class UserShow extends React.Component {
         <UserReviewItem review={review} />
       ));
     }
-
+    let profilePic;
+    if (this.props.user.photo) {
+      profilePic = this.props.user.photo
+    } else {
+      profilePic = window.user_icon
+    }
     return (
       <div className="user-show-container">
         <div className="user-info-container">
           <div className="profile-picture-div">
-            <img className="user-icon" src={window.user_icon} alt="" />
+            <img 
+              className="user-icon" 
+              src={profilePic} alt="" />
             <br />
             <Link className="update-photo-link" to={`/user/${this.props.user.id}/edit-photo`}>
               Update Photo

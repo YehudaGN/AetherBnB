@@ -13,9 +13,10 @@ class Api::UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
+        # @user.photo.attach(io: File.open('app/assets/images/user-icon.png'), filename: 'user-icon.png' )
         if @user.save
             login!(@user)
-            render 'api/users/show' # just sends up to frontend? dont actually need to render the users show in front end i think
+            render 'api/users/show'
         else
             render json: @user.errors.full_messages, status: 422
         end
@@ -23,12 +24,9 @@ class Api::UsersController < ApplicationController
 
     def update
         @user = User.find_by(id: params[:id])
-        debugger # trying to figure out add photo to user
-        if @user && @user.update(user_update_params) # <--- is this wrong
-            debugger
+        if @user && @user.update(user_params) 
             render '/api/users/show'
         else
-            debugger
             render json: @user.errors.full_messages
         end
     end
@@ -40,7 +38,7 @@ class Api::UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:email, :fname, :lname, :password, :bio)
+        params.require(:user).permit(:email, :fname, :lname, :password, :bio, :photo)
     end
 
     def user_update_params
