@@ -151,10 +151,6 @@
   gap: 5px;
 }
 
-.booking-form-reviews-rating {
-  
-}
-
 .booking-form-reviews-num-reviews {
   color: rgb(78, 78, 78);
 }
@@ -198,7 +194,7 @@
   display: grid;
   grid-template-columns: 41% 41%;
   grid-template-rows: repeat(3, 1fr);
-  column-gap: 100px;
+  column-gap: 18%;
   row-gap: 10px;
 }
 
@@ -239,9 +235,14 @@
 }
 
 .listing-reviews-container {
-  margin-top: 50px;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
+}
+
+.listing-review-item-container {
+  width: 42%;
+  margin-top: 50px;
 }
 
 #listing-map-container {

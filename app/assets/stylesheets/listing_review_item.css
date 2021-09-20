@@ -1,19 +1,43 @@
 .listing-review-container {
-
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
 }
 
 .listing-reviewer-container {
+    display: flex;
+    justify-items: flex-start;
+    gap: 10px;
+    align-items: center;
+}
 
+.listing-review-listing-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.reviewer-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .listing-reviewer-name {
-
+    text-align: left;
+    font-size: 17px;
+    font-weight: 600;
 }
 
 .listing-review-created-at {
-
+    color: rgb(102, 102, 102);
 }
 
 .review-body-container {
+    display: flex;
+    margin-top: 13px;
+}
 
+.review-body-info {
+   color: rgb(53, 53, 53);
 }

@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import { fetchUser, updateUser } from '../../actions/user_actions';
 import EditUserPhoto from './update_user_photo'
 const mSTP = (state, ownProps) => {
-    // debugger
     return{
     user: state.entities.users[ownProps.match.params.userId]
 }}

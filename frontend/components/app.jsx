@@ -17,14 +17,9 @@ const App = () => (
     <Modal />
     <Route exact path="/listings" component={ListingIndexContainer} />
     <Route exact path="/listings/:city" component={ListingIndexContainer} />
-    {/* <Route exact path="/listings/state/:state" component={ListingIndexContainer} /> */}
-    {/* this needs working on ^ */}
     <Route path="/listing/show/:listingId" component={ListingShowContainer} />
     <ProtectedRoute path='/trips' component={BookingIndexContainer} />
-    <ProtectedRoute
-      path="/listing/:listingId/booking/:bookingId"
-      component={BookingShowContainer}
-    />
+    <ProtectedRoute path="/listing/:listingId/booking/:bookingId" component={BookingShowContainer}/>
     <ProtectedRoute path="/new/listing" component={CreateListingContainer} />
     <ProtectedRoute path="/users/show/:userId" component={UserShowContainer} />
     <ProtectedRoute path="/user/:userId/edit-photo" component={UpdateUserPhotoContainer} />
