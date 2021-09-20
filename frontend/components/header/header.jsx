@@ -17,6 +17,7 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
+    if (this.props.currentUser) {this.props.fetchUser(this.props.currentUser)};
     document.addEventListener("mousedown", this.handleClickOutside);
     document.addEventListener("scroll", () => {
       if (window.scrollY > 1) {
@@ -66,8 +67,16 @@ class Header extends React.Component {
     this.props.history.push(`/listings/${this.state.city}`);
     this.setState({ city: "" });
   }
-
   render() {
+    if (this.props.currentUser && !this.props.user) return null;
+
+    let profilePic;
+    if (this.props.currentUser && this.props.user.photo) {
+      profilePic = <img className='header-profile-pic' src={this.props.user.photo} alt="" />
+    } else {
+      profilePic = <img className='header-profile-pic' src={window.user_icon} alt="" />
+      //  <AccountCircleIcon style={{ fontSize: 30 }} />
+    }
     return (
       <div className="bdd">
         <div className={this.state.scrollClass}>
@@ -98,8 +107,8 @@ class Header extends React.Component {
             </div>
             <div className="menu-container" ref={this.menuContainer}>
               <button className="menu-button" onClick={this.handleClick}>
-                <MenuIcon style={{ fontSize: 30 }} />
-                <AccountCircleIcon style={{ fontSize: 30 }} />
+                <MenuIcon className='header-menu-icon' style={{ fontSize: 20 }} />
+                {profilePic}
               </button>
               {this.state.open && (
                 <div className="dropdown">

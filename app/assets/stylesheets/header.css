@@ -121,8 +121,21 @@
   font-size: 20px;
   border-radius: 50px;
   background: white;
-  padding-top: 5px;
   border: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.header-menu-icon {
+  margin-left: 3px;
+}
+
+.header-profile-pic {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
 
 .dropdown {
