@@ -1,0 +1,40 @@
+.user-review-container {
+    display: flex;
+    gap: 10px;
+}
+
+.user-review-listing-photo-container {
+    margin-left: 20px;
+}
+
+.user-review-listing-photo {
+    height: 43px;
+    width: 43px;
+    border-radius: 50%;
+}
+
+.user-review-info-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-review-listing-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: rgb(58, 58, 58);
+}
+
+.user-review-body-container {
+    margin-top: 15px;
+}
+
+.user-review-body {
+    color: rgb(66, 66, 66);
+}
+.user-review-created-at-container {
+    margin-top: 15px;
+}
+
+.user-review-created-at {
+    color: rgb(114, 114, 114);
+}

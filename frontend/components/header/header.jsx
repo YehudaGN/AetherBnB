@@ -17,7 +17,9 @@ class Header extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.currentUser) {this.props.fetchUser(this.props.currentUser)};
+    if (this.props.currentUser) {
+      // debugger
+      this.props.fetchUser(this.props.currentUser)};
     document.addEventListener("mousedown", this.handleClickOutside);
     document.addEventListener("scroll", () => {
       if (window.scrollY > 1) {
@@ -68,13 +70,15 @@ class Header extends React.Component {
     this.setState({ city: "" });
   }
   render() {
+    // debugger
     if (this.props.currentUser && !this.props.user) return null;
 
     let profilePic;
     if (this.props.currentUser && this.props.user.photo) {
-      profilePic = <img className='header-profile-pic' src={this.props.user.photo} alt="" />
+      profilePic = this.props.user.photo
     } else {
-      profilePic = <img className='header-profile-pic' src={window.user_icon} alt="" />
+      // debugger
+      profilePic = window.user_icon
       //  <AccountCircleIcon style={{ fontSize: 30 }} />
     }
     return (
@@ -108,7 +112,7 @@ class Header extends React.Component {
             <div className="menu-container" ref={this.menuContainer}>
               <button className="menu-button" onClick={this.handleClick}>
                 <MenuIcon className='header-menu-icon' style={{ fontSize: 20 }} />
-                {profilePic}
+                <img className='header-profile-pic' src={profilePic} alt="" />
               </button>
               {this.state.open && (
                 <div className="dropdown">

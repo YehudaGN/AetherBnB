@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Footer from "../footer/footer";
 import UserReviewItem from "./user_review_item";
+
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -65,24 +67,27 @@ class UserShow extends React.Component {
       this.props.user.user_reviews
     ) {
       userReviews = this.props.user.user_reviews.map(review => (
-        <UserReviewItem review={review} />
+        <div className="user-review-item-container">
+          <UserReviewItem review={review} />
+        </div>
       ));
     }
     let profilePic;
     if (this.props.user.photo) {
-      profilePic = this.props.user.photo
+      profilePic = this.props.user.photo;
     } else {
-      profilePic = window.user_icon
+      profilePic = window.user_icon;
     }
     return (
       <div className="user-show-container">
         <div className="user-info-container">
           <div className="profile-picture-div">
-            <img 
-              className="user-icon" 
-              src={profilePic} alt="" />
+            <img className="user-icon" src={profilePic} alt="" />
             <br />
-            <Link className="update-photo-link" to={`/user/${this.props.user.id}/edit-photo`}>
+            <Link
+              className="update-photo-link"
+              to={`/user/${this.props.user.id}/edit-photo`}
+            >
               Update Photo
             </Link>
           </div>
@@ -123,14 +128,15 @@ class UserShow extends React.Component {
 
           {parseInt(this.props.match.params.userId) ===
           this.props.currentUserId ? (
-            <div className="reviews-container">
-              <h4>Reviews by you</h4>
-              <div>{userReviews}</div>
+            <div className="user-reviews-container">
+              <h4 className="reviews-by-you-h4">Reviews by you</h4>
+              <div className="user-reviews">{userReviews}</div>
             </div>
           ) : (
             <div></div>
           )}
         </div>
+        <Footer />
       </div>
     );
   }

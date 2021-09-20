@@ -1,111 +1,138 @@
 .user-show-container {
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
 }
 
 .user-info-container {
-    display: flex;
-    /* justify-content: center; */
-    left: 5vw;
-    padding-left: 24%;
-    margin-top: 3%;
+  display: flex;
+  /* justify-content: center; */
+  left: 5vw;
+  padding-left: 24%;
+  margin-top: 3%;
 }
 
 .profile-picture-div {
-    display: flex;
-    flex-direction: column;
-    width: 308px;
-    height: 40vh;
-    border: 1px solid lightgray;
-    border-radius: 12px;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 308px;
+  height: 40vh;
+  border: 1px solid lightgray;
+  border-radius: 12px;
+  align-items: center;
 }
 
 .account-circle-icon {
-    margin-top: 5%;
-    color: rgb(109, 109, 109);
-    background-color: blue;
-    /* align-self: center; */
+  margin-top: 5%;
+  color: rgb(109, 109, 109);
+  background-color: blue;
+  /* align-self: center; */
 }
 
 .user-icon {
-    margin-top: 10%;
-    border-radius: 50%;
-    width: 40%;
+  margin-top: 10%;
+  border-radius: 50%;
+  width: 45%;
+  height: 35%;
 }
 
 .update-photo-link {
-    text-decoration: underline;
-    color: rgb(27, 27, 27);
+  text-decoration: underline;
+  color: rgb(27, 27, 27);
 }
 
 .user-welcome-plus-info-container {
-    display: flex;
-    flex-direction: column;
-    margin-left: 5%;
-    font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+  font-weight: bold;
 }
 
 .user-welcome {
-    font-size: 2em;
+  font-size: 2em;
 }
 
 .joined-at {
-    font-size: 14px;
-    color: #717171;
-    font-weight: 500;
+  font-size: 14px;
+  color: #717171;
+  font-weight: 500;
 }
 
 .edit-user {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .user-info {
-
 }
 
 .about-h3 {
-    font-size: 1.4em;
-    font-weight: 500;
+  font-size: 1.4em;
+  font-weight: 500;
 }
 
 .bio {
-    font-weight: 300;
-    color:#222222;
+  font-weight: 300;
+  color: #222222;
 }
 
 .listings-bookings-reviews-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .listings-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .create-listing-li {
-    text-align: center;
-    width: 180px;
-    background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
-    border-radius: 10px;
-    color: white;
-    font-size: 15px;
-    margin-top: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    cursor: pointer;
+  text-align: center;
+  width: 180px;
+  background: linear-gradient(
+    to right,
+    rgb(230, 30, 77) 0%,
+    rgb(227, 28, 95) 50%,
+    rgb(215, 4, 102) 100%
+  );
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  margin-top: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
 }
 
 .create-listing-li:hover {
-    box-shadow: 0 5px 8px 0 rgba(253, 1, 139, 0.24), 0 5px 10px 0 rgba(255, 1, 107, 0.19);
+  box-shadow: 0 5px 8px 0 rgba(253, 1, 139, 0.24),
+    0 5px 10px 0 rgba(255, 1, 107, 0.19);
 }
 
 .listings-h4 {
-    font-size: 2.5em;
-    text-align: center;
+  font-size: 2.5em;
+  text-align: center;
 }
 
+.user-reviews-container {
+  width: 50%;
+}
+
+.reviews-by-you-h4 {
+  font-size: 32px;
+  font-weight: 700;
+  color: rgb(58, 58, 58);
+}
+
+.user-reviews {
+  margin-top: 50px;
+  border: 1px solid lightgray;
+  width: 100%;
+}
+
+.user-review-item-container {
+    margin-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid lightgray;
+}
