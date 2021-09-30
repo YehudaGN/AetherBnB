@@ -117,124 +117,124 @@ class ListingShow extends React.Component {
     return (
       <>
         <div className="flex-container-listing-show">
-          <div className="listing-show-map-container">
-            <div className="listing-show-container">
-              <div className="listing-show">
-                <div className="listing-title-container">
-                  <h4 className="listing-title">{this.props.listing.title}</h4>
-                </div>
+          <div className="listing-show-container">
+            <div className="listing-show">
+              <div className="listing-title-container">
+                <h4 className="listing-title">{this.props.listing.title}</h4>
+              </div>
 
-                <br />
-                <div className="reviews-address-beds-container">
-                  <ul className="reviews-address-beds-ul">
-                    <li className="reviews-point">
-                      <StarIcon
-                        className="star-icon"
-                        style={{ fontSize: 20 }}
-                      />
-                      Reviews
-                    </li>
-                    <li className="address-point">
-                      <RoomIcon
-                        className="room-icon"
-                        style={{ fontSize: 20 }}
-                      />
-                      {this.props.listing.city}, {this.props.listing.state}
-                    </li>
-                    <br />
-                    <li className="guest-amount-point">
-                      <HomeIcon
-                        className="home-icon"
-                        style={{ fontSize: 20 }}
-                      />{" "}
-                      {this.props.listing.num_beds} guests
-                    </li>
-                  </ul>
-                </div>
-                <br />
-                <div className="photos-container">{photos}</div>
-                <br />
-                <div className="host-info-booking-form-flex">
-                  <div className="host-info-booking-form-container">
-                    <div className="host-info-listing-desc-container">
-                      <Link
-                        to={`/users/show/${host.id}`}
-                        className="host-pic-plus-meet-host"
-                      >
-                        <div className="host-pic-container">
-                          <img
-                            className="host-pic"
-                            src={hostProfilePic}
-                            alt=""
-                          />
-                        </div>
-                        <div className="meet-host-container">
-                          <h3 className="host-info-h3">
-                            Meet your Host, {host.fname} {host.lname}
-                          </h3>
-                          <br />
-                          <p className="host-info-created-at">
-                            Hosting since {host.created_at.slice(0, 4)}
-                          </p>
-                        </div>
-                      </Link>
-
-                      <br />
-                      <div className="listing-description-container">
-                        <h3 className="description-h3">
-                          All about {host.fname}'s place
+              <br />
+              <div className="reviews-address-beds-container">
+                <ul className="reviews-address-beds-ul">
+                  <li className="reviews-point">
+                    <StarIcon className="star-icon" style={{ fontSize: 20 }} />
+                    <span>{reviewRating}</span>
+                    <span className="listing-show-reviews-num-reviews">
+                      ({numReviews} reviews)
+                    </span>
+                  </li>
+                  <li className="address-point">
+                    <RoomIcon className="room-icon" style={{ fontSize: 20 }} />
+                    {this.props.listing.city}, {this.props.listing.state}
+                  </li>
+                  <br />
+                  <li className="guest-amount-point">
+                    <HomeIcon className="home-icon" style={{ fontSize: 20 }} />{" "}
+                    {this.props.listing.num_beds} guests
+                  </li>
+                </ul>
+              </div>
+              <br />
+              <div className="photos-container">{photos}</div>
+              <br />
+              <div className="host-info-booking-form-flex">
+                <div className="host-info-booking-form-container">
+                  <div className="host-info-listing-desc-container">
+                    <Link
+                      to={`/users/show/${host.id}`}
+                      className="host-pic-plus-meet-host"
+                    >
+                      <div className="host-pic-container">
+                        <img className="host-pic" src={hostProfilePic} alt="" />
+                      </div>
+                      <div className="meet-host-container">
+                        <h3 className="host-info-h3">
+                          Meet your Host, {host.fname} {host.lname}
                         </h3>
                         <br />
-                        <p className="listing-description">
-                          {this.props.listing.description}
+                        <p className="host-info-created-at">
+                          Hosting since {host.created_at.slice(0, 4)}
                         </p>
                       </div>
+                    </Link>
+
+                    <br />
+                    <div className="listing-description-container">
+                      <h3 className="description-h3">
+                        All about {host.fname}'s place
+                      </h3>
+                      <br />
+                      <p className="listing-description">
+                        {this.props.listing.description}
+                      </p>
                     </div>
-                    <div className="booking-form-container">
-                      <div className="booking-form-top">
-                        <div className="booking-price-container">
-                          <li className="booking-price">
-                            ${this.props.listing.price}
-                          </li>
-                          <li className="night">/night</li>
-                        </div>
-                        <div className="booking-form-reviews-container">
-                          <StarIcon
-                            className="booking-form-star-icon"
-                            style={{ fontSize: 18 }}
-                          />{" "}
-                          <div className="booking-form-reviews">
+                  </div>
+                  <div className="booking-form-container">
+                    <div className="booking-form-top">
+                      <div className="booking-price-container">
+                        <li className="booking-price">
+                          ${this.props.listing.price}
+                        </li>
+                        <li className="night">/night</li>
+                      </div>
+                      <div className="booking-form-reviews-container">
+                        <StarIcon
+                          className="booking-form-star-icon"
+                          style={{ fontSize: 18 }}
+                        />{" "}
+                        <div className="booking-form-reviews">
+                          {reviewRating === "NaN" ? (
+                            ""
+                          ) : (
                             <span className="booking-form-reviews-rating">
                               {reviewRating}
                             </span>
-                            <span className="booking-form-reviews-num-reviews">
-                              ({numReviews} reviews)
-                            </span>
-                          </div>
+                          )}
+                          <span className="booking-form-reviews-num-reviews">
+                            ({numReviews} reviews)
+                          </span>
                         </div>
                       </div>
-                      <CreateBookingContainer
-                        bookedDates={this.props.listing.bookings}
-                      />
                     </div>
-                    <br />
-                  </div>
-                </div>
-                <br />
-                <div className="reviews-section-container">
-                  <div className="listing-reviews-header-container">
-                    <StarIcon
-                      className="listing-reviews-header-star-icon"
-                      style={{ fontSize: 20 }}
+                    <CreateBookingContainer
+                      bookedDates={this.props.listing.bookings}
                     />
-                    <h4 className="listing-reviews-rating-h4">
-                      <span>{reviewRating}</span>
-                      <span className="reviews-rating-num-separator">·</span>
-                      <span>{numReviews}</span>
-                      <span>reviews</span>
-                    </h4>
                   </div>
+                  <br />
+                </div>
+              </div>
+              <br />
+              <div className="reviews-section-container">
+                <div className="listing-reviews-header-container">
+                  <StarIcon
+                    className="listing-reviews-header-star-icon"
+                    style={{ fontSize: 20 }}
+                  />
+                  <h4 className="listing-reviews-rating-h4">
+                    {reviewRating === "NaN" ? "" : <span>{reviewRating}</span>}
+                    {reviewRating === "NaN" ? (
+                      ""
+                    ) : (
+                      <span className="reviews-rating-num-separator">·</span>
+                    )}
+                    <span>{numReviews}</span>
+                    <span>reviews</span>
+                  </h4>
+                </div>
 
+                {reviewRating === "NaN" ? (
+                  ""
+                ) : (
                   <div className="individual-ratings-grid">
                     <div className="individual-rating-container">
                       <span className="individual-rating-text">
@@ -335,14 +335,15 @@ class ListingShow extends React.Component {
                       </div>
                     </div>
                   </div>
+                )}
 
-                  <div className="listing-reviews-container">
-                    {listingReviews}
-                  </div>
+                <div className="listing-reviews-container">
+                  {listingReviews}
                 </div>
-                <br />
-                <div id="listing-map-container"></div>
-                <br />
+              </div>
+              <br />
+              <div id="listing-map-container"></div>
+              <div className="delete-listing-button-container">
                 {deleteButton}
               </div>
             </div>

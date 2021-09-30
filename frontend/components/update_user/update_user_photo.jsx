@@ -16,35 +16,47 @@ class EditUserPhoto extends React.Component {
     formData.append("user[photo]", this.state.photo);
 
     $.ajax({
-        url: `/api/users/${this.props.user.id}`,
-        method: 'PATCH',
-        data: formData,
-        contentType: false,
-        processData: false
-      });
+      url: `/api/users/${this.props.user.id}`,
+      method: "PATCH",
+      data: formData,
+      contentType: false,
+      processData: false,
+    });
   }
 
   render() {
     if (!this.props.user) return null;
     return (
-      <div className="update-user-container">
-        <form onSubmit={e => this.handleSubmit(e)}>
-          <label htmlFor="file-input-listing">
-            <div className="input-label-listing">
-              <BackupIcon />
-              <p>Upload Photos</p>
+      <div className="update-user-photo-flex-container">
+        <div className="update-user-photo-container">
+          <div className="profile-photos-header-container">
+            <h3 className="profile-photos-header-h3">Profile photos</h3>
+          </div>
+          <div className="profile-photo-form-container">
+            <div className="profile-photo-form-header-container">
+              <h5 className="profile-photo-form-header-h5">Profile Photo</h5>
             </div>
-          </label>
-          <input
-            id="file-input-listing"
-            type="file"
-            onChange={e => {
-              this.setState({ photo: e.currentTarget.files[0] });
-            }}
-            multiple
-          />
-          <button>Submit</button>
-        </form>
+            <form  className='update-profile-photo-form' onSubmit={e => this.handleSubmit(e)}>
+              <div className="upload-photo-input-container">
+                <label htmlFor="file-input-listing">
+                  <div className="input-label-listing">
+                    <BackupIcon />
+                    <p>Upload a file from your computer</p>
+                  </div>
+                </label>
+                <input
+                  id="file-input-listing"
+                  type="file"
+                  onChange={e => {
+                    this.setState({ photo: e.currentTarget.files[0] });
+                  }}
+                  multiple
+                />
+              </div>
+              <button className='update-profile-pic-button'>Update Profile Picture</button>
+            </form>
+          </div>
+        </div>
       </div>
     );
   }
