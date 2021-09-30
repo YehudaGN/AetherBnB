@@ -7,6 +7,7 @@ class EditUserPhoto extends React.Component {
   }
 
   handleSubmit(e) {
+    // debugger
     e.preventDefault();
     const formData = new FormData();
     formData.append("user[email]", this.props.user.email);
@@ -21,7 +22,7 @@ class EditUserPhoto extends React.Component {
       data: formData,
       contentType: false,
       processData: false,
-    });
+    }).then(()=> this.props.history.push(`/users/show/${this.props.match.params.userId}`));
   }
 
   render() {
