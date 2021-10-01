@@ -63,7 +63,7 @@ class ListingShow extends React.Component {
     } else {
       hostProfilePic = window.user_icon;
     }
-
+// change to photo 0 big, 1 - 3 smaller |
     let photos = this.props.listing.photos.map(photo => (
       <img src={photo} height="300" />
     ));

@@ -12,7 +12,7 @@ demo_user = User.create!(
     password: "demouser",
     bio: "I'm a demo user!"
 )
-demo_user.photos.attach(io: File.open('app/assets/images/night-sky.png'), filename: 'night-sky.png' )
+demo_user.photo.attach(io: File.open('app/assets/images/night-sky.png'), filename: 'night-sky.png' )
 
 10.times do |i|
     user = User.create! ({
@@ -22,10 +22,73 @@ demo_user.photos.attach(io: File.open('app/assets/images/night-sky.png'), filena
         password: "password",
         bio: Faker::Quote.most_interesting_man_in_the_world
     })
-    user.photos.attach(io: File.open('app/assets/images/night-sky.png'), filename: 'night-sky.png' )
+    user.photo.attach(io: File.open('app/assets/images/night-sky.png'), filename: 'night-sky.png' )
 end
 
-20.times do |i|
+# 20.times do |i|
+#     listing = Listing.create! ({
+#         host_id: Faker::Number.within(range: 1..11),
+#         title: Faker::Book.title,
+#         description: Faker::Quote.famous_last_words,
+#         address: Faker::Address.street_address,
+#         city: Faker::Address.city,
+#         state: Faker::Address.state,
+#         zip_code: Faker::Address.zip_code,
+#         num_beds: Faker::Number.within(range: 1..10),
+#         longitude: Faker::Address.longitude,
+#         latitude: Faker::Address.latitude,
+#         price: Faker::Number.within(range: 100..2000)
+#     })
+#     listing.photos.attach(io: File.open('app/assets/images/sunset.jpg'), filename: 'sunset.jpg' )
+# end
+exteriors = [
+    ['app/assets/images/exteriors/vu-anh-TiVPTYCG_3E-unsplash.jpg', 'vu-anh-TiVPTYCG_3E-unsplash.jpg'],
+    ['app/assets/images/exteriors/todd-kent-178j8tJrNlc-unsplash.jpg', 'todd-kent-178j8tJrNlc-unsplash.jpg'],
+    ['app/assets/images/exteriors/stephan-bechert-yFV39g6AZ5o-unsplash.jpg', 'stephan-bechert-yFV39g6AZ5o-unsplash.jpg'],
+    ['app/assets/images/exteriors/sieuwert-otterloo-aren8nutd1Q-unsplash.jpg', 'sieuwert-otterloo-aren8nutd1Q-unsplash.jpg'],
+    ['app/assets/images/exteriors/ricardo-gomez-angel-YwVBpx4Wbag-unsplash.jpg', 'ricardo-gomez-angel-YwVBpx4Wbag-unsplash.jpg'],
+    ['app/assets/images/exteriors/rendy-novantino-btfixf2BbS0-unsplash.jpg', 'rendy-novantino-btfixf2BbS0-unsplash.jpg'],
+    ['app/assets/images/exteriors/r-architecture-2gDwlIim3Uw-unsplash.jpg', 'r-architecture-2gDwlIim3Uw-unsplash.jpg'],
+    ['app/assets/images/exteriors/ralph-ravi-kayden-mR1CIDduGLc-unsplash.jpg', 'ralph-ravi-kayden-mR1CIDduGLc-unsplash.jpg'],
+    ['app/assets/images/exteriors/ralph-kelly-z9fFOzL5L_Y-unsplash.jpg', 'ralph-kelly-z9fFOzL5L_Y-unsplash.jpg'],
+    ['app/assets/images/exteriors/naomi-ellsworth-EMPLSuvDuhQ-unsplash.jpg', 'naomi-ellsworth-EMPLSuvDuhQ-unsplash.jpg'],
+    ['app/assets/images/exteriors/ksenia-balandina-RCF5KSWb7Ms-unsplash.jpg', 'ksenia-balandina-RCF5KSWb7Ms-unsplash.jpg'],
+    ['app/assets/images/exteriors/john-fornander-tVzyDSV84w8-unsplash.jpg', 'john-fornander-tVzyDSV84w8-unsplash.jpg'],
+    ['app/assets/images/exteriors/john-fornander-Id7u0EkTjBE-unsplash.jpg', 'john-fornander-Id7u0EkTjBE-unsplash.jpg'],
+    ['app/assets/images/exteriors/gus-ruballo-h5QNclJUiA8-unsplash.jpg', 'gus-ruballo-h5QNclJUiA8-unsplash.jpg'],
+    ['app/assets/images/exteriors/greg-rivers-rChFUMwAe7E-unsplash.jpg', 'greg-rivers-rChFUMwAe7E-unsplash.jpg'],
+    ['app/assets/images/exteriors/florian-schmidinger-b_79nOqf95I-unsplash.jpg', 'florian-schmidinger-b_79nOqf95I-unsplash.jpg'],
+    ['app/assets/images/exteriors/dillon-kydd-XGvwt544g8k-unsplash.jpg', 'dillon-kydd-XGvwt544g8k-unsplash.jpg'],
+    ['app/assets/images/exteriors/bailey-anselme-Bkp3gLygyeA-unsplash.jpg', 'bailey-anselme-Bkp3gLygyeA-unsplash.jpg'],
+    ['app/assets/images/exteriors/avi-werde-hHz4yrvxwlA-unsplash.jpg', 'avi-werde-hHz4yrvxwlA-unsplash.jpg'],
+    ['app/assets/images/exteriors/ann-wallace-biepNX5n7r4-unsplash.jpg', 'ann-wallace-biepNX5n7r4-unsplash.jpg']
+]
+
+interiors = [
+    ['app/assets/images/interiors/aaron-huber-oMOx_wV6mLQ-unsplash.jpg', 'aaron-huber-oMOx_wV6mLQ-unsplash.jpg'],
+    ['app/assets/images/interiors/behzad-ghaffarian-nhWgZNV85LQ-unsplash.jpg', 'behzad-ghaffarian-nhWgZNV85LQ-unsplash.jpg'],
+    ['app/assets/images/interiors/collov-home-design-4_jQL4JCS98-unsplash.jpg', 'collov-home-design-4_jQL4JCS98-unsplash.jpg'],
+    ['app/assets/images/interiors/daniel-chen-SoNaNOFT974-unsplash.jpg', 'daniel-chen-SoNaNOFT974-unsplash.jpg'],
+    ['app/assets/images/interiors/daniil-silantev-sN4u56baSB0-unsplash.jpg', 'daniil-silantev-sN4u56baSB0-unsplash.jpg'],
+    ['app/assets/images/interiors/jorge-de-jorge-NvqYkDPE0Rw-unsplash.jpg', 'jorge-de-jorge-NvqYkDPE0Rw-unsplash.jpg'],
+    ['app/assets/images/interiors/kam-idris-_HqHX3LBN18-unsplash.jpg', 'kam-idris-_HqHX3LBN18-unsplash.jpg'],
+    ['app/assets/images/interiors/kam-idris-kyt0PkBSCNQ-unsplash.jpg', 'kam-idris-kyt0PkBSCNQ-unsplash.jpg'],
+    ['app/assets/images/interiors/kara-eads-L7EwHkq1B2s-unsplash.jpg', 'kara-eads-L7EwHkq1B2s-unsplash.jpg'],
+    ['app/assets/images/interiors/katja-bayer-77JACslA8G0-unsplash.jpg', 'katja-bayer-77JACslA8G0-unsplash.jpg'],
+    ['app/assets/images/interiors/nastuh-abootalebi-JdcJn85xD2k-unsplash.jpg', 'nastuh-abootalebi-JdcJn85xD2k-unsplash.jpg'],
+    ['app/assets/images/interiors/neonbrand-Wp7t4cWN-68-unsplash.jpg', 'neonbrand-Wp7t4cWN-68-unsplash.jpg'],
+    ['app/assets/images/interiors/prudence-earl-NwBx723XaHw-unsplash.jpg', 'prudence-earl-NwBx723XaHw-unsplash.jpg'],
+    ['app/assets/images/interiors/r-architecture-TRCJ-87Yoh0-unsplash.jpg', 'r-architecture-TRCJ-87Yoh0-unsplash.jpg'],
+    ['app/assets/images/interiors/r-architecture-wDDfbanbhl8-unsplash.jpg', 'r-architecture-wDDfbanbhl8-unsplash.jpg'],
+    ['app/assets/images/interiors/roberto-nickson-emqnSQwQQDo-unsplash.jpg', 'roberto-nickson-emqnSQwQQDo-unsplash.jpg'],
+    ['app/assets/images/interiors/roberto-nickson-tleCJiDOri0-unsplash.jpg', 'roberto-nickson-tleCJiDOri0-unsplash.jpg'],
+    ['app/assets/images/interiors/steven-ungermann-vvah86ql8iM-unsplash.jpg', 'steven-ungermann-vvah86ql8iM-unsplash.jpg'],
+    ['app/assets/images/interiors/vinicius-amnx-amano-17NCG_wOkMY-unsplash.jpg', 'vinicius-amnx-amano-17NCG_wOkMY-unsplash.jpg']
+]
+
+i = 0
+
+20.times do
     listing = Listing.create! ({
         host_id: Faker::Number.within(range: 1..11),
         title: Faker::Book.title,
@@ -39,7 +102,16 @@ end
         latitude: Faker::Address.latitude,
         price: Faker::Number.within(range: 100..2000)
     })
-    listing.photos.attach(io: File.open('app/assets/images/sunset.jpg'), filename: 'sunset.jpg' )
+    
+    rand_num_1 = rand(19)
+    rand_num_2 = rand(19)
+    rand_num_3 = rand(19)
+    listing.photos.attach(io: File.open(exteriors[i][0]), filename: exteriors[i][1] )
+    listing.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+    listing.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+    listing.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+    
+    i += 1
 end
 
 listingNewYork = Listing.create! ({
