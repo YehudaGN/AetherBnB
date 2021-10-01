@@ -63,10 +63,43 @@ class ListingShow extends React.Component {
     } else {
       hostProfilePic = window.user_icon;
     }
-// change to photo 0 big, 1 - 3 smaller |
-    let photos = this.props.listing.photos.map(photo => (
-      <img src={photo} height="300" />
-    ));
+    // change to photo 0 big, 1 - 3 smaller |
+    // let photos = this.props.listing.photos.map(photo => (
+    //   <img src={photo} height="300" />
+    // ));
+
+    let photos = (
+      <div className="photos-container">
+        <div className="main-photo-container">
+          <img
+            className="main-photo"
+            src={this.props.listing.photos[0]}
+            height="500"
+            width="600"
+          />
+        </div>
+        <div className="secondary-photos-container">
+          <div className="secondary-photos-top-container">
+            <img src={this.props.listing.photos[1]} height="245" width="250" />
+            <img
+              className="secondary-photo-top"
+              src={this.props.listing.photos[2]}
+              height="245"
+              width="250"
+            />
+          </div>
+          <div className="secondary-photos-bottom-container">
+            <img src={this.props.listing.photos[3]} height="245" width="250" />
+            <img
+              className="secondary-photo-bottom"
+              src={this.props.listing.photos[4]}
+              height="245"
+              width="250"
+            />
+          </div>
+        </div>
+      </div>
+    );
 
     let ratingSum = 0.0;
     let cleanlinessSum = 0.0;
@@ -122,8 +155,6 @@ class ListingShow extends React.Component {
               <div className="listing-title-container">
                 <h4 className="listing-title">{this.props.listing.title}</h4>
               </div>
-
-              <br />
               <div className="reviews-address-beds-container">
                 <ul className="reviews-address-beds-ul">
                   <li className="reviews-point">
@@ -137,16 +168,16 @@ class ListingShow extends React.Component {
                     <RoomIcon className="room-icon" style={{ fontSize: 20 }} />
                     {this.props.listing.city}, {this.props.listing.state}
                   </li>
-                  <br />
+                  
                   <li className="guest-amount-point">
                     <HomeIcon className="home-icon" style={{ fontSize: 20 }} />{" "}
                     {this.props.listing.num_beds} guests
                   </li>
                 </ul>
               </div>
-              <br />
-              <div className="photos-container">{photos}</div>
-              <br />
+              
+              <div className="listing-photos-section">{photos}</div>
+              
               <div className="host-info-booking-form-flex">
                 <div className="host-info-booking-form-container">
                   <div className="host-info-listing-desc-container">
@@ -154,26 +185,26 @@ class ListingShow extends React.Component {
                       to={`/users/show/${host.id}`}
                       className="host-pic-plus-meet-host"
                     >
-                      <div className="host-pic-container">
-                        <img className="host-pic" src={hostProfilePic} alt="" />
-                      </div>
                       <div className="meet-host-container">
                         <h3 className="host-info-h3">
                           Meet your Host, {host.fname} {host.lname}
                         </h3>
-                        <br />
+                        
                         <p className="host-info-created-at">
                           Hosting since {host.created_at.slice(0, 4)}
                         </p>
                       </div>
+                      <div className="host-pic-container">
+                        <img className="host-pic" src={hostProfilePic} alt="" />
+                      </div>
                     </Link>
 
-                    <br />
+                    
                     <div className="listing-description-container">
                       <h3 className="description-h3">
                         All about {host.fname}'s place
                       </h3>
-                      <br />
+                      
                       <p className="listing-description">
                         {this.props.listing.description}
                       </p>
@@ -210,10 +241,10 @@ class ListingShow extends React.Component {
                       bookedDates={this.props.listing.bookings}
                     />
                   </div>
-                  <br />
+                  
                 </div>
               </div>
-              <br />
+              
               <div className="reviews-section-container">
                 <div className="listing-reviews-header-container">
                   <StarIcon
@@ -341,7 +372,7 @@ class ListingShow extends React.Component {
                   {listingReviews}
                 </div>
               </div>
-              <br />
+              
               <div id="listing-map-container"></div>
               <div className="delete-listing-button-container">
                 {deleteButton}

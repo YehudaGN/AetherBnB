@@ -106,10 +106,12 @@ i = 0
     rand_num_1 = rand(19)
     rand_num_2 = rand(19)
     rand_num_3 = rand(19)
+    rand_num_4 = rand(19)
     listing.photos.attach(io: File.open(exteriors[i][0]), filename: exteriors[i][1] )
     listing.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
     listing.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
     listing.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+    listing.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
     
     i += 1
 end
