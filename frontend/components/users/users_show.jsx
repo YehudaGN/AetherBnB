@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../footer/footer";
+import UsersListings from "./users_listings";
 import UserReviewItem from "./user_review_item";
-
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -23,30 +23,7 @@ class UserShow extends React.Component {
 
   render() {
     if (!this.props.user) return null;
-    let selectedListings = this.props.listings.filter(
-      listing => listing.host_id === this.props.user.id
-    );
-    let mappedSelectedListings = selectedListings.map(listing => {
-      return (
-        <li className="listing-blurb">
-          <div className="listing-photo-container">
-            <img
-              className="listing-photos"
-              src={listing.photos[0]}
-              height="150"
-            />
-          </div>
-          <div className="listing-info-container">
-            <Link to={`/listing/show/${listing.id}`}>
-              <h3 className="listings-index-title">{listing.title}</h3>
-            </Link>
-            <br />
-            <p>{listing.num_beds} guests</p>
-            <p className="listing-price">${listing.price} / night</p>
-          </div>
-        </li>
-      );
-    });
+
     let createListingButton;
     if (this.props.user.id === this.props.currentUserId) {
       createListingButton = (
@@ -119,7 +96,12 @@ class UserShow extends React.Component {
             <ul>
               <h4 className="listings-h4">Listings</h4>
 
-              <ul>{mappedSelectedListings}</ul>
+              <ul>
+                <UsersListings
+                  listings={this.props.listings}
+                  userId={this.props.user.id}
+                />
+              </ul>
             </ul>
             {createListingButton}
           </div>

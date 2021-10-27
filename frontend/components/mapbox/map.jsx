@@ -72,63 +72,6 @@ class Map extends React.Component {
     }
   }
 
-  // componentDidMount() {
-  //   this.props.fetchListings({
-  //     city: this.props.match.params.city,
-  //   });
-
-  //   mapboxgl.accessToken =
-  //     "pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA";
-
-  //   let cityLon;
-  //   let cityLat;
-
-  //   const geocoder = mbxGeocoding({
-  //     accessToken: mapboxgl.accessToken,
-  //   });
-
-  //   geocoder
-  //     .forwardGeocode({
-  //       query: "miami",
-  //       limit: 1,
-  //     })
-  //     .send()
-  //     .then(res => {
-  //       cityLon = res.body.features[0].center[0];
-  //       cityLat = res.body.features[0].center[1];
-  //     });
-
-  //   this.map = new mapboxgl.Map({
-  //     container: "map", // container ID
-  //     style: "mapbox://styles/mapbox/streets-v11", // style URL
-  //     center: [-74.5, 40], // starting position [lng, lat]
-  //     // center: [cityLon, cityLat], // starting position [lng, lat]
-  //     zoom: 9, // starting zoom
-  //   });
-
-  //   const navigate = new mapboxgl.NavigationControl();
-  //   this.map.addControl(navigate, "bottom-right");
-  // }
-
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.match.params.city !== this.props.match.params.city) {
-  //     this.props.fetchListings({
-  //       city: this.props.match.params.city,
-  //     });
-  //     this.mapMarkers.forEach(marker => marker.remove())
-  //     this.mapMarkers = [];
-  //     debugger
-  //   }
-  //   let marker;
-  //   this.props.listings.forEach(listing => {
-  //     marker = new mapboxgl.Marker()
-  //       .setLngLat([listing.longitude, listing.latitude])
-  //       .addTo(this.map)
-  //       .setPopup(new mapboxgl.Popup().setHTML(this.marker(listing)));
-  //     this.mapMarkers.push(marker);
-  //   });
-  // }
-
   marker(listing) {
     return `<div class='popup-container'>
                 <h4 class="popup-title">

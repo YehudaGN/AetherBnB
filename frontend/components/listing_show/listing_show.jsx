@@ -19,10 +19,6 @@ class ListingShow extends React.Component {
   componentDidMount() {
     this.props.fetchListing(this.props.match.params.listingId);
   }
-  // look into this for
-  // useEffect(()=>{
-  //   this.props.fetchListing(this.props.match.params.listingId)
-  // }, [this.props.match.params.listingId])
 
   componentDidUpdate(prevProps) {
     mapboxgl.accessToken =
@@ -69,10 +65,6 @@ class ListingShow extends React.Component {
     } else {
       hostProfilePic = window.user_icon;
     }
-    // change to photo 0 big, 1 - 3 smaller |
-    // let photos = this.props.listing.photos.map(photo => (
-    //   <img src={photo} height="300" />
-    // ));
 
     let ratingSum = 0.0;
     let cleanlinessSum = 0.0;
