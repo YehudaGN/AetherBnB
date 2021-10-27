@@ -7,6 +7,7 @@ import mapboxgl from "mapbox-gl";
 import CreateBookingContainer from "../booking_form/booking_form_container";
 import ListingReviewItem from "./listing_review_item";
 import Footer from "../footer/footer";
+import ListingHeaderBar from "./listing_header_bar";
 
 class ListingShow extends React.Component {
   constructor(props) {
@@ -17,8 +18,12 @@ class ListingShow extends React.Component {
   componentDidMount() {
     this.props.fetchListing(this.props.match.params.listingId);
   }
+  // look into this for
+  // useEffect(()=>{
+  //   this.props.fetchListing(this.props.match.params.listingId)
+  // }, [this.props.match.params.listingId])
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     mapboxgl.accessToken =
       "pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA";
     this.listingMap = new mapboxgl.Map({
@@ -156,28 +161,17 @@ class ListingShow extends React.Component {
                 <h4 className="listing-title">{this.props.listing.title}</h4>
               </div>
               <div className="reviews-address-beds-container">
-                <ul className="reviews-address-beds-ul">
-                  <li className="reviews-point">
-                    <StarIcon className="star-icon" style={{ fontSize: 20 }} />
-                    <span>{reviewRating}</span>
-                    <span className="listing-show-reviews-num-reviews">
-                      ({numReviews} reviews)
-                    </span>
-                  </li>
-                  <li className="address-point">
-                    <RoomIcon className="room-icon" style={{ fontSize: 20 }} />
-                    {this.props.listing.city}, {this.props.listing.state}
-                  </li>
-                  
-                  <li className="guest-amount-point">
-                    <HomeIcon className="home-icon" style={{ fontSize: 20 }} />{" "}
-                    {this.props.listing.num_beds} guests
-                  </li>
-                </ul>
+                <ListingHeaderBar
+                  city={this.props.listing.city}
+                  state={this.props.listing.state}
+                  reviewRating={reviewRating}
+                  numReviews={numReviews}
+                  numBeds={this.props.listing.num_beds}
+                />
               </div>
-              
+
               <div className="listing-photos-section">{photos}</div>
-              
+
               <div className="host-info-booking-form-flex">
                 <div className="host-info-booking-form-container">
                   <div className="host-info-listing-desc-container">
@@ -189,7 +183,7 @@ class ListingShow extends React.Component {
                         <h3 className="host-info-h3">
                           Meet your Host, {host.fname} {host.lname}
                         </h3>
-                        
+
                         <p className="host-info-created-at">
                           Hosting since {host.created_at.slice(0, 4)}
                         </p>
@@ -199,12 +193,11 @@ class ListingShow extends React.Component {
                       </div>
                     </Link>
 
-                    
                     <div className="listing-description-container">
                       <h3 className="description-h3">
                         All about {host.fname}'s place
                       </h3>
-                      
+
                       <p className="listing-description">
                         {this.props.listing.description}
                       </p>
@@ -241,10 +234,9 @@ class ListingShow extends React.Component {
                       bookedDates={this.props.listing.bookings}
                     />
                   </div>
-                  
                 </div>
               </div>
-              
+
               <div className="reviews-section-container">
                 <div className="listing-reviews-header-container">
                   <StarIcon
@@ -372,7 +364,7 @@ class ListingShow extends React.Component {
                   {listingReviews}
                 </div>
               </div>
-              
+
               <div id="listing-map-container"></div>
               <div className="delete-listing-button-container">
                 {deleteButton}

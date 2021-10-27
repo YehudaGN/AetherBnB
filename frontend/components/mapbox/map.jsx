@@ -6,62 +6,128 @@ class Map extends React.Component {
   constructor(props) {
     super(props);
     this.map;
+    this.mapMarkers = [];
+
+    this.state = {
+      listings: this.props.listings,
+      city: this.props.match.params.city,
+    };
   }
 
   componentDidMount() {
     this.props.fetchListings({
       city: this.props.match.params.city,
-    //   state: this.props.match.params.state,
     });
-
-
     mapboxgl.accessToken =
       "pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA";
-
-    let cityLon;
-    let cityLat;
-
-    const geocoder = mbxGeocoding({
-      accessToken: mapboxgl.accessToken,
-    });
-
-    geocoder
-      .forwardGeocode({
-        // query: `${this.props.match.params.city}`,
-        query: "miami",
-        limit: 1,
-      })
-      .send()
-      .then(res => {
-        // console.log(res);
-        cityLon = res.body.features[0].center[0]
-        cityLat = res.body.features[0].center[1]
-      });
-
-
-
-    
-
     this.map = new mapboxgl.Map({
-      container: "map", // container ID
-      style: "mapbox://styles/mapbox/streets-v11", // style URL
-      center: [-74.5, 40], // starting position [lng, lat]
-      // center: [cityLon, cityLat], // starting position [lng, lat]
-      zoom: 9, // starting zoom
+      container: "map",
+      style: "mapbox://styles/mapbox/streets-v11",
+      center: [0.0, 0.0],
+      zoom: 7,
     });
-
-    const navigate = new mapboxgl.NavigationControl();
-    this.map.addControl(navigate, "bottom-right");
+    const nav = new mapboxgl.NavigationControl();
+    this.map.addControl(nav, "top-right");
   }
 
-  componentDidUpdate() {
-    this.props.listings.forEach(listing =>
-      new mapboxgl.Marker()
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.city !== this.props.match.params.city) {
+          this.props.fetchListings({
+            city: this.props.match.params.city,
+          });
+          this.mapMarkers.forEach(marker => marker.remove())
+          this.mapMarkers = [];
+        }
+    let mapMarker;
+    this.state.listings.forEach(listing => {
+      mapMarker = new mapboxgl.Marker({ color: "teal" })
         .setLngLat([listing.longitude, listing.latitude])
         .addTo(this.map)
-        .setPopup(new mapboxgl.Popup().setHTML(this.marker(listing)))
-    );
+        .setPopup(new mapboxgl.Popup().setHTML(this.marker(listing)));
+      this.mapMarkers.push(mapMarker);
+    });
+    if (this.state.city) {
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA";
+      const geocoder = mbxGeocoding({
+        accessToken: mapboxgl.accessToken,
+      });
+
+      geocoder
+        .forwardGeocode({
+          query: this.state.city,
+          limit: 1,
+        })
+        .send()
+        .then(response => {
+          this.map.flyTo({
+            center: [
+              response.body.features[0].center[0],
+              response.body.features[0].center[1],
+            ],
+          });
+        });
+    } else {
+      this.map.flyTo({ center: [-73.9712, 40.7831] });
+    }
   }
+
+  // componentDidMount() {
+  //   this.props.fetchListings({
+  //     city: this.props.match.params.city,
+  //   });
+
+  //   mapboxgl.accessToken =
+  //     "pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA";
+
+  //   let cityLon;
+  //   let cityLat;
+
+  //   const geocoder = mbxGeocoding({
+  //     accessToken: mapboxgl.accessToken,
+  //   });
+
+  //   geocoder
+  //     .forwardGeocode({
+  //       query: "miami",
+  //       limit: 1,
+  //     })
+  //     .send()
+  //     .then(res => {
+  //       cityLon = res.body.features[0].center[0];
+  //       cityLat = res.body.features[0].center[1];
+  //     });
+
+  //   this.map = new mapboxgl.Map({
+  //     container: "map", // container ID
+  //     style: "mapbox://styles/mapbox/streets-v11", // style URL
+  //     center: [-74.5, 40], // starting position [lng, lat]
+  //     // center: [cityLon, cityLat], // starting position [lng, lat]
+  //     zoom: 9, // starting zoom
+  //   });
+
+  //   const navigate = new mapboxgl.NavigationControl();
+  //   this.map.addControl(navigate, "bottom-right");
+  // }
+
+  // componentDidUpdate(prevProps) {
+  //   if (prevProps.match.params.city !== this.props.match.params.city) {
+  //     this.props.fetchListings({
+  //       city: this.props.match.params.city,
+  //     });
+  //     this.mapMarkers.forEach(marker => marker.remove())
+  //     this.mapMarkers = [];
+  //     debugger
+  //   }
+  //   let marker;
+  //   this.props.listings.forEach(listing => {
+  //     marker = new mapboxgl.Marker()
+  //       .setLngLat([listing.longitude, listing.latitude])
+  //       .addTo(this.map)
+  //       .setPopup(new mapboxgl.Popup().setHTML(this.marker(listing)));
+  //     this.mapMarkers.push(marker);
+  //   });
+  // }
 
   marker(listing) {
     return `<div class='popup-container'>

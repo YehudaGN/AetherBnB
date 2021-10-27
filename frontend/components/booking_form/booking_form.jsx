@@ -100,7 +100,9 @@ class CreateBooking extends React.Component {
         />
       );
     }
-
+    // debugger
+    // || issue with one day bookings being free
+                // this.state.start_date >= this.state.end_date
     return (
       <div className="booking-form-container">
         <form onSubmit={this.handleSubmit}>
@@ -126,7 +128,7 @@ class CreateBooking extends React.Component {
               className={`book-listing-button ${
                 this.state.num_guests === "" ||
                 this.state.start_date === "" ||
-                this.state.end_date === ""
+                this.state.end_date === "" 
                   ? "incomplete-form"
                   : ""
               }`}

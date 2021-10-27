@@ -13,13 +13,26 @@ class ListingIndex extends React.Component {
     this.props
       .fetchListings({
         city: this.props.match.params.city,
-        // state: this.props.match.params.state,
       })
       .then(listings => {
         if (Object.values(listings.listings).length === 0) {
           this.setState({ noListing: true });
         }
       });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.city !== this.props.match.params.city) {
+      this.props
+        .fetchListings({
+          city: this.props.match.params.city,
+        })
+        .then(listings => {
+          if (Object.values(listings.listings).length === 0) {
+            this.setState({ noListing: true });
+          }
+        });
+    }
   }
 
   render() {

@@ -10,3 +10,5 @@ json.listing_reviews @listing.reviews .each do |review|
         json.guestPhoto url_for(review.guest.photo)
     end
 end
+
+json.bookings @listing.bookings.map {|booking| [booking.start_date, booking.end_date]}

@@ -1,7 +1,7 @@
 class Api::ListingsController < ApplicationController
     
     def show
-        @listing = Listing.with_attached_photos.find_by(id: params[:id])
+        @listing = Listing.includes(:bookings, :reviews).with_attached_photos.find_by(id: params[:id])
     end
 
     def index 
