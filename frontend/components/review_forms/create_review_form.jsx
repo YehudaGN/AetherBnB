@@ -6,6 +6,7 @@ class CreateReview extends React.Component {
     super(props);
     this.state = this.props.review;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.errors;
   }
 
   handleChange(field) {
@@ -14,17 +15,36 @@ class CreateReview extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let rating =
-      (parseInt(this.state.cleanliness) +
-        parseInt(this.state.communication) +
-        parseInt(this.state.check_in) +
-        parseInt(this.state.accuracy) +
-        parseInt(this.state.location) +
-        parseInt(this.state.value)) /
-      6.0;
-    this.setState({ rating: rating }, () => {
-      this.props.createReview(this.state).then(() => this.props.closeModal());
-    });
+    if (
+      this.state.cleanliness === "" ||
+      this.state.communication === "" ||
+      this.state.check_in === "" ||
+      this.state.accuracy === "" ||
+      this.state.location === "" ||
+      this.state.value === "" ||
+      this.state.body === ""
+    ) {
+      this.errors = (
+        <p className="review-form-errors">
+          Please fill out all the required fields
+        </p>
+      );
+      this.setState(this.state);
+    } else {
+      let rating =
+        (parseInt(this.state.cleanliness) +
+          parseInt(this.state.communication) +
+          parseInt(this.state.check_in) +
+          parseInt(this.state.accuracy) +
+          parseInt(this.state.location) +
+          parseInt(this.state.value)) /
+        6.0;
+      this.setState({ rating: rating }, () => {
+        this.props.createReview(this.state).then(() => this.props.closeModal());
+      });
+
+      this.errors = null;
+    }
   }
 
   render() {
@@ -45,7 +65,9 @@ class CreateReview extends React.Component {
               <label htmlFor="cleanliness1">
                 <StarIcon
                   className={
-                    this.state.cleanliness >= 1 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.cleanliness >= 1
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -59,7 +81,9 @@ class CreateReview extends React.Component {
               <label htmlFor="cleanliness2">
                 <StarIcon
                   className={
-                    this.state.cleanliness >= 2 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.cleanliness >= 2
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -73,7 +97,9 @@ class CreateReview extends React.Component {
               <label htmlFor="cleanliness3">
                 <StarIcon
                   className={
-                    this.state.cleanliness >= 3 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.cleanliness >= 3
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -87,7 +113,9 @@ class CreateReview extends React.Component {
               <label htmlFor="cleanliness4">
                 <StarIcon
                   className={
-                    this.state.cleanliness >= 4 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.cleanliness >= 4
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -101,7 +129,9 @@ class CreateReview extends React.Component {
               <label htmlFor="cleanliness5">
                 <StarIcon
                   className={
-                    this.state.cleanliness >= 5 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.cleanliness >= 5
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -205,7 +235,9 @@ class CreateReview extends React.Component {
               <label htmlFor="check_in1">
                 <StarIcon
                   className={
-                    this.state.check_in >= 1 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.check_in >= 1
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -219,7 +251,9 @@ class CreateReview extends React.Component {
               <label htmlFor="check_in2">
                 <StarIcon
                   className={
-                    this.state.check_in >= 2 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.check_in >= 2
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -233,7 +267,9 @@ class CreateReview extends React.Component {
               <label htmlFor="check_in3">
                 <StarIcon
                   className={
-                    this.state.check_in >= 3 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.check_in >= 3
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -247,7 +283,9 @@ class CreateReview extends React.Component {
               <label htmlFor="check_in4">
                 <StarIcon
                   className={
-                    this.state.check_in >= 4 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.check_in >= 4
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -261,7 +299,9 @@ class CreateReview extends React.Component {
               <label htmlFor="check_in5">
                 <StarIcon
                   className={
-                    this.state.check_in >= 5 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.check_in >= 5
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -280,7 +320,9 @@ class CreateReview extends React.Component {
               <label htmlFor="accuracy1">
                 <StarIcon
                   className={
-                    this.state.accuracy >= 1 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.accuracy >= 1
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -294,7 +336,9 @@ class CreateReview extends React.Component {
               <label htmlFor="accuracy2">
                 <StarIcon
                   className={
-                    this.state.accuracy >= 2 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.accuracy >= 2
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -308,7 +352,9 @@ class CreateReview extends React.Component {
               <label htmlFor="accuracy3">
                 <StarIcon
                   className={
-                    this.state.accuracy >= 3 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.accuracy >= 3
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -322,7 +368,9 @@ class CreateReview extends React.Component {
               <label htmlFor="accuracy4">
                 <StarIcon
                   className={
-                    this.state.accuracy >= 4 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.accuracy >= 4
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -336,7 +384,9 @@ class CreateReview extends React.Component {
               <label htmlFor="accuracy5">
                 <StarIcon
                   className={
-                    this.state.accuracy >= 5 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.accuracy >= 5
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -355,7 +405,9 @@ class CreateReview extends React.Component {
               <label htmlFor="location1">
                 <StarIcon
                   className={
-                    this.state.location >= 1 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.location >= 1
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -369,7 +421,9 @@ class CreateReview extends React.Component {
               <label htmlFor="location2">
                 <StarIcon
                   className={
-                    this.state.location >= 2 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.location >= 2
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -383,7 +437,9 @@ class CreateReview extends React.Component {
               <label htmlFor="location3">
                 <StarIcon
                   className={
-                    this.state.location >= 3 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.location >= 3
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -397,7 +453,9 @@ class CreateReview extends React.Component {
               <label htmlFor="location4">
                 <StarIcon
                   className={
-                    this.state.location >= 4 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.location >= 4
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -411,7 +469,9 @@ class CreateReview extends React.Component {
               <label htmlFor="location5">
                 <StarIcon
                   className={
-                    this.state.location >= 5 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.location >= 5
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -430,7 +490,9 @@ class CreateReview extends React.Component {
               <label htmlFor="value1">
                 <StarIcon
                   className={
-                    this.state.value >= 1 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.value >= 1
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -444,7 +506,9 @@ class CreateReview extends React.Component {
               <label htmlFor="value2">
                 <StarIcon
                   className={
-                    this.state.value >= 2 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.value >= 2
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -458,7 +522,9 @@ class CreateReview extends React.Component {
               <label htmlFor="value3">
                 <StarIcon
                   className={
-                    this.state.value >= 3 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.value >= 3
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -472,7 +538,9 @@ class CreateReview extends React.Component {
               <label htmlFor="value4">
                 <StarIcon
                   className={
-                    this.state.value >= 4 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.value >= 4
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -486,7 +554,9 @@ class CreateReview extends React.Component {
               <label htmlFor="value5">
                 <StarIcon
                   className={
-                    this.state.value >= 5 ? "review-number-selected" : "review-number-not-selected"
+                    this.state.value >= 5
+                      ? "review-number-selected"
+                      : "review-number-not-selected"
                   }
                 />
               </label>
@@ -500,19 +570,8 @@ class CreateReview extends React.Component {
             </div>
           </div>
 
-          <button className={`leave-review-form-button ${
-                this.state.cleanliness === "" ||
-                this.state.communication === "" ||
-                this.state.check_in === "" ||
-                this.state.accuracy === "" ||
-                this.state.location === "" ||
-                this.state.value === "" ||
-                this.state.body === ""
-                  ? "incomplete-form"
-                  : ""
-              }`}>Leave Review</button>
-
-          
+          <button className="leave-review-form-button">Leave Review</button>
+          {this.errors}
         </form>
       </div>
     );

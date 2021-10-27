@@ -10,6 +10,7 @@ class CreateBooking extends React.Component {
     this.alreadyBooked = [];
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setAlreadyBooked();
+    this.errors;
   }
 
   setAlreadyBooked() {
@@ -30,17 +31,29 @@ class CreateBooking extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
-    if (this.state.guest_id) {
-      this.props
-        .createBooking(this.state)
-        .then(res =>
-          this.props.history.push(
-            `/listing/${res.booking.listing_id}/booking/${res.booking.id}`
-          )
-        );
+    if (
+      this.state.num_guests === "" ||
+      this.state.start_date === "" ||
+      this.state.end_date === ""
+    ) {
+      this.errors = (
+        <p className="booking-form-errors">
+          Please fill out all the required fields
+        </p>
+      );
+      this.setState(this.state);
     } else {
-      this.props.openModal();
+      if (this.state.guest_id) {
+        this.props
+          .createBooking(this.state)
+          .then(res =>
+            this.props.history.push(
+              `/listing/${res.booking.listing_id}/booking/${res.booking.id}`
+            )
+          );
+      } else {
+        this.props.openModal();
+      }
     }
   }
 
@@ -102,7 +115,7 @@ class CreateBooking extends React.Component {
     }
     // debugger
     // || issue with one day bookings being free
-                // this.state.start_date >= this.state.end_date
+    // this.state.start_date >= this.state.end_date
     return (
       <div className="booking-form-container">
         <form onSubmit={this.handleSubmit}>
@@ -125,21 +138,23 @@ class CreateBooking extends React.Component {
           <div className="num-guests-container">{numGuestInput}</div>
           <div className="book-listing-button-container">
             <button
-              className={`book-listing-button ${
-                this.state.num_guests === "" ||
-                this.state.start_date === "" ||
-                this.state.end_date === "" 
-                  ? "incomplete-form"
-                  : ""
-              }`}
+              className="book-listing-button"
+              // className={`book-listing-button ${
+              //   this.state.num_guests === "" ||
+              //   this.state.start_date === "" ||
+              //   this.state.end_date === ""
+              //     ? "incomplete-form"
+              //     : ""
+              // }`}
             >
               Reserve
             </button>
+            {this.errors}
             <div className="total-cost-container">
               <div className="total-cost">
                 <span className="total-cost-text">Total</span>
                 <span className="total-cost-price">
-                  {this.state.price !== "" ? `$${this.state.price}` : '$0'}
+                  {this.state.price !== "" ? `$${this.state.price}` : "$0"}
                 </span>
               </div>
             </div>
