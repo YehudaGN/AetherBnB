@@ -8,6 +8,7 @@ import CreateBookingContainer from "../booking_form/booking_form_container";
 import ListingReviewItem from "./listing_review_item";
 import Footer from "../footer/footer";
 import ListingHeaderBar from "./listing_header_bar";
+import ListingPhotos from "./listing_photos";
 
 class ListingShow extends React.Component {
   constructor(props) {
@@ -73,39 +74,6 @@ class ListingShow extends React.Component {
     //   <img src={photo} height="300" />
     // ));
 
-    let photos = (
-      <div className="photos-container">
-        <div className="main-photo-container">
-          <img
-            className="main-photo"
-            src={this.props.listing.photos[0]}
-            height="500"
-            width="600"
-          />
-        </div>
-        <div className="secondary-photos-container">
-          <div className="secondary-photos-top-container">
-            <img src={this.props.listing.photos[1]} height="245" width="250" />
-            <img
-              className="secondary-photo-top"
-              src={this.props.listing.photos[2]}
-              height="245"
-              width="250"
-            />
-          </div>
-          <div className="secondary-photos-bottom-container">
-            <img src={this.props.listing.photos[3]} height="245" width="250" />
-            <img
-              className="secondary-photo-bottom"
-              src={this.props.listing.photos[4]}
-              height="245"
-              width="250"
-            />
-          </div>
-        </div>
-      </div>
-    );
-
     let ratingSum = 0.0;
     let cleanlinessSum = 0.0;
     let communicationSum = 0.0;
@@ -170,7 +138,9 @@ class ListingShow extends React.Component {
                 />
               </div>
 
-              <div className="listing-photos-section">{photos}</div>
+              <div className="listing-photos-section">
+                <ListingPhotos photos={this.props.listing.photos} />
+              </div>
 
               <div className="host-info-booking-form-flex">
                 <div className="host-info-booking-form-container">
