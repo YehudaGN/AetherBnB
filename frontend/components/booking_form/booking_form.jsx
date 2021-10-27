@@ -10,7 +10,7 @@ class CreateBooking extends React.Component {
     this.alreadyBooked = [];
     this.handleSubmit = this.handleSubmit.bind(this);
     this.setAlreadyBooked();
-    this.errors;
+    this.errors = {};
   }
 
   setAlreadyBooked() {
@@ -30,16 +30,23 @@ class CreateBooking extends React.Component {
   }
 
   handleSubmit(e) {
+    let begin = `${this.state.start_date.getMonth()}/${this.state.start_date.getDate()}/${this.state.start_date.getFullYear()}`;
+    let end = `${this.state.end_date.getMonth()}/${this.state.end_date.getDate()}/${this.state.end_date.getFullYear()}`;
     e.preventDefault();
     if (
       this.state.num_guests === "" ||
       this.state.start_date === "" ||
       this.state.end_date === ""
     ) {
-      this.errors = (
+      this.errors[0] = (
         <p className="booking-form-errors">
           Please fill out all the required fields
         </p>
+      );
+      this.setState(this.state);
+    } else if (begin === end) {
+      this.errors[1] = (
+        <p className="booking-form-errors">Please choose at least two days</p>
       );
       this.setState(this.state);
     } else {
@@ -51,6 +58,7 @@ class CreateBooking extends React.Component {
               `/listing/${res.booking.listing_id}/booking/${res.booking.id}`
             )
           );
+        this.errors = {};
       } else {
         this.props.openModal();
       }
@@ -113,9 +121,6 @@ class CreateBooking extends React.Component {
         />
       );
     }
-    // debugger
-    // || issue with one day bookings being free
-    // this.state.start_date >= this.state.end_date
     return (
       <div className="booking-form-container">
         <form onSubmit={this.handleSubmit}>
@@ -137,19 +142,9 @@ class CreateBooking extends React.Component {
           </div>
           <div className="num-guests-container">{numGuestInput}</div>
           <div className="book-listing-button-container">
-            <button
-              className="book-listing-button"
-              // className={`book-listing-button ${
-              //   this.state.num_guests === "" ||
-              //   this.state.start_date === "" ||
-              //   this.state.end_date === ""
-              //     ? "incomplete-form"
-              //     : ""
-              // }`}
-            >
-              Reserve
-            </button>
-            {this.errors}
+            <button className="book-listing-button">Reserve</button>
+            {this.errors[0]}
+            {this.errors[1]}
             <div className="total-cost-container">
               <div className="total-cost">
                 <span className="total-cost-text">Total</span>
