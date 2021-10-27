@@ -43,8 +43,8 @@ class UserShow extends React.Component {
       parseInt(this.props.match.params.userId) === this.props.currentUserId &&
       this.props.user.user_reviews
     ) {
-      userReviews = this.props.user.user_reviews.map(review => (
-        <div className="user-review-item-container">
+      userReviews = this.props.user.user_reviews.map((review, idx) => (
+        <div key={`${idx}${review.id}`} className="user-review-item-container">
           <UserReviewItem review={review} />
         </div>
       ));

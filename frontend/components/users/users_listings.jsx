@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const UsersListings = ({listings, userId}) => {
     let selectedListings = listings.filter(
         listing => listing.host_id === userId
       );
-      return selectedListings.map(listing => {
+      return selectedListings.map((listing, idx) => {
         return (
-          <li className="listing-blurb">
+          <li key={`${idx}${listing.id}`} className="listing-blurb">
             <div className="listing-photo-container">
               <img
                 className="listing-photos"

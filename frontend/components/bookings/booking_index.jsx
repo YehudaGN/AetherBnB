@@ -11,7 +11,7 @@ class BookingIndex extends React.Component {
   render() {
     if (this.props.bookings.length === 0) return null;
     let mappedBookings;
-    mappedBookings = this.props.bookings.map(booking => {
+    mappedBookings = this.props.bookings.map((booking, idx) => {
       let options = (options = {
         weekday: "short",
         year: "numeric",
@@ -25,7 +25,7 @@ class BookingIndex extends React.Component {
         .toLocaleDateString("en-US", options)
         .slice(9);
       return (
-        <Link to={`/listing/${booking.listing_id}/booking/${booking.id}`} className="booking-container">
+        <Link to={`/listing/${booking.listing_id}/booking/${booking.id}`} key={`${idx}${booking.id}`} className="booking-container">
           <div className="booking-listing-index-photo-container">
             <img
               className="booking-listing-index-photo"

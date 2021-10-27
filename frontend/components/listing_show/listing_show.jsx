@@ -75,7 +75,7 @@ class ListingShow extends React.Component {
     let valueSum = 0.0;
     let listingReviews;
     if (this.props.listing.listing_reviews) {
-      listingReviews = this.props.listing.listing_reviews.map(review => {
+      listingReviews = this.props.listing.listing_reviews.map((review, idx) => {
         ratingSum += review.rating;
         cleanlinessSum += review.cleanliness;
         communicationSum += review.communication;
@@ -84,7 +84,7 @@ class ListingShow extends React.Component {
         locationSum += review.location;
         valueSum += review.value;
         return (
-          <div className="listing-review-item-container">
+          <div key={`${idx}${review.id}`} className="listing-review-item-container">
             <ListingReviewItem review={review} />
           </div>
         );
