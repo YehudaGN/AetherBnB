@@ -59,13 +59,14 @@ class Header extends React.Component {
     this.setState({ open: !this.state.open });
   };
 
-  handleChange(field) {
+  handleChange() {
     return e => this.setState({ city: e.currentTarget.value });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.history.push(`/listings/${this.state.city}`);
+    let city = this.state.city.split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
+    this.props.history.push(`/listings/${city}`);
     this.setState({ city: "" });
   }
   render() {
@@ -94,7 +95,7 @@ class Header extends React.Component {
                     type="text"
                     placeholder="Search City"
                     value={this.state.city}
-                    onChange={this.handleChange("city")}
+                    onChange={this.handleChange()}
                   />
                   <button className="search-listings-button">
                     <SearchIcon

@@ -15,6 +15,7 @@ const mSTP = state => ({
     longitude: "",
     latitude: "",
     price: "",
+    photos: [],
   },
 });
 

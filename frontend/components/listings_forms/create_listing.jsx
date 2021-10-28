@@ -8,15 +8,30 @@ class CreateListing extends React.Component {
     super(props);
     this.state = this.props.listing;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.photoUrls = [];
   }
 
   handleChange(field) {
     return e => this.setState({ [field]: e.currentTarget.value });
   }
 
+  handlePhotos(e) {
+    for (let i = 0; i < e.target.files.length; i++) {
+      this.photoUrls.push(URL.createObjectURL(e.target.files[i]));
+    }
+    this.setState({ photos: [...e.target.files, ...this.state.photos] });
+  }
+
+  removeImage(e) {
+    let index = parseInt(e.currentTarget.dataset.index);
+    let photos = this.state.photos;
+    photos.splice(index, 1);
+    this.photoUrls.splice(index, 1);
+    this.setState({ photos: photos });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-
     mapboxgl.accessToken =
       "pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA";
     const geocoder = mbxGeocoding({
@@ -130,9 +145,24 @@ class CreateListing extends React.Component {
             <input
               id="file-input-listing"
               type="file"
-              onChange={e => this.setState({ photos: e.target.files })}
+              onChange={e => this.handlePhotos(e)}
               multiple
             />
+          </div>
+
+          <div className="image-preview-container">
+            {this.photoUrls.map((photoUrl, idx) => (
+              <div key={`${idx}${this.photoUrls.length}`}>
+                <span
+                  className="remove-preview-image-x"
+                  data-index={idx}
+                  onClick={e => this.removeImage(e)}
+                >
+                  X
+                </span>
+                <img src={photoUrl} height="100" alt="Image preview" />
+              </div>
+            ))}
           </div>
 
           <button
