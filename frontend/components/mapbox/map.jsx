@@ -31,44 +31,85 @@ class Map extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    let that = this;
     if (prevProps.match.params.city !== this.props.match.params.city) {
-          this.props.fetchListings({
-            city: this.props.match.params.city,
-          });
-          this.mapMarkers.forEach(marker => marker.remove())
-          this.mapMarkers = [];
-        }
-    let mapMarker;
-    this.state.listings.forEach(listing => {
-      mapMarker = new mapboxgl.Marker({ color: "teal" })
-        .setLngLat([listing.longitude, listing.latitude])
-        .addTo(this.map)
-        .setPopup(new mapboxgl.Popup().setHTML(this.marker(listing)));
-      this.mapMarkers.push(mapMarker);
-    });
-    if (this.state.city) {
-      mapboxgl.accessToken =
-        "pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA";
-      const geocoder = mbxGeocoding({
-        accessToken: mapboxgl.accessToken,
-      });
-
-      geocoder
-        .forwardGeocode({
-          query: this.state.city,
-          limit: 1,
+      this.props
+        .fetchListings({
+          city: this.props.match.params.city,
         })
-        .send()
-        .then(response => {
-          this.map.flyTo({
-            center: [
-              response.body.features[0].center[0],
-              response.body.features[0].center[1],
-            ],
+        .then((res) => {
+          this.mapMarkers.forEach(marker => marker.remove());
+          this.mapMarkers = [];
+          let mapMarker;
+          Object.values(res.listings).forEach(listing => {
+            if (listing.city === that.props.match.params.city) {
+              mapMarker = new mapboxgl.Marker({ color: "teal" })
+                .setLngLat([listing.longitude, listing.latitude])
+                .addTo(this.map)
+                .setPopup(new mapboxgl.Popup().setHTML(this.marker(listing)));
+              this.mapMarkers.push(mapMarker);
+            }
           });
+          if (this.state.city) {
+            mapboxgl.accessToken =
+              "pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA";
+            const geocoder = mbxGeocoding({
+              accessToken: mapboxgl.accessToken,
+            });
+
+            geocoder
+              .forwardGeocode({
+                query: this.state.city,
+                limit: 1,
+              })
+              .send()
+              .then(response => {
+                this.map.flyTo({
+                  center: [
+                    response.body.features[0].center[0],
+                    response.body.features[0].center[1],
+                  ],
+                });
+              });
+          } else {
+            this.map.flyTo({ center: [-73.9712, 40.7831] });
+          }
         });
     } else {
-      this.map.flyTo({ center: [-73.9712, 40.7831] });
+      let mapMarker;
+      this.state.listings.forEach(listing => {
+        if (listing.city === this.props.match.params.city) {
+          mapMarker = new mapboxgl.Marker({ color: "teal" })
+            .setLngLat([listing.longitude, listing.latitude])
+            .addTo(this.map)
+            .setPopup(new mapboxgl.Popup().setHTML(this.marker(listing)));
+          this.mapMarkers.push(mapMarker);
+        }
+      });
+      if (this.state.city) {
+        mapboxgl.accessToken =
+          "pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA";
+        const geocoder = mbxGeocoding({
+          accessToken: mapboxgl.accessToken,
+        });
+
+        geocoder
+          .forwardGeocode({
+            query: this.state.city,
+            limit: 1,
+          })
+          .send()
+          .then(response => {
+            this.map.flyTo({
+              center: [
+                response.body.features[0].center[0],
+                response.body.features[0].center[1],
+              ],
+            });
+          });
+      } else {
+        this.map.flyTo({ center: [-73.9712, 40.7831] });
+      }
     }
   }
 
