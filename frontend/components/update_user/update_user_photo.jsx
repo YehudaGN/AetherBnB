@@ -2,12 +2,27 @@ import React from "react";
 import BackupIcon from "@material-ui/icons/Backup";
 
 class EditUserPhoto extends React.Component {
+  constructor(props) {
+    super(props);
+    this.prevPhoto;
+    this.photoUrl = null;
+  }
   componentDidMount() {
     this.props.fetchUser(this.props.match.params.userId);
   }
 
+  handlePhoto(e) {
+    this.prevPhoto = this.props.user.photo
+    this.photoUrl = URL.createObjectURL(e.target.files[0]);
+    this.setState({ photo: e.target.files[0] });
+  }
+
+  removeImage(e) {
+    this.photoUrl = null;
+    this.setState({photo: this.prevPhoto});
+  }
+
   handleSubmit(e) {
-    // debugger
     e.preventDefault();
     const formData = new FormData();
     formData.append("user[email]", this.props.user.email);
@@ -22,7 +37,9 @@ class EditUserPhoto extends React.Component {
       data: formData,
       contentType: false,
       processData: false,
-    }).then(()=> this.props.history.push(`/users/show/${this.props.match.params.userId}`));
+    }).then(() =>
+      this.props.history.push(`/users/show/${this.props.match.params.userId}`)
+    );
   }
 
   render() {
@@ -37,7 +54,10 @@ class EditUserPhoto extends React.Component {
             <div className="profile-photo-form-header-container">
               <h5 className="profile-photo-form-header-h5">Profile Photo</h5>
             </div>
-            <form  className='update-profile-photo-form' onSubmit={e => this.handleSubmit(e)}>
+            <form
+              className="update-profile-photo-form"
+              onSubmit={e => this.handleSubmit(e)}
+            >
               <div className="upload-photo-input-container">
                 <label htmlFor="file-input-listing">
                   <div className="input-label-listing">
@@ -48,13 +68,36 @@ class EditUserPhoto extends React.Component {
                 <input
                   id="file-input-listing"
                   type="file"
-                  onChange={e => {
-                    this.setState({ photo: e.currentTarget.files[0] });
-                  }}
+                  onChange={e => this.handlePhoto(e)}
                   multiple
                 />
               </div>
-              <button className='update-profile-pic-button'>Update Profile Picture</button>
+              <div className="user-update-photo-preview-container">
+                {this.photoUrl ? (
+                  <img
+                    className="user-update-photo-preview"
+                    src={this.photoUrl}
+                    alt="User Profile Pic"
+                    height="200"
+                    width="200"
+                  />
+                ) : (
+                  ""
+                )}
+                {this.photoUrl ? (
+                  <li
+                    className="remove-profile-photo-li"
+                    onClick={e => this.removeImage(e)}
+                  >
+                    Remove Photo
+                  </li>
+                ) : (
+                  ""
+                )}
+              </div>
+              <button className="update-profile-pic-button">
+                Update Profile Picture
+              </button>
             </form>
           </div>
         </div>
