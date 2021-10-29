@@ -30,7 +30,6 @@ class EditUserPhoto extends React.Component {
     formData.append("user[lname]", this.props.user.lname);
     formData.append("user[bio]", this.props.user.bio);
     formData.append("user[photo]", this.state.photo);
-
     $.ajax({
       url: `/api/users/${this.props.user.id}`,
       method: "PATCH",

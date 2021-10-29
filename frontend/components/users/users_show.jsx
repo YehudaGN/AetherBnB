@@ -9,6 +9,7 @@ class UserShow extends React.Component {
     super(props);
     this.state = {
       open: false,
+      editOpen: false,
     };
   }
 
@@ -17,13 +18,38 @@ class UserShow extends React.Component {
     this.props.fetchListings();
   }
 
+  componentDidUpdate() {
+    if (!this.state.bio) this.setState({ bio: this.props.user.bio });
+  }
+
   handleClick = () => {
     this.setState({ open: !this.state.open });
   };
 
+  handleBio(e) {
+    this.setState({ bio: e.currentTarget.value });
+  }
+
+  handleCancel(e) {
+    this.setState({ editOpen: false, bio: this.props.user.bio });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let user = {
+      email: this.props.user.email,
+      fname: this.props.user.fname,
+      lname: this.props.user.lname,
+      bio: this.state.bio,
+      id: this.props.user.id
+    }
+    this.props.updateUser(user)
+    this.setState({ editOpen: false });
+  }
+
   render() {
     if (!this.props.user) return null;
-
+    
     let createListingButton;
     if (this.props.user.id === this.props.currentUserId) {
       createListingButton = (
@@ -55,18 +81,39 @@ class UserShow extends React.Component {
     } else {
       profilePic = window.user_icon;
     }
+    let editProfileForm;
+    if (this.state.editOpen) {
+      editProfileForm = (
+        <form onSubmit={e => this.handleSubmit(e)}>
+          <textarea
+            value={this.state.bio}
+            onChange={e => this.handleBio(e)}
+          ></textarea>
+          <div className="user-update-form-buttons-container">
+            <li onClick={() => this.handleCancel()}>Cancel</li>
+            <button>Save</button>
+          </div>
+        </form>
+      );
+    } else {
+      editProfileForm = "";
+    }
     return (
       <div className="user-show-container">
         <div className="user-info-container">
           <div className="profile-picture-div">
             <img className="user-icon" src={profilePic} alt="" />
-            <br />
-            <Link
-              className="update-photo-link"
-              to={`/user/${this.props.user.id}/edit-photo`}
-            >
-              Update Photo
-            </Link>
+            {this.props.currentUserId ===
+            parseInt(this.props.match.params.userId) ? (
+              <Link
+                className="update-photo-link"
+                to={`/user/${this.props.user.id}/edit-photo`}
+              >
+                Update Photo
+              </Link>
+            ) : (
+              ""
+            )}
           </div>
           <div className="user-welcome-plus-info-container">
             <h3 className="user-welcome">Hi, i'm {this.props.user.fname}</h3>
@@ -78,7 +125,13 @@ class UserShow extends React.Component {
             <br />
 
             <div className="edit-user">
-              <li>Edit User</li>
+              <li
+                className="edit-profile-button"
+                onClick={() => this.setState({ editOpen: true })}
+              >
+                Edit profile
+              </li>
+              {editProfileForm}
             </div>
 
             <br />
@@ -93,16 +146,16 @@ class UserShow extends React.Component {
         </div>
         <div className="listings-bookings-reviews-container">
           <div className="listings-container">
-            <ul>
+            <div>
               <h4 className="listings-h4">Listings</h4>
 
-              <ul>
+              <div>
                 <UsersListings
                   listings={this.props.listings}
                   userId={this.props.user.id}
                 />
-              </ul>
-            </ul>
+              </div>
+            </div>
             {createListingButton}
           </div>
 

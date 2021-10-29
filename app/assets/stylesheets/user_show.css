@@ -1,12 +1,10 @@
 .user-show-container {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
 }
 
 .user-info-container {
   display: flex;
-  /* justify-content: center; */
   left: 5vw;
   padding-left: 24%;
   margin-top: 3%;
@@ -26,11 +24,11 @@
   margin-top: 5%;
   color: rgb(109, 109, 109);
   background-color: blue;
-  /* align-self: center; */
 }
 
 .user-icon {
   margin-top: 10%;
+  margin-bottom: 5%;
   border-radius: 50%;
   width: 45%;
   height: 35%;
@@ -60,6 +58,10 @@
 
 .edit-user {
   text-decoration: underline;
+}
+
+.edit-profile-button {
+  cursor: pointer;
 }
 
 .user-info {
@@ -113,6 +115,7 @@
 .listings-h4 {
   font-size: 2.5em;
   text-align: center;
+  margin-top: 10px;
 }
 
 .user-reviews-container {
