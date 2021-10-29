@@ -56,12 +56,40 @@
   font-weight: 500;
 }
 
-.edit-user {
-  text-decoration: underline;
-}
 
 .edit-profile-button {
   cursor: pointer;
+  text-decoration: underline;
+}
+
+.edit-profile-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.edit-profile-bio {
+  border-radius: 10px;
+  resize: vertical;
+}
+
+.user-update-form-buttons-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-profile-cancel-li {
+  text-decoration: underline;
+  align-self: center;
+}
+
+.edit-profile-save-button {
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  background-color: rgb(102, 102, 102);
+  color: white;
 }
 
 .user-info {
@@ -70,6 +98,7 @@
 .about-h3 {
   font-size: 1.4em;
   font-weight: 500;
+  margin-bottom: 10px;
 }
 
 .bio {

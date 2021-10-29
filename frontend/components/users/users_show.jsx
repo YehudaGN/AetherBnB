@@ -41,15 +41,15 @@ class UserShow extends React.Component {
       fname: this.props.user.fname,
       lname: this.props.user.lname,
       bio: this.state.bio,
-      id: this.props.user.id
-    }
-    this.props.updateUser(user)
+      id: this.props.user.id,
+    };
+    this.props.updateUser(user);
     this.setState({ editOpen: false });
   }
 
   render() {
     if (!this.props.user) return null;
-    
+
     let createListingButton;
     if (this.props.user.id === this.props.currentUserId) {
       createListingButton = (
@@ -84,16 +84,26 @@ class UserShow extends React.Component {
     let editProfileForm;
     if (this.state.editOpen) {
       editProfileForm = (
-        <form onSubmit={e => this.handleSubmit(e)}>
-          <textarea
-            value={this.state.bio}
-            onChange={e => this.handleBio(e)}
-          ></textarea>
-          <div className="user-update-form-buttons-container">
-            <li onClick={() => this.handleCancel()}>Cancel</li>
-            <button>Save</button>
-          </div>
-        </form>
+          <form
+            className="edit-profile-form"
+            onSubmit={e => this.handleSubmit(e)}
+          >
+          <h3 className='about-h3'>About</h3>
+            <textarea
+              className="edit-profile-bio"
+              value={this.state.bio}
+              onChange={e => this.handleBio(e)}
+            ></textarea>
+            <div className="user-update-form-buttons-container">
+              <li
+                className="edit-profile-cancel-li"
+                onClick={() => this.handleCancel()}
+              >
+                Cancel
+              </li>
+              <button className="edit-profile-save-button">Save</button>
+            </div>
+          </form>
       );
     } else {
       editProfileForm = "";
@@ -135,13 +145,14 @@ class UserShow extends React.Component {
             </div>
 
             <br />
-            <div className="user-info">
-              <h3 className="about-h3">About</h3>
-
-              <br />
-
-              <p className="bio">{this.props.user.bio}</p>
-            </div>
+            {this.state.editOpen ? (
+              ""
+            ) : (
+              <div className="user-info">
+                <h3 className="about-h3">About</h3>
+                <p className="bio">{this.props.user.bio}</p>
+              </div>
+            )}
           </div>
         </div>
         <div className="listings-bookings-reviews-container">
