@@ -10,7 +10,6 @@ class ListingIndex extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
     this.props
       .fetchListings({
         city: this.props.match.params.city,

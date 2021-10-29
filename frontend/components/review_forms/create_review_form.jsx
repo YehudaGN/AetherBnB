@@ -48,7 +48,6 @@ class CreateReview extends React.Component {
   }
 
   render() {
-    // debugger
     return (
       <div className="review-form-container">
         <form className="create-review-form" onSubmit={this.handleSubmit}>
