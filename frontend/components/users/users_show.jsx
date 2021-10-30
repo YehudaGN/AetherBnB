@@ -104,6 +104,7 @@ class UserShow extends React.Component {
               <button className="edit-profile-save-button">Save</button>
             </div>
           </form>
+          
       );
     } else {
       editProfileForm = "";
