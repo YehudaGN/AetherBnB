@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 import LoginModalContainer from '../session_form/login_modal_container';
 import SignupModalContainer from '../session_form/signup_modal_container';
 import CreateListingContainer from '../listings_forms/create_listing_container';
-import CreateReviewContainer from '../review_forms/review_form_container'
+import CreateReviewContainer from '../review_forms/review_form_container';
+import EditListingContainer from '../listings_forms/edit_listing_container';
+import Spinner from '../spinner/spinner';
 function Modal({modal, closeModal}) {
   if (!modal) {
     return null;
@@ -20,8 +22,14 @@ function Modal({modal, closeModal}) {
     case 'create listing':
       component = <CreateListingContainer />;
       break;
+    case 'edit listing':
+      component = <EditListingContainer />;
+      break;
     case 'create review':
       component = <CreateReviewContainer/>;
+      break;
+    case 'spinner':
+      component = <Spinner />;
       break;
     default:
       return null;

@@ -6,39 +6,51 @@ class EditUserPhoto extends React.Component {
     super(props);
     this.prevPhoto;
     this.photoUrl = null;
+    this.state = {
+      errors: null
+    }
   }
   componentDidMount() {
     this.props.fetchUser(this.props.match.params.userId);
   }
 
   handlePhoto(e) {
-    this.prevPhoto = this.props.user.photo
+    this.prevPhoto = this.props.user.photo;
     this.photoUrl = URL.createObjectURL(e.target.files[0]);
-    this.setState({ photo: e.target.files[0] });
+    this.setState({ photo: e.target.files[0], errors: false });
   }
 
   removeImage(e) {
     this.photoUrl = null;
-    this.setState({photo: this.prevPhoto});
+    this.setState({ photo: this.prevPhoto });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("user[email]", this.props.user.email);
-    formData.append("user[fname]", this.props.user.fname);
-    formData.append("user[lname]", this.props.user.lname);
-    formData.append("user[bio]", this.props.user.bio);
-    formData.append("user[photo]", this.state.photo);
-    $.ajax({
-      url: `/api/users/${this.props.user.id}`,
-      method: "PATCH",
-      data: formData,
-      contentType: false,
-      processData: false,
-    }).then(() =>
-      this.props.history.push(`/users/show/${this.props.match.params.userId}`)
-    );
+    if (!this.state.photo) {
+      this.setState({errors: 'Please upload a photo'})
+    } else {
+      this.props.spinner();
+      const formData = new FormData();
+      formData.append("user[email]", this.props.user.email);
+      formData.append("user[fname]", this.props.user.fname);
+      formData.append("user[lname]", this.props.user.lname);
+      formData.append("user[bio]", this.props.user.bio);
+      formData.append("user[photo]", this.state.photo);
+      $.ajax({
+        url: `/api/users/${this.props.user.id}`,
+        method: "PATCH",
+        data: formData,
+        contentType: false,
+        processData: false,
+      }).then(() => {
+        this.props.closeSpinner();
+        this.props.history.push(
+          `/users/show/${this.props.match.params.userId}`
+        );
+      });
+    }
+    // this.props.spinner()
   }
 
   render() {
@@ -98,6 +110,7 @@ class EditUserPhoto extends React.Component {
                 Update Profile Picture
               </button>
             </form>
+              <p className='user-update-photo-errors'>{this.state.errors}</p>
           </div>
         </div>
       </div>

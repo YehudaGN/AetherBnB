@@ -4,7 +4,6 @@ export const fetchListings = (searchParams) =>
     url: "api/listings",
     data: {searchParams}
   });
-  // ^ add data for here for search funtionality
 
 export const fetchListing = listingId =>
   $.ajax({

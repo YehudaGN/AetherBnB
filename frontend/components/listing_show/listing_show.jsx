@@ -47,7 +47,7 @@ class ListingShow extends React.Component {
     if (!this.props.listing) return null;
     if (!this.props.listing.host) return null;
     let deleteButton;
-
+    let editButton;
     if (this.props.listing.host_id === this.props.session) {
       deleteButton = (
         <button
@@ -57,6 +57,10 @@ class ListingShow extends React.Component {
           Delete Listing
         </button>
       );
+      editButton = <button 
+      className="edit-listing-button"
+      onClick={() => this.props.openModal("edit listing")}
+      >Edit Listing</button>;
     }
     let host = this.props.listing.host;
     let hostProfilePic;
@@ -84,7 +88,10 @@ class ListingShow extends React.Component {
         locationSum += review.location;
         valueSum += review.value;
         return (
-          <div key={`${idx}${review.id}`} className="listing-review-item-container">
+          <div
+            key={`${idx}${review.id}`}
+            className="listing-review-item-container"
+          >
             <ListingReviewItem review={review} />
           </div>
         );
@@ -151,7 +158,11 @@ class ListingShow extends React.Component {
                         </p>
                       </div>
                       <div className="host-pic-container">
-                        <img className="host-pic" src={hostProfilePic} alt="Profile pic" />
+                        <img
+                          className="host-pic"
+                          src={hostProfilePic}
+                          alt="Profile pic"
+                        />
                       </div>
                     </Link>
 
@@ -331,6 +342,7 @@ class ListingShow extends React.Component {
               <div className="delete-listing-button-container">
                 {deleteButton}
               </div>
+              <div className="edit-listing-button-container">{editButton}</div>
             </div>
           </div>
         </div>
