@@ -84,7 +84,7 @@ class Header extends React.Component {
           <div className="header-container">
             <div className="logo">
               <Link className="logo-link" to="/">
-                <img src={logo} alt="" />
+                <img src={logo} alt="Logo" />
               </Link>
             </div>
             <div className="listings-search-container">
@@ -109,7 +109,7 @@ class Header extends React.Component {
             <div className="menu-container" ref={this.menuContainer}>
               <button className="menu-button" onClick={this.handleClick}>
                 <MenuIcon className='header-menu-icon' style={{ fontSize: 20 }} />
-                <img className='header-profile-pic' src={profilePic} alt="" />
+                <img className='header-profile-pic' src={profilePic} alt="Profile pic" />
               </button>
               {this.state.open && (
                 <div className="dropdown">

@@ -30,6 +30,7 @@ class BookingIndex extends React.Component {
             <img
               className="booking-listing-index-photo"
               src={booking.photos[0]}
+              alt='Booking Photo'
             />
           </div>
           <div className="booking-index-info-container">
@@ -44,6 +45,7 @@ class BookingIndex extends React.Component {
                 <img
                   className="booking-index-listing-img"
                   src={booking.photos[0]}
+                  alt='Booking Photo'
                 />
               </div>
               <div className="booking-index-listing-title-container">

@@ -151,7 +151,7 @@ class ListingShow extends React.Component {
                         </p>
                       </div>
                       <div className="host-pic-container">
-                        <img className="host-pic" src={hostProfilePic} alt="" />
+                        <img className="host-pic" src={hostProfilePic} alt="Profile pic" />
                       </div>
                     </Link>
 

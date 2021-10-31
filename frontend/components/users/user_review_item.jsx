@@ -16,7 +16,7 @@ const UserReviewItem = ({ review }) => {
         <img
           className="user-review-listing-photo"
           src={review.photos[0]}
-          alt=""
+          alt="Listing Photo"
         />
       </Link>
       <div className="user-review-info-container">

@@ -113,7 +113,7 @@ class UserShow extends React.Component {
       <div className="user-show-container">
         <div className="user-info-container">
           <div className="profile-picture-div">
-            <img className="user-icon" src={profilePic} alt="" />
+            <img className="user-icon" src={profilePic} alt="Profile pic" />
             {this.props.currentUserId ===
             parseInt(this.props.match.params.userId) ? (
               <Link

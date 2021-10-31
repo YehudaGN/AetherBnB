@@ -26,7 +26,7 @@ const ListingReviewItem = ({ review }) => {
           <img
             className="listing-review-listing-photo"
             src={guestProfilePic}
-            alt=""
+            alt="Profile pic"
           />
         </Link>
         <div className="reviewer-info-container">

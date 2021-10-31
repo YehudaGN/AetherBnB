@@ -10,6 +10,7 @@ const ListingItem = props => {
           className="listing-photos"
           src={props.listing.photos[0]}
           height="150"
+          alt='Listing Photo'
         />
       </div>
       <div className="listing-info-container">

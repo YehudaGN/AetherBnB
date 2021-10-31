@@ -13,6 +13,7 @@ const UsersListings = ({listings, userId}) => {
                 className="listing-photos"
                 src={listing.photos[0]}
                 height="150"
+                alt='Listing Photo'
               />
             </div>
             <div className="listing-info-container">

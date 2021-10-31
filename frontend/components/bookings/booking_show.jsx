@@ -119,7 +119,7 @@ class BookingShow extends React.Component {
               <img
                 className="booking-listing-image"
                 src={booking.photos[0]}
-                alt=""
+                alt="Booking Photo"
               />
             </div>
             <div className="booking-listing-title-container">
