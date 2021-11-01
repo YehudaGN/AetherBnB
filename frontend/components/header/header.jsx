@@ -18,7 +18,8 @@ class Header extends React.Component {
 
   componentDidMount() {
     if (this.props.currentUser) {
-      this.props.fetchUser(this.props.currentUser)};
+      this.props.fetchUser(this.props.currentUser);
+    }
     document.addEventListener("mousedown", this.handleClickOutside);
     document.addEventListener("scroll", () => {
       if (window.scrollY > 1) {
@@ -65,18 +66,25 @@ class Header extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let city = this.state.city.split(' ').map(word => word[0].toUpperCase() + word.slice(1)).join(' ');
-    this.props.history.push(`/listings/${city}`);
-    this.setState({ city: "" });
+    if ((this.state.city === '')) {
+      this.props.history.push('/listings');
+    } else {
+      let city = this.state.city
+        .split(" ")
+        .map(word => word[0].toUpperCase() + word.slice(1))
+        .join(" ");
+      this.props.history.push(`/listings/${city}`);
+      this.setState({ city: '' });
+    }
   }
   render() {
     if (this.props.currentUser && !this.props.user) return null;
 
     let profilePic;
     if (this.props.currentUser && this.props.user.photo) {
-      profilePic = this.props.user.photo
+      profilePic = this.props.user.photo;
     } else {
-      profilePic = window.user_icon
+      profilePic = window.user_icon;
     }
     return (
       <div className="bdd">
@@ -108,8 +116,15 @@ class Header extends React.Component {
             </div>
             <div className="menu-container" ref={this.menuContainer}>
               <button className="menu-button" onClick={this.handleClick}>
-                <MenuIcon className='header-menu-icon' style={{ fontSize: 20 }} />
-                <img className='header-profile-pic' src={profilePic} alt="Profile pic" />
+                <MenuIcon
+                  className="header-menu-icon"
+                  style={{ fontSize: 20 }}
+                />
+                <img
+                  className="header-profile-pic"
+                  src={profilePic}
+                  alt="Profile pic"
+                />
               </button>
               {this.state.open && (
                 <div className="dropdown">

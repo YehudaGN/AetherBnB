@@ -32,6 +32,7 @@ class CreateListing extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    // this.props.spinner();
     mapboxgl.accessToken =
       "pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA";
     const geocoder = mbxGeocoding({

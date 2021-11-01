@@ -50,7 +50,6 @@ class EditUserPhoto extends React.Component {
         );
       });
     }
-    // this.props.spinner()
   }
 
   render() {

@@ -19,7 +19,9 @@ class UserShow extends React.Component {
   }
 
   componentDidUpdate() {
-    if (!this.state.bio) this.setState({ bio: this.props.user.bio });
+    if (!this.state.bio && this.props.user) {
+      this.setState({ bio: this.props.user.bio });
+    }
   }
 
   handleClick = () => {
