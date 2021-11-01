@@ -66,20 +66,19 @@ class Header extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if ((this.state.city === '')) {
-      this.props.history.push('/listings');
+    if (this.state.city === "") {
+      this.props.history.push("/listings");
     } else {
       let city = this.state.city
         .split(" ")
         .map(word => word[0].toUpperCase() + word.slice(1))
         .join(" ");
       this.props.history.push(`/listings/${city}`);
-      this.setState({ city: '' });
+      this.setState({ city: "" });
     }
   }
   render() {
     if (this.props.currentUser && !this.props.user) return null;
-
     let profilePic;
     if (this.props.currentUser && this.props.user.photo) {
       profilePic = this.props.user.photo;
@@ -131,20 +130,32 @@ class Header extends React.Component {
                   {this.props.currentUser ? (
                     <div className="dropdown-container">
                       <div className="your-trips-div">
-                        <Link className="trips-link" to="/trips">
+                        <Link
+                          className="trips-link"
+                          to="/trips"
+                          onClick={() => this.setState({ open: false })}
+                        >
                           Trips
                         </Link>
                       </div>
+
                       <div className="account-link-div">
                         <Link
                           className="account-link"
                           to={`/users/show/${this.props.currentUser}`}
+                          onClick={() => this.setState({ open: false })}
                         >
                           Account
                         </Link>
                       </div>
                       <ul className="logout-ul">
-                        <li className="menu-li" onClick={this.props.logout}>
+                        <li
+                          className="menu-li"
+                          onClick={() => {
+                            this.props.logout();
+                            this.setState({ open: false });
+                          }}
+                        >
                           Log Out
                         </li>
                       </ul>

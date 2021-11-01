@@ -2,6 +2,7 @@ import React from "react";
 import mapboxgl from "!mapbox-gl";
 import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 import BackupIcon from "@material-ui/icons/Backup";
+import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 
 class CreateListing extends React.Component {
   constructor(props) {
@@ -32,42 +33,63 @@ class CreateListing extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // this.props.spinner();
-    mapboxgl.accessToken =
-      "pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA";
-    const geocoder = mbxGeocoding({
-      accessToken: mapboxgl.accessToken,
-    });
 
-    geocoder
-      .forwardGeocode({
-        query: `${this.state.address}, ${this.state.city}, ${this.state.state}`,
-        limit: 1,
-      })
-      .send()
-      .then(res => {
-        this.setState({
-          longitude: res.body.features[0].center[0],
-          latitude: res.body.features[0].center[1],
-        });
-
-        const formData = new FormData();
-        formData.append("listing[title]", this.state.title);
-        formData.append("listing[description]", this.state.description);
-        formData.append("listing[address]", this.state.address);
-        formData.append("listing[city]", this.state.city);
-        formData.append("listing[state]", this.state.state);
-        formData.append("listing[zip_code]", this.state.zip_code);
-        formData.append("listing[num_beds]", this.state.num_beds);
-        formData.append("listing[longitude]", this.state.longitude);
-        formData.append("listing[latitude]", this.state.latitude);
-        formData.append("listing[price]", this.state.price);
-        for (let i = 0; i < this.state.photos.length; i++) {
-          formData.append("listing[photos][]", this.state.photos[i]);
-        }
-
-        this.props.createListing(formData).then(this.props.closeModal);
+    if (
+      this.state.title === "" ||
+      this.state.description === "" ||
+      this.state.address === "" ||
+      this.state.city === "" ||
+      this.state.state === "" ||
+      this.state.zip_code === "" ||
+      this.state.num_beds === "" ||
+      this.state.price === "" ||
+      this.state.photos.length !== 5
+    ) {
+      this.setState({
+        errors: (
+          <p className="listing-errors">
+            Please fill out all fields and upload 5 photos
+          </p>
+        ),
       });
+    } else {
+      if (this.state.errors) this.setState({errors: false});
+      mapboxgl.accessToken =
+        "pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA";
+      const geocoder = mbxGeocoding({
+        accessToken: mapboxgl.accessToken,
+      });
+
+      geocoder
+        .forwardGeocode({
+          query: `${this.state.address}, ${this.state.city}, ${this.state.state}`,
+          limit: 1,
+        })
+        .send()
+        .then(res => {
+          this.setState({
+            longitude: res.body.features[0].center[0],
+            latitude: res.body.features[0].center[1],
+          });
+
+          const formData = new FormData();
+          formData.append("listing[title]", this.state.title);
+          formData.append("listing[description]", this.state.description);
+          formData.append("listing[address]", this.state.address);
+          formData.append("listing[city]", this.state.city);
+          formData.append("listing[state]", this.state.state);
+          formData.append("listing[zip_code]", this.state.zip_code);
+          formData.append("listing[num_beds]", this.state.num_beds);
+          formData.append("listing[longitude]", this.state.longitude);
+          formData.append("listing[latitude]", this.state.latitude);
+          formData.append("listing[price]", this.state.price);
+          for (let i = 0; i < this.state.photos.length; i++) {
+            formData.append("listing[photos][]", this.state.photos[i]);
+          }
+
+          this.props.createListing(formData).then(this.props.closeModal);
+        });
+    }
   }
 
   render() {
@@ -151,37 +173,23 @@ class CreateListing extends React.Component {
             />
           </div>
 
-          <div className="image-preview-container">
+          <div className="images-preview-container">
             {this.photoUrls.map((photoUrl, idx) => (
-              <div key={`${idx}${this.photoUrls.length}`}>
+              <div className='image-preview-container' key={`${idx}${this.photoUrls.length}`}>
                 <span
                   className="remove-preview-image-x"
                   data-index={idx}
                   onClick={e => this.removeImage(e)}
                 >
-                  X
+                 <DeleteRoundedIcon className='listing-preview-delete-icon'/>
                 </span>
                 <img src={photoUrl} height="100" alt="Image preview" />
               </div>
             ))}
           </div>
 
-          <button
-            className={`create-listing-button ${
-              this.state.title === "" ||
-              this.state.description === "" ||
-              this.state.address === "" ||
-              this.state.city === "" ||
-              this.state.state === "" ||
-              this.state.zip_code === "" ||
-              this.state.num_beds === "" ||
-              this.state.price === ""
-                ? "incomplete-form"
-                : ""
-            }`}
-          >
-            Create Listing
-          </button>
+          <button className="create-listing-button">Create Listing</button>
+          {this.state.errors}
         </form>
       </div>
     );

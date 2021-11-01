@@ -3,11 +3,12 @@ import RoomIcon from "@material-ui/icons/Room";
 import StarIcon from "@material-ui/icons/Star";
 import HomeIcon from "@material-ui/icons/Home";
 const ListingHeaderBar = ({ city, state, reviewRating, numReviews, numBeds }) => {
+  if (reviewRating === 'NaN') reviewRating = 0;
   return (
     <ul className="reviews-address-beds-ul">
       <li className="reviews-point">
         <StarIcon className="star-icon" style={{ fontSize: 20 }} />
-        <span>{reviewRating}</span>
+        {<span>{reviewRating}</span> }
         <span className="listing-show-reviews-num-reviews">
           ({numReviews} reviews)
         </span>

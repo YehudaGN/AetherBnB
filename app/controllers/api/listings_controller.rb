@@ -9,9 +9,6 @@ class Api::ListingsController < ApplicationController
             @listings = Listing.with_attached_photos.all    
         elsif params[:searchParams][:city]
             @listings = Listing.with_attached_photos.where(city: params[:searchParams][:city])
-         
-            # city = params[:searchParams][:city].split.map{|word| word.capitalize}.join(' ')
-            # @listings = Listing.with_attached_photos.where(city: city)
         end
         render :index
     end

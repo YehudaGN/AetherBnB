@@ -12,6 +12,7 @@ class EditListing extends React.Component {
   }
 
   componentDidMount() {
+    debugger
       this.props.fetchListing(this.props.match.params.listingId)
   }
 

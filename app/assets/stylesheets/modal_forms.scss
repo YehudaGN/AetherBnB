@@ -75,6 +75,10 @@
   border: none;
 }
 
+#rounded-email {
+  border-top: 1px solid lightgray;
+}
+
 #rounded-email,
 #rounded-title {
   border-top-right-radius: 6px;
@@ -156,7 +160,8 @@ textarea {
   resize: none;
 }
 
-.errors-ul {
+.errors-ul,
+.listing-errors {
   margin-bottom: 8px;
   text-align: center;
   color: red;
@@ -178,12 +183,28 @@ textarea {
   gap: 10px;
 }
 
-.image-preview-container {
+.images-preview-container {
   display: flex;
   flex-wrap: wrap;
+  gap: 2px;
 }
 
 .remove-preview-image-x {
   position: absolute;
   cursor: pointer;
+  border: 1px solid rgb(68, 68, 68);
+  border-radius: 10px;
+  background-color: lightgray;
+}
+
+.remove-preview-image-x:hover {
+  border: 1px solid lightgray;
+  background-color: rgb(68, 68, 68);
+  .listing-preview-delete-icon {
+    color: lightgray;
+  }
+}
+
+.listing-preview-delete-icon {
+  color: gray;
 }
