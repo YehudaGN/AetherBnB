@@ -34,11 +34,9 @@ class EditListing extends React.Component {
   removeImage(e) {
     let index = parseInt(e.currentTarget.dataset.index);
     let photos = this.state.photos;
-    // debugger
     photos.splice(index, 1);
     this.photoUrls.splice(index, 1);
     this.setState({ photos: photos });
-    // debugger
   }
 
   handleSubmit(e) {
