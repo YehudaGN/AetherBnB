@@ -25,6 +25,7 @@ class SignupModal extends React.Component {
   }
 
   renderErrors() {
+    // debugger
     const mappedErrors = this.props.errors.map((error, i) => (
       <li key={`error-${i}`}>{error}</li>
     ));

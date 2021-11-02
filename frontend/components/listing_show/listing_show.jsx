@@ -59,7 +59,7 @@ class ListingShow extends React.Component {
       );
       editButton = <button 
       className="edit-listing-button"
-      onClick={() => this.props.openModal("edit listing")}
+      onClick={() => this.props.history.push(`/listing/${this.props.listing.id}/edit`)}
       >Edit Listing</button>;
     }
     let host = this.props.listing.host;

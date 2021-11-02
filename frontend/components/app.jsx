@@ -7,6 +7,7 @@ import SplashContainer from "./splash/splash_container";
 import CreateListingContainer from "./listings_forms/create_listing_container";
 import UserShowContainer from "./users/users_show_container";
 import ListingShowContainer from "./listing_show/listing_show_container";
+import ListingEditContainer from "./listings_forms/edit_listing_container";
 import ListingIndexContainer from "./listings_index/listings_index_container";
 import BookingShowContainer from "./bookings/booking_show_container";
 import BookingIndexContainer from "./bookings/booking_index_container";
@@ -17,7 +18,9 @@ const App = () => (
     <Modal />
     <Route exact path="/listings" component={ListingIndexContainer} />
     <Route exact path="/listings/:city" component={ListingIndexContainer} />
-    <Route path="/listing/show/:listingId" component={ListingShowContainer} />
+    <Route exact path="/listing/show/:listingId" component={ListingShowContainer} />
+    <Route exact path="/listing/:listingId/edit" component={ListingEditContainer} />
+
     <ProtectedRoute path="/trips" component={BookingIndexContainer} />
     <ProtectedRoute
       path="/listing/:listingId/booking/:bookingId"

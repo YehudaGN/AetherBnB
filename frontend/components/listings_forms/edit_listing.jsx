@@ -2,6 +2,7 @@ import React from "react";
 import mapboxgl from "!mapbox-gl";
 import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 import BackupIcon from "@material-ui/icons/Backup";
+import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 
 class EditListing extends React.Component {
   constructor(props) {
@@ -12,8 +13,11 @@ class EditListing extends React.Component {
   }
 
   componentDidMount() {
-    debugger
       this.props.fetchListing(this.props.match.params.listingId)
+  }
+
+  componentDidUpdate() {
+    if (!this.state) this.setState(this.props.listing)
   }
 
   handleChange(field) {
@@ -30,9 +34,11 @@ class EditListing extends React.Component {
   removeImage(e) {
     let index = parseInt(e.currentTarget.dataset.index);
     let photos = this.state.photos;
+    // debugger
     photos.splice(index, 1);
     this.photoUrls.splice(index, 1);
     this.setState({ photos: photos });
+    // debugger
   }
 
   handleSubmit(e) {
@@ -76,11 +82,12 @@ class EditListing extends React.Component {
 
   render() {
       if (!this.props.listing) return null;
+      if (!this.state) return null;
+      let listing = this.props.listing
+      let photos = this.props.listing.photos
+      if (photos) this.photoUrls = photos
     return (
       <div className="create-listing-container">
-        <div onClick={this.props.closeModal} className="close-x">
-          X
-        </div>
         <h3 className="create-listing-h3">Update Listing</h3>
         <form className="listing-form" onSubmit={this.handleSubmit}>
           <input
@@ -164,7 +171,7 @@ class EditListing extends React.Component {
                   data-index={idx}
                   onClick={e => this.removeImage(e)}
                 >
-                  X
+                  <DeleteRoundedIcon />
                 </span>
                 <img src={photoUrl} height="100" alt="Image preview" />
               </div>
