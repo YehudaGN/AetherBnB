@@ -65,13 +65,14 @@ class UserShow extends React.Component {
     } else {
       createListingButton = "";
     }
-
     let userReviews;
     if (
       parseInt(this.props.match.params.userId) === this.props.currentUserId &&
       this.props.user.user_reviews
     ) {
-      userReviews = this.props.user.user_reviews.map((review, idx) => (
+      let reviewsCopy = [...this.props.user.user_reviews]
+      let sortedReviews = reviewsCopy.sort((a, b) => (a.id < b.id) ? -1 : 1)
+      userReviews = sortedReviews.map((review, idx) => (
         <div key={`${idx}${review.id}`} className="user-review-item-container">
           <UserReviewItem
             fetchUser={this.props.fetchUser}

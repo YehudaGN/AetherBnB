@@ -33,7 +33,7 @@ class CreateListing extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (
+    if ( 
       this.state.title === "" ||
       this.state.description === "" ||
       this.state.address === "" ||
