@@ -33,7 +33,6 @@ class CreateListing extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-
     if (
       this.state.title === "" ||
       this.state.description === "" ||
@@ -71,7 +70,7 @@ class CreateListing extends React.Component {
             longitude: res.body.features[0].center[0],
             latitude: res.body.features[0].center[1],
           });
-
+          
           const formData = new FormData();
           formData.append("listing[title]", this.state.title);
           formData.append("listing[description]", this.state.description);
@@ -86,7 +85,6 @@ class CreateListing extends React.Component {
           for (let i = 0; i < this.state.photos.length; i++) {
             formData.append("listing[photos][]", this.state.photos[i]);
           }
-
           this.props.createListing(formData).then(this.props.closeModal);
         });
     }
@@ -183,13 +181,13 @@ class CreateListing extends React.Component {
                 >
                  <DeleteRoundedIcon className='listing-preview-delete-icon'/>
                 </span>
-                <img src={photoUrl} height="100" alt="Image preview" />
+                <img className='listing-image-preview' src={photoUrl} height="100" alt="Image preview" />
               </div>
             ))}
           </div>
 
-          <button className="create-listing-button">Create Listing</button>
           {this.state.errors}
+          <button className="create-listing-button">Create Listing</button>
         </form>
       </div>
     );

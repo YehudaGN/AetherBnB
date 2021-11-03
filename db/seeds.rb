@@ -88,48 +88,297 @@ interiors = [
 
 i = 0
 
-20.times do
-    listing = Listing.create! ({
-        host_id: Faker::Number.within(range: 1..11),
-        title: Faker::Book.title,
-        description: Faker::Quote.famous_last_words,
-        address: Faker::Address.street_address,
-        city: Faker::Address.city,
-        state: Faker::Address.state,
-        zip_code: Faker::Address.zip_code,
-        num_beds: Faker::Number.within(range: 1..10),
-        longitude: Faker::Address.longitude,
-        latitude: Faker::Address.latitude,
-        price: Faker::Number.within(range: 100..2000)
-    })
+# 20.times do
+#     listing = Listing.create! ({
+#         host_id: Faker::Number.within(range: 1..11),
+#         title: Faker::Book.title,
+#         description: Faker::Quote.famous_last_words,
+#         address: Faker::Address.street_address,
+#         city: Faker::Address.city,
+#         state: Faker::Address.state,
+#         zip_code: Faker::Address.zip_code,
+#         num_beds: Faker::Number.within(range: 1..10),
+#         longitude: Faker::Address.longitude,
+#         latitude: Faker::Address.latitude,
+#         price: Faker::Number.within(range: 100..2000)
+#     })
     
+#     rand_num_1 = rand(19)
+#     rand_num_2 = rand(19)
+#     rand_num_3 = rand(19)
+#     rand_num_4 = rand(19)
+#     listing.photos.attach(io: File.open(exteriors[i][0]), filename: exteriors[i][1] )
+#     listing.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+#     listing.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+#     listing.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+#     listing.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+    
+#     i += 1
+# end
+
+listing1NewYork = Listing.create! ({
+    host_id: Faker::Number.within(range: 1..11),
+    title: Faker::Book.title,
+    description: Faker::Quote.famous_last_words,
+    address: '1319 Jarvisville Road',
+    city: 'New York',
+    state: 'New York',
+    zip_code: 10004,
+    num_beds: Faker::Number.within(range: 1..10),
+    longitude: -74.034424,
+    latitude: 40.716480,
+    price: Faker::Number.within(range: 100..2000)
+})
     rand_num_1 = rand(19)
     rand_num_2 = rand(19)
     rand_num_3 = rand(19)
     rand_num_4 = rand(19)
-    listing.photos.attach(io: File.open(exteriors[i][0]), filename: exteriors[i][1] )
-    listing.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
-    listing.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
-    listing.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
-    listing.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
-    
-    i += 1
-end
+    rand_num_5 = rand(20)
+    listing1NewYork.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[i][1] )
+    listing1NewYork.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+    listing1NewYork.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+    listing1NewYork.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+    listing1NewYork.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
 
-listingNewYork = Listing.create! ({
+listing2NewYork = Listing.create! ({
     host_id: Faker::Number.within(range: 1..11),
     title: Faker::Book.title,
     description: Faker::Quote.famous_last_words,
-    address: Faker::Address.street_address,
+    address: '3488 Redbud Drive',
+    city: 'New York',
+    state: 'New York',
+    zip_code: 10011,
+    num_beds: Faker::Number.within(range: 1..10),
+    longitude: -73.920090,
+    latitude: 40.781387,
+    price: Faker::Number.within(range: 100..2000)
+})
+    rand_num_1 = rand(19)
+    rand_num_2 = rand(19)
+    rand_num_3 = rand(19)
+    rand_num_4 = rand(19)
+    rand_num_5 = rand(20)
+    listing2NewYork.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[i][1] )
+    listing2NewYork.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+    listing2NewYork.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+    listing2NewYork.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+    listing2NewYork.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+
+listing2NewYork = Listing.create! ({
+    host_id: Faker::Number.within(range: 1..11),
+    title: Faker::Book.title,
+    description: Faker::Quote.famous_last_words,
+    address: '2929 Oakwood Avenue',
     city: 'New York',
     state: 'New York',
     zip_code: Faker::Address.zip_code,
     num_beds: Faker::Number.within(range: 1..10),
-    longitude: Faker::Address.longitude,
-    latitude: Faker::Address.latitude,
+    longitude: -73.931625,
+    latitude: 40.778976,
     price: Faker::Number.within(range: 100..2000)
 })
-listingNewYork.photos.attach(io: File.open('app/assets/images/sunset.jpg'), filename: 'sunset.jpg' )
+    rand_num_1 = rand(19)
+    rand_num_2 = rand(19)
+    rand_num_3 = rand(19)
+    rand_num_4 = rand(19)
+    rand_num_5 = rand(20)
+    listing2NewYork.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[i][1] )
+    listing2NewYork.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+    listing2NewYork.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+    listing2NewYork.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+    listing2NewYork.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+
+listing3NewYork = Listing.create! ({
+    host_id: Faker::Number.within(range: 1..11),
+    title: Faker::Book.title,
+    description: Faker::Quote.famous_last_words,
+    address: '4928 Forest Avenue',
+    city: 'New York',
+    state: 'New York',
+    zip_code: 10013,
+    num_beds: Faker::Number.within(range: 1..10),
+    longitude: -74.063934,
+    latitude: 40.722752,
+    price: Faker::Number.within(range: 100..2000)
+})
+    rand_num_1 = rand(19)
+    rand_num_2 = rand(19)
+    rand_num_3 = rand(19)
+    rand_num_4 = rand(19)
+    rand_num_5 = rand(20)
+    listing3NewYork.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[i][1] )
+    listing3NewYork.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+    listing3NewYork.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+    listing3NewYork.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+    listing3NewYork.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+
+listing4NewYork = Listing.create! ({
+    host_id: Faker::Number.within(range: 1..11),
+    title: Faker::Book.title,
+    description: Faker::Quote.famous_last_words,
+    address: '188 Abia Martin Drive',
+    city: 'New York',
+    state: 'New York',
+    zip_code: 10011,
+    num_beds: Faker::Number.within(range: 1..10),
+    longitude: -73.928604,
+    latitude: 40.717571,
+    price: Faker::Number.within(range: 100..2000)
+})
+    rand_num_1 = rand(19)
+    rand_num_2 = rand(19)
+    rand_num_3 = rand(19)
+    rand_num_4 = rand(19)
+    rand_num_5 = rand(20)
+    listing4NewYork.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[i][1] )
+    listing4NewYork.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+    listing4NewYork.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+    listing4NewYork.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+    listing4NewYork.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+
+listing5NewYork = Listing.create! ({
+    host_id: Faker::Number.within(range: 1..11),
+    title: Faker::Book.title,
+    description: '983 Bicetown Road',
+    address: Faker::Address.street_address,
+    city: 'New York',
+    state: 'New York',
+    zip_code: 10011,
+    num_beds: Faker::Number.within(range: 1..10),
+    longitude: -73.958443,
+    latitude: 40.750381,
+    price: Faker::Number.within(range: 100..2000)
+})
+    rand_num_1 = rand(19)
+    rand_num_2 = rand(19)
+    rand_num_3 = rand(19)
+    rand_num_4 = rand(19)
+    rand_num_5 = rand(20)
+    listing5NewYork.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[i][1] )
+    listing5NewYork.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+    listing5NewYork.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+    listing5NewYork.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+    listing5NewYork.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+
+listing6NewYork = Listing.create! ({
+    host_id: Faker::Number.within(range: 1..11),
+    title: Faker::Book.title,
+    description: Faker::Quote.famous_last_words,
+    address: '1255 Oakwood Avenue',
+    city: 'New York',
+    state: 'New York',
+    zip_code: 10003,
+    num_beds: Faker::Number.within(range: 1..10),
+    longitude: -73.988541,
+    latitude: 40.752403,
+    price: Faker::Number.within(range: 100..2000)
+})
+    rand_num_1 = rand(19)
+    rand_num_2 = rand(19)
+    rand_num_3 = rand(19)
+    rand_num_4 = rand(19)
+    rand_num_5 = rand(20)
+    listing6NewYork.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[i][1] )
+    listing6NewYork.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+    listing6NewYork.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+    listing6NewYork.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+    listing6NewYork.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+
+listing7NewYork = Listing.create! ({
+    host_id: Faker::Number.within(range: 1..11),
+    title: Faker::Book.title,
+    description: Faker::Quote.famous_last_words,
+    address: '4563 Forest Avenue',
+    city: 'New York',
+    state: 'New York',
+    zip_code: 10013,
+    num_beds: Faker::Number.within(range: 1..10),
+    longitude: -74.059074,
+    latitude: 40.753021,
+    price: Faker::Number.within(range: 100..2000)
+})
+    rand_num_1 = rand(19)
+    rand_num_2 = rand(19)
+    rand_num_3 = rand(19)
+    rand_num_4 = rand(19)
+    rand_num_5 = rand(20)
+    listing7NewYork.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[i][1] )
+    listing7NewYork.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+    listing7NewYork.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+    listing7NewYork.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+    listing7NewYork.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+
+listing8NewYork = Listing.create! ({
+    host_id: Faker::Number.within(range: 1..11),
+    title: Faker::Book.title,
+    description: Faker::Quote.famous_last_words,
+    address: '4493 Redbud Drive',
+    city: 'New York',
+    state: 'New York',
+    zip_code: 10011,
+    num_beds: Faker::Number.within(range: 1..10),
+    longitude: -73.981567,
+    latitude: 40.826473,
+    price: Faker::Number.within(range: 100..2000)
+})
+    rand_num_1 = rand(19)
+    rand_num_2 = rand(19)
+    rand_num_3 = rand(19)
+    rand_num_4 = rand(19)
+    rand_num_5 = rand(20)
+    listing8NewYork.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[i][1] )
+    listing8NewYork.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+    listing8NewYork.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+    listing8NewYork.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+    listing8NewYork.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+
+listing9NewYork = Listing.create! ({
+    host_id: Faker::Number.within(range: 1..11),
+    title: Faker::Book.title,
+    description: Faker::Quote.famous_last_words,
+    address: '3431 Pallet Street',
+    city: 'New York',
+    state: 'New York',
+    zip_code: 10011,
+    num_beds: Faker::Number.within(range: 1..10),
+    longitude: -73.904900,
+    latitude: 40.791691,
+    price: Faker::Number.within(range: 100..2000)
+})
+    rand_num_1 = rand(19)
+    rand_num_2 = rand(19)
+    rand_num_3 = rand(19)
+    rand_num_4 = rand(19)
+    rand_num_5 = rand(20)
+    listing9NewYork.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[i][1] )
+    listing9NewYork.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+    listing9NewYork.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+    listing9NewYork.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+    listing9NewYork.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+
+listing10NewYork = Listing.create! ({
+    host_id: Faker::Number.within(range: 1..11),
+    title: Faker::Book.title,
+    description: Faker::Quote.famous_last_words,
+    address: '139 Farnum Road',
+    city: 'New York',
+    state: 'New York',
+    zip_code: Faker::Address.zip_code,
+    num_beds: Faker::Number.within(range: 1..10),
+    longitude: -73.945114,
+    latitude: 40.772659,
+    price: Faker::Number.within(range: 100..2000)
+})
+    rand_num_1 = rand(19)
+    rand_num_2 = rand(19)
+    rand_num_3 = rand(19)
+    rand_num_4 = rand(19)
+    rand_num_5 = rand(20)
+    listing10NewYork.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[i][1] )
+    listing10NewYork.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+    listing10NewYork.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+    listing10NewYork.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+    listing10NewYork.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
 
 listingAustin = Listing.create! ({
     host_id: Faker::Number.within(range: 1..11),

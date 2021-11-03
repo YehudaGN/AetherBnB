@@ -2,7 +2,7 @@ import React from "react";
 import mapboxgl from "!mapbox-gl";
 import mbxGeocoding from "@mapbox/mapbox-sdk/services/geocoding";
 import BackupIcon from "@material-ui/icons/Backup";
-import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 
 class EditListing extends React.Component {
   constructor(props) {
@@ -13,11 +13,11 @@ class EditListing extends React.Component {
   }
 
   componentDidMount() {
-      this.props.fetchListing(this.props.match.params.listingId)
+    this.props.fetchListing(this.props.match.params.listingId);
   }
 
   componentDidUpdate() {
-    if (!this.state) this.setState(this.props.listing)
+    if (!this.state) this.setState(this.props.listing);
   }
 
   handleChange(field) {
@@ -61,6 +61,7 @@ class EditListing extends React.Component {
 
         const formData = new FormData();
         formData.append("listing[title]", this.state.title);
+        formData.append("listing[id]", this.state.id);
         formData.append("listing[description]", this.state.description);
         formData.append("listing[address]", this.state.address);
         formData.append("listing[city]", this.state.city);
@@ -70,20 +71,22 @@ class EditListing extends React.Component {
         formData.append("listing[longitude]", this.state.longitude);
         formData.append("listing[latitude]", this.state.latitude);
         formData.append("listing[price]", this.state.price);
-        for (let i = 0; i < this.state.photos.length; i++) {
-          formData.append("listing[photos][]", this.state.photos[i]);
+        if (this.state.photos.length !== 0) {
+          for (let i = 0; i < this.state.photos.length; i++) {
+            formData.append("listing[photos][]", this.state.photos[i]);
+          }
         }
-
-        this.props.editListing(formData).then(this.props.closeModal);
+        this.props.editListing(formData).then(()=>this.props.history.push(`/listing/show/${this.props.listing.id}`));
       });
   }
 
   render() {
-      if (!this.props.listing) return null;
-      if (!this.state) return null;
-      let listing = this.props.listing
-      let photos = this.props.listing.photos
-      if (photos) this.photoUrls = photos
+    if (!this.props.listing) return null;
+    if (!this.state) return null;
+    let listing = this.props.listing;
+    let photos = this.props.listing.photos;
+    if (photos) this.photoUrls = photos;
+    debugger
     return (
       <div className="create-listing-container">
         <h3 className="create-listing-h3">Update Listing</h3>

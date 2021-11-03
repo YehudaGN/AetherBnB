@@ -73,7 +73,7 @@ class UserShow extends React.Component {
     ) {
       userReviews = this.props.user.user_reviews.map((review, idx) => (
         <div key={`${idx}${review.id}`} className="user-review-item-container">
-          <UserReviewItem review={review} />
+          <UserReviewItem editReview={this.props.editReview} review={review} />
         </div>
       ));
     }

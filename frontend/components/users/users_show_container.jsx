@@ -4,6 +4,7 @@ import { fetchUser, updateUser } from '../../actions/user_actions';
 import UserShow from './users_show';
 import { openModal } from '../../actions/modal_actions';
 import { fetchListings } from '../../actions/listings_actions';
+import { editReview } from '../../actions/reviews_actions';
 
 const mSTP = (state, ownProps) => ({
     user: state.entities.users[ownProps.match.params.userId],
@@ -15,7 +16,8 @@ const mDTP = dispatch => ({
     fetchListings: () => dispatch(fetchListings()),
     fetchUser: userId => dispatch(fetchUser(userId)),
     openModal: modal => dispatch(openModal(modal)),
-    updateUser: user => dispatch(updateUser(user))
+    updateUser: user => dispatch(updateUser(user)),
+    editReview: review => dispatch(editReview(review))
 })
 
 export default connect(mSTP, mDTP)(UserShow);

@@ -2,7 +2,7 @@ import React from "react";
 import ListingItem from "./listing_item";
 import MapContainer from "../mapbox/map_container";
 import { ThumbUpAlt } from "@material-ui/icons";
-
+import SentimentDissatisfiedTwoToneIcon from "@mui/icons-material/SentimentDissatisfiedTwoTone";
 class ListingIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -39,7 +39,18 @@ class ListingIndex extends React.Component {
     if (this.props.listings.length === 0 && !this.state.noListing) return null;
 
     if (this.state.noListing)
-      return <div className="no-listings">No Listings Here :(</div>;
+      return (
+        <div className="no-listings-container">
+          <div className="no-listings">
+            <p className="no-listings-text"> No Listings Here</p>{" "}
+            <span className="no-listings-sad-face">
+              <SentimentDissatisfiedTwoToneIcon
+                style={{ fontSize: 200 }}
+              />
+            </span>{" "}
+          </div>
+        </div>
+      );
 
     let filteredListings;
     let mappedListings;

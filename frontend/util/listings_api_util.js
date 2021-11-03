@@ -25,6 +25,8 @@ export const editListing = listing =>
     method: "PATCH",
     url: `api/listings/${listing.id}`,
     data: { listing },
+    processData: false,
+    contentType: false,
   });
 
 export const deleteListing = listingId =>
