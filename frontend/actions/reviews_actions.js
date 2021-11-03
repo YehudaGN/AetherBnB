@@ -20,10 +20,10 @@ export const createReview = review => dispatch => (
 
 export const editReview = review => dispatch => (
     reviewsApiUtil.editReview(review)
-        .then(review => dispatch(receive(review)))
+        // .then(review => dispatch(receiveReview(review)))
 )
 
-export const deleteReview = reviewId => dispatch (
+export const deleteReview = reviewId => dispatch => (
     reviewsApiUtil.deleteReview(reviewId)
-        .then(()=> dispatch(removeReview(reviewId)))
+        // .then(()=> dispatch(removeReview(reviewId)))
 )

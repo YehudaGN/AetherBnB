@@ -7,6 +7,7 @@ const reviewsReducer = (state = {}, action) => {
     Object.freeze(state);
     switch(action.type) {
         case RECEIVE_REVIEW: 
+        debugger
             return {...state, [action.review.id]: action.review}
         case REMOVE_REVIEW:
             let newState = {...state};

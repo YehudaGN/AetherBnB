@@ -86,7 +86,6 @@ class EditListing extends React.Component {
     let listing = this.props.listing;
     let photos = this.props.listing.photos;
     if (photos) this.photoUrls = photos;
-    debugger
     return (
       <div className="create-listing-container">
         <h3 className="create-listing-h3">Update Listing</h3>

@@ -78,7 +78,8 @@ class Map extends React.Component {
     } else {
       let mapMarker;
       this.state.listings.forEach(listing => {
-        if (listing.city === this.props.match.params.city) {
+        if (listing.city === this.props.match.params.city ||
+          this.props.match.params.city === undefined) {
           mapMarker = new mapboxgl.Marker({ color: "teal" })
             .setLngLat([listing.longitude, listing.latitude])
             .addTo(this.map)

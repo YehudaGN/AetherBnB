@@ -73,7 +73,12 @@ class UserShow extends React.Component {
     ) {
       userReviews = this.props.user.user_reviews.map((review, idx) => (
         <div key={`${idx}${review.id}`} className="user-review-item-container">
-          <UserReviewItem editReview={this.props.editReview} review={review} />
+          <UserReviewItem
+            fetchUser={this.props.fetchUser}
+            editReview={this.props.editReview}
+            deleteReview={this.props.deleteReview}
+            review={review}
+          />
         </div>
       ));
     }
@@ -86,27 +91,26 @@ class UserShow extends React.Component {
     let editProfileForm;
     if (this.state.editOpen) {
       editProfileForm = (
-          <form
-            className="edit-profile-form"
-            onSubmit={e => this.handleSubmit(e)}
-          >
-          <h3 className='about-h3'>About</h3>
-            <textarea
-              className="edit-profile-bio"
-              value={this.state.bio}
-              onChange={e => this.handleBio(e)}
-            ></textarea>
-            <div className="user-update-form-buttons-container">
-              <li
-                className="edit-profile-cancel-li"
-                onClick={() => this.handleCancel()}
-              >
-                Cancel
-              </li>
-              <button className="edit-profile-save-button">Save</button>
-            </div>
-          </form>
-          
+        <form
+          className="edit-profile-form"
+          onSubmit={e => this.handleSubmit(e)}
+        >
+          <h3 className="about-h3">About</h3>
+          <textarea
+            className="edit-profile-bio"
+            value={this.state.bio}
+            onChange={e => this.handleBio(e)}
+          ></textarea>
+          <div className="user-update-form-buttons-container">
+            <li
+              className="edit-profile-cancel-li"
+              onClick={() => this.handleCancel()}
+            >
+              Cancel
+            </li>
+            <button className="edit-profile-save-button">Save</button>
+          </div>
+        </form>
       );
     } else {
       editProfileForm = "";
@@ -136,17 +140,20 @@ class UserShow extends React.Component {
             </p>
 
             <br />
-
-            <div className="edit-user">
-              <li
-                className="edit-profile-button"
-                onClick={() => this.setState({ editOpen: true })}
-              >
-                Edit profile
-              </li>
-              {editProfileForm}
-            </div>
-
+            {this.props.currentUserId ===
+            parseInt(this.props.match.params.userId) ? (
+              <div className="edit-user">
+                <li
+                  className="edit-profile-button"
+                  onClick={() => this.setState({ editOpen: true })}
+                >
+                  Edit profile
+                </li>
+                {editProfileForm}
+              </div>
+            ) : (
+              ""
+            )}
             <br />
             {this.state.editOpen ? (
               ""
