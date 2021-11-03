@@ -41,8 +41,8 @@ export const createListing = listing => dispatch =>
     errors => dispatch(receiveListingErrors(errors.responseJSON))
   );
 
-export const editListing = listing => dispatch =>
-  listingApiUtil.editListing(listing).then(
+export const editListing = (listing, listingId) => dispatch =>
+  listingApiUtil.editListing(listing, listingId).then(
     listing => dispatch(receiveListing(listing)),
     errors => dispatch(receiveListingErrors(errors.responseJSON))
   );

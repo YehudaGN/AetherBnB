@@ -1,0 +1,73 @@
+.edit-listing-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  min-height: 50vh;
+  width: 100vw;
+  align-items: center;
+}
+
+.edit-listing-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  width: 80%;
+}
+
+.input-label {
+  display: flex;
+  align-items: center;
+//   width: 100%;
+  justify-content: center;
+}
+
+.label-text {
+    width: 10%;
+}
+
+.edit-listing-input {
+  height: 5vh;
+  width: 30%;
+  align-self: center;
+  border: 1px solid rgb(173, 170, 170);
+  border-top: none;
+}
+
+// #rounded-title {
+//   border-top: 1px solid rgb(173, 170, 170);
+//   border-top-right-radius: 6px;
+//   border-top-left-radius: 6px;
+// }
+
+// #rounded-price {
+//   border-bottom-right-radius: 6px;
+//   border-bottom-left-radius: 6px;
+// }
+
+.edit-listing-h3 {
+  text-align: center;
+  font-size: 28px;
+  margin-top: 30px;
+  //   margin-bottom: 10%;
+}
+
+.edit-listing-button {
+  margin-bottom: 5%;
+  cursor: pointer;
+  height: 4vh;
+  align-self: center;
+  width: 30%;
+  background: linear-gradient(
+    to right,
+    rgb(230, 30, 77) 0%,
+    rgb(227, 28, 95) 50%,
+    rgb(215, 4, 102) 100%
+  );
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  margin-top: 5%;
+  border: none;
+}

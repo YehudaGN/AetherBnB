@@ -20,7 +20,7 @@ export const createListing = listing =>
     contentType: false,
   });
 
-export const editListing = listing =>
+export const editListing = (listing, listingId) =>
   $.ajax({
     method: "PATCH",
     url: `api/listings/${listing.id}`,
