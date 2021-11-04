@@ -56,6 +56,7 @@ class UserReviewItem extends React.Component {
   }
 
   handleDelete() {
+    // document.getElementById('delete-review').innerText = 'Deleting'
     let guestId = this.props.review.guest_id;
     this.props
       .deleteReview(this.props.review.id)
@@ -105,6 +106,7 @@ class UserReviewItem extends React.Component {
                 Edit
               </span>
               <span
+                id='delete-review'
                 className="delete-review-button"
                 onClick={() => this.handleDelete()}
               >

@@ -58,6 +58,10 @@
   color: rgb(103, 1, 143);
 }
 
+.flexible-button:active {
+  transform: translateY(4px);
+}
+
 .explore-container-container {
   width: 100%;
   display: flex;

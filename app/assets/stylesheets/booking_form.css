@@ -45,9 +45,6 @@
   margin-right: 20px;
 }
 
-.book-listing-button-container {
-}
-
 .book-listing-button {
   background: linear-gradient(
     to right,
@@ -61,6 +58,10 @@
   border: none;
   margin-bottom: 20px;
   margin-top: 20px;
+}
+
+.book-listing-button:active {
+  transform: translateY(4px);
 }
 
 .booking-form-errors {

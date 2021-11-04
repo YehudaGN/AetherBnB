@@ -69,7 +69,7 @@ class CreateBooking extends React.Component {
     let days =
       (this.state.end_date.getTime() - this.state.start_date.getTime()) /
       (1000 * 3600 * 24);
-    this.setState({ price: days * this.props.listingPrice });
+    this.setState({ price: (days * this.props.listingPrice).toFixed(2) });
   }
 
   handleChange(field) {

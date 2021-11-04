@@ -339,10 +339,10 @@ class ListingShow extends React.Component {
               </div>
 
               <div id="listing-map-container"></div>
-              <div className="delete-listing-button-container">
-                {deleteButton}
-              </div>
               <div className="edit-listing-button-container">{editButton}</div>
+              {/* <div className="delete-listing-button-container">
+                {deleteButton}
+              </div> */}
             </div>
           </div>
         </div>
