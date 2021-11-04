@@ -112,3 +112,53 @@
 .more-trip-plans-container:hover {
     box-shadow: 0px 4px 0px 0px rgba(201, 201, 201, 0.64);
 }
+
+.no-bookings-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.no-bookings {
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    height: 50%;
+    width: 40%;
+    background: rgb(121, 121, 121);
+}
+
+.no-bookings-text {
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.no-bookings-link {
+    font-size: 40px;
+    border-radius: 50px;
+    background: linear-gradient(
+    to right,
+    rgb(230, 30, 77) 0%,
+    rgb(227, 28, 95) 50%,
+    rgb(215, 4, 102) 100%
+  );
+  text-align: center;
+  width: 30%;
+  padding: 10px 30px;
+  color: black;
+}
+
+.no-bookings-link:hover {
+    box-shadow: 0 5px 8px 0 rgba(253, 1, 140, 0.507),
+    0 5px 10px 0 rgba(255, 1, 107, 0.37);
+}
+
+.no-bookings-link:active {
+    transform: translateY(4px);
+}

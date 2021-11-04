@@ -23,7 +23,7 @@ class Map extends React.Component {
     this.map = new mapboxgl.Map({
       container: "map",
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [0.0, 0.0],
+      center: [-74.0060, 40.7128],
       zoom: 7,
     });
     const nav = new mapboxgl.NavigationControl();
@@ -37,12 +37,20 @@ class Map extends React.Component {
         .fetchListings({
           city: this.props.match.params.city,
         })
-        .then((res) => {
+        .then(res => {
           this.mapMarkers.forEach(marker => marker.remove());
           this.mapMarkers = [];
           let mapMarker;
           Object.values(res.listings).forEach(listing => {
-            if (listing.city === that.props.match.params.city) {
+            if (that.props.match.params.city) {
+              if (listing.city === that.props.match.params.city) {
+                mapMarker = new mapboxgl.Marker({ color: "teal" })
+                  .setLngLat([listing.longitude, listing.latitude])
+                  .addTo(this.map)
+                  .setPopup(new mapboxgl.Popup().setHTML(this.marker(listing)));
+                this.mapMarkers.push(mapMarker);
+              }
+            } else {
               mapMarker = new mapboxgl.Marker({ color: "teal" })
                 .setLngLat([listing.longitude, listing.latitude])
                 .addTo(this.map)
@@ -78,8 +86,10 @@ class Map extends React.Component {
     } else {
       let mapMarker;
       this.state.listings.forEach(listing => {
-        if (listing.city === this.props.match.params.city ||
-          this.props.match.params.city === undefined) {
+        if (
+          listing.city === this.props.match.params.city ||
+          this.props.match.params.city === undefined
+        ) {
           mapMarker = new mapboxgl.Marker({ color: "teal" })
             .setLngLat([listing.longitude, listing.latitude])
             .addTo(this.map)
@@ -122,7 +132,7 @@ class Map extends React.Component {
                 <p class='popup-city'>
                     ${listing.city}
                 </p>
-                <img class = 'popup-img' alt='Lisiting Photo' src=${listing.photos[0]} height='100'/>
+                <img class = 'popup-img' alt='Listing Photo' src=${listing.photos[0]} height='80'/>
             </div>`;
   }
 
