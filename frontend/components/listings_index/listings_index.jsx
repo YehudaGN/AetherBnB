@@ -38,19 +38,18 @@ class ListingIndex extends React.Component {
   render() {
     if (this.props.listings.length === 0 && !this.state.noListing) return null;
 
-    if (this.state.noListing)
+    if (this.state.noListing) {
       return (
         <div className="no-listings-container">
           <div className="no-listings">
             <p className="no-listings-text"> No Listings Here</p>{" "}
             <span className="no-listings-sad-face">
-              <SentimentDissatisfiedTwoToneIcon
-                style={{ fontSize: 200 }}
-              />
+              <SentimentDissatisfiedTwoToneIcon style={{ fontSize: 200 }} />
             </span>{" "}
           </div>
         </div>
       );
+    }
 
     let filteredListings;
     let mappedListings;
