@@ -23,7 +23,7 @@ user_pics = [
     ['app/assets/images/city-ocean.jpg', 'city-ocean.jpg'],
     ['app/assets/images/city-river.jpg', 'city-river.jpg'],
     ['app/assets/images/clouds.jpg', 'clouds.jpg'],
-    ['app/assets/images/night-sky.jpg', 'night-sky.jpg'],
+    ['app/assets/images/night-sky.png', 'night-sky.png'],
     ['app/assets/images/tree-city.jpg', 'tree-city.jpg'],
     ['app/assets/images/warm-city-beach.jpg', 'warm-city-beach.jpg']
 ]
