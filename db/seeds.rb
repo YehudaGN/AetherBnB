@@ -13,13 +13,13 @@ demo_user = User.create!(
     password: "demouser",
     bio: "I'm a demo user!"
 )
-demo_user.photo.attach(io: File.open('app/assets/images/night-sky.png'), filename: 'night-sky.png' )
+demo_user.photo.attach(io: File.open('app/assets/images/profile_pics/tree-favicon.png'), filename: 'tree-favicon.png' )
 
 user_pics = [
-    ['app/assets/images/profile_pics/tree_favicon.png', 'tree_favicon.png'],
+    ['app/assets/images/profile_pics/tree-favicon.png', 'tree-favicon.png'],
     ['app/assets/images/sunset.jpg', 'sunset.jpg'],
     ['app/assets/images/arch-city.jpg', 'arch-city.jpg'],
-    ['app/assets/images/city-beach,jpg', 'city-beach,jpg'],
+    ['app/assets/images/city-beach.jpg', 'city-beach.jpg'],
     ['app/assets/images/city-ocean.jpg', 'city-ocean.jpg'],
     ['app/assets/images/city-river.jpg', 'city-river.jpg'],
     ['app/assets/images/clouds.jpg', 'clouds.jpg'],
