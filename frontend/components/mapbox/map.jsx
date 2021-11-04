@@ -132,7 +132,7 @@ class Map extends React.Component {
                 <p class='popup-city'>
                     ${listing.city}
                 </p>
-                <img class = 'popup-img' alt='Lisiting Photo' src=${listing.photos[0]} height='100'/>
+                <img class = 'popup-img' alt='Listing Photo' src=${listing.photos[0]} height='80'/>
             </div>`;
   }
 

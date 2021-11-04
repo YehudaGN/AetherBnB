@@ -241,8 +241,8 @@ listing4NewYork = Listing.create! ({
 listing5NewYork = Listing.create! ({
     host_id: Faker::Number.within(range: 1..51),
     title: titles[rand(35)],
-    description: '983 Bicetown Road',
-    address: Faker::Address.street_address,
+    description: descriptions[rand(13)],
+    address: '983 Bicetown Road',
     city: 'New York',
     state: 'New York',
     zip_code: 10011,
