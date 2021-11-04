@@ -1314,17 +1314,17 @@ listingPhiladelphia10.photos.attach(io: File.open(interiors[rand_num_2][0]), fil
 listingPhiladelphia10.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
 listingPhiladelphia10.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
 
-listingBoston1 = Listing.create! ({
+listingMiami1 = Listing.create! ({
     host_id: Faker::Number.within(range: 1..11),
     title: Faker::Book.title,
     description: Faker::Quote.famous_last_words,
-    address: '3693 Pearlman Avenue',
-    city: 'Boston',
-    state: 'Massachusetts',
-    zip_code: 02199,
+    address: '671 Ridenour Street',
+    city: 'Miami',
+    state: 'Florida',
+    zip_code: 33176,
     num_beds: Faker::Number.within(range: 1..10),
-    longitude: -70.990494,
-    latitude: 42.327080,
+    longitude: -80.274498,
+    latitude: 25.686443,
     price: Faker::Number.within(range: 100..2000)
 })
 rand_num_1 = rand(19)
@@ -1332,23 +1332,23 @@ rand_num_2 = rand(19)
 rand_num_3 = rand(19)
 rand_num_4 = rand(19)
 rand_num_5 = rand(20)
-listingBoston1.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
-listingBoston1.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
-listingBoston1.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
-listingBoston1.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
-listingBoston1.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+listingMiami1.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
+listingMiami1.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+listingMiami1.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+listingMiami1.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+listingMiami1.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
 
-listingBoston2 = Listing.create! ({
+listingMiami2 = Listing.create! ({
     host_id: Faker::Number.within(range: 1..11),
     title: Faker::Book.title,
     description: Faker::Quote.famous_last_words,
-    address: '2772 Single Street',
-    city: 'Boston',
-    state: 'Massachusetts',
-    zip_code: 02110,
+    address: '1109 Marigold Lane',
+    city: 'Miami',
+    state: 'Florida',
+    zip_code: 33179,
     num_beds: Faker::Number.within(range: 1..10),
-    longitude: -71.087608,
-    latitude: 42.277870,
+    longitude: -80.254311,
+    latitude: 26.046629,
     price: Faker::Number.within(range: 100..2000)
 })
 rand_num_1 = rand(19)
@@ -1356,23 +1356,23 @@ rand_num_2 = rand(19)
 rand_num_3 = rand(19)
 rand_num_4 = rand(19)
 rand_num_5 = rand(20)
-listingBoston2.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
-listingBoston2.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
-listingBoston2.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
-listingBoston2.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
-listingBoston2.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+listingMiami2.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
+listingMiami2.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+listingMiami2.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+listingMiami2.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+listingMiami2.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
 
-listingBoston3 = Listing.create! ({
+listingMiami3 = Listing.create! ({
     host_id: Faker::Number.within(range: 1..11),
     title: Faker::Book.title,
     description: Faker::Quote.famous_last_words,
-    address: '2989 Lynn Street',
-    city: 'Boston',
-    state: 'Massachusetts',
-    zip_code: 02107,
+    address: '1327 Steve Hunt Road',
+    city: 'Miami',
+    state: 'Florida',
+    zip_code: 33131,
     num_beds: Faker::Number.within(range: 1..10),
-    longitude: -70.970284,
-    latitude: 42.335873,
+    longitude: -80.271965,
+    latitude: 25.861746,
     price: Faker::Number.within(range: 100..2000)
 })
 rand_num_1 = rand(19)
@@ -1380,23 +1380,23 @@ rand_num_2 = rand(19)
 rand_num_3 = rand(19)
 rand_num_4 = rand(19)
 rand_num_5 = rand(20)
-listingBoston3.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
-listingBoston3.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
-listingBoston3.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
-listingBoston3.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
-listingBoston3.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+listingMiami3.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
+listingMiami3.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+listingMiami3.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+listingMiami3.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+listingMiami3.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
 
-listingBoston4 = Listing.create! ({
+listingMiami4 = Listing.create! ({
     host_id: Faker::Number.within(range: 1..11),
     title: Faker::Book.title,
     description: Faker::Quote.famous_last_words,
-    address: '2612 Tenmile Road',
-    city: 'Boston',
-    state: 'Massachusetts',
-    zip_code: 02110,
+    address: '532 Arbutus Drive',
+    city: 'Miami',
+    state: 'Florida',
+    zip_code: 33012,
     num_beds: Faker::Number.within(range: 1..10),
-    longitude: -71.126137,
-    latitude: 42.362823,
+    longitude: -80.373001,
+    latitude: 25.668497,
     price: Faker::Number.within(range: 100..2000)
 })
 rand_num_1 = rand(19)
@@ -1404,23 +1404,23 @@ rand_num_2 = rand(19)
 rand_num_3 = rand(19)
 rand_num_4 = rand(19)
 rand_num_5 = rand(20)
-listingBoston4.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
-listingBoston4.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
-listingBoston4.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
-listingBoston4.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
-listingBoston4.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+listingMiami4.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
+listingMiami4.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+listingMiami4.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+listingMiami4.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+listingMiami4.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
 
-listingBoston5 = Listing.create! ({
+listingMiami5 = Listing.create! ({
     host_id: Faker::Number.within(range: 1..11),
     title: Faker::Book.title,
     description: Faker::Quote.famous_last_words,
-    address: '2157 Rainy Day Drive',
-    city: 'Boston',
-    state: 'Massachusetts',
-    zip_code: 02110,
+    address: '1062 Steve Hunt Road',
+    city: 'Miami',
+    state: 'Florida',
+    zip_code: 33169,
     num_beds: Faker::Number.within(range: 1..10),
-    longitude: -70.973701,
-    latitude: 42.356060,
+    longitude: -80.129196,
+    latitude: 25.973722,
     price: Faker::Number.within(range: 100..2000)
 })
 rand_num_1 = rand(19)
@@ -1428,23 +1428,23 @@ rand_num_2 = rand(19)
 rand_num_3 = rand(19)
 rand_num_4 = rand(19)
 rand_num_5 = rand(20)
-listingBoston5.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
-listingBoston5.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
-listingBoston5.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
-listingBoston5.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
-listingBoston5.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+listingMiami5.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
+listingMiami5.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+listingMiami5.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+listingMiami5.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+listingMiami5.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
 
-listingBoston6 = Listing.create! ({
+listingMiami6 = Listing.create! ({
     host_id: Faker::Number.within(range: 1..11),
     title: Faker::Book.title,
     description: Faker::Quote.famous_last_words,
-    address: '2934 Cedar Lane',
-    city: 'Boston',
-    state: 'Massachusetts',
-    zip_code: 02109,
+    address: '1063 Steve Hunt Road',
+    city: 'Miami',
+    state: 'Florida',
+    zip_code: 33169,
     num_beds: Faker::Number.within(range: 1..10),
-    longitude: -71.007141,
-    latitude: 42.435905,
+    longitude: -80.120064,
+    latitude: 25.925823,
     price: Faker::Number.within(range: 100..2000)
 })
 rand_num_1 = rand(19)
@@ -1452,23 +1452,23 @@ rand_num_2 = rand(19)
 rand_num_3 = rand(19)
 rand_num_4 = rand(19)
 rand_num_5 = rand(20)
-listingBoston6.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
-listingBoston6.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
-listingBoston6.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
-listingBoston6.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
-listingBoston6.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+listingMiami6.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
+listingMiami6.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+listingMiami6.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+listingMiami6.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+listingMiami6.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
 
-listingBoston7 = Listing.create! ({
+listingMiami7 = Listing.create! ({
     host_id: Faker::Number.within(range: 1..11),
     title: Faker::Book.title,
     description: Faker::Quote.famous_last_words,
-    address: '4682 Stadium Drive',
-    city: 'Boston',
-    state: 'Massachusetts',
-    zip_code: 02110,
+    address: '1548 Travis Street',
+    city: 'Miami',
+    state: 'Florida',
+    zip_code: 33128,
     num_beds: Faker::Number.within(range: 1..10),
-    longitude: -71.058510,
-    latitude: 42.290691,
+    longitude: -80.130424,
+    latitude: 25.762749,
     price: Faker::Number.within(range: 100..2000)
 })
 rand_num_1 = rand(19)
@@ -1476,23 +1476,23 @@ rand_num_2 = rand(19)
 rand_num_3 = rand(19)
 rand_num_4 = rand(19)
 rand_num_5 = rand(20)
-listingBoston7.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
-listingBoston7.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
-listingBoston7.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
-listingBoston7.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
-listingBoston7.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+listingMiami7.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
+listingMiami7.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+listingMiami7.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+listingMiami7.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+listingMiami7.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
 
-listingBoston8 = Listing.create! ({
+listingMiami8 = Listing.create! ({
     host_id: Faker::Number.within(range: 1..11),
     title: Faker::Book.title,
     description: Faker::Quote.famous_last_words,
-    address: '527 Valley View Drive',
-    city: 'Boston',
-    state: 'Massachusetts',
-    zip_code: 02114,
+    address: '4476 Rinehart Road',
+    city: 'Miami',
+    state: 'Florida',
+    zip_code: 33179,
     num_beds: Faker::Number.within(range: 1..10),
-    longitude: -71.004875,
-    latitude: 42.393269,
+    longitude: -80.155830,
+    latitude: 25.932756,
     price: Faker::Number.within(range: 100..2000)
 })
 rand_num_1 = rand(19)
@@ -1500,23 +1500,23 @@ rand_num_2 = rand(19)
 rand_num_3 = rand(19)
 rand_num_4 = rand(19)
 rand_num_5 = rand(20)
-listingBoston8.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
-listingBoston8.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
-listingBoston8.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
-listingBoston8.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
-listingBoston8.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+listingMiami8.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
+listingMiami8.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+listingMiami8.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+listingMiami8.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+listingMiami8.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
 
-listingBoston9 = Listing.create! ({
+listingMiami9 = Listing.create! ({
     host_id: Faker::Number.within(range: 1..11),
     title: Faker::Book.title,
     description: Faker::Quote.famous_last_words,
-    address: '303 Hinkle Lake Road',
-    city: 'Boston',
-    state: 'Massachusetts',
-    zip_code: 02114,
+    address: '993 Rinehart Road',
+    city: 'Miami',
+    state: 'Florida',
+    zip_code: 33179,
     num_beds: Faker::Number.within(range: 1..10),
-    longitude: -71.166374,
-    latitude: 42.281391,
+    longitude: -80.175797,
+    latitude: 25.880060,
     price: Faker::Number.within(range: 100..2000)
 })
 rand_num_1 = rand(19)
@@ -1524,23 +1524,23 @@ rand_num_2 = rand(19)
 rand_num_3 = rand(19)
 rand_num_4 = rand(19)
 rand_num_5 = rand(20)
-listingBoston9.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
-listingBoston9.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
-listingBoston9.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
-listingBoston9.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
-listingBoston9.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+listingMiami9.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
+listingMiami9.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+listingMiami9.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+listingMiami9.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+listingMiami9.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
 
-listingBoston10 = Listing.create! ({
+listingMiami10 = Listing.create! ({
     host_id: Faker::Number.within(range: 1..11),
     title: Faker::Book.title,
     description: Faker::Quote.famous_last_words,
-    address: '2593 Valley View Drive',
-    city: 'Boston',
-    state: 'Massachusetts',
-    zip_code: 02110,
+    address: '1857 Tyler Avenue',
+    city: 'Miami',
+    state: 'Florida',
+    zip_code: 33176,
     num_beds: Faker::Number.within(range: 1..10),
-    longitude: -71.085564,
-    latitude: 42.394264,
+    longitude: -80.313515,
+    latitude: 25.675922,
     price: Faker::Number.within(range: 100..2000)
 })
 rand_num_1 = rand(19)
@@ -1548,11 +1548,11 @@ rand_num_2 = rand(19)
 rand_num_3 = rand(19)
 rand_num_4 = rand(19)
 rand_num_5 = rand(20)
-listingBoston10.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
-listingBoston10.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
-listingBoston10.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
-listingBoston10.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
-listingBoston10.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
+listingMiami10.photos.attach(io: File.open(exteriors[rand_num_5][0]), filename: exteriors[rand_num_5][1] )
+listingMiami10.photos.attach(io: File.open(interiors[rand_num_1][0]), filename: interiors[rand_num_1][1] )
+listingMiami10.photos.attach(io: File.open(interiors[rand_num_2][0]), filename: interiors[rand_num_2][1] )
+listingMiami10.photos.attach(io: File.open(interiors[rand_num_3][0]), filename: interiors[rand_num_3][1] )
+listingMiami10.photos.attach(io: File.open(interiors[rand_num_4][0]), filename: interiors[rand_num_4][1] )
 
 listingArlington1 = Listing.create! ({
     host_id: Faker::Number.within(range: 1..11),

@@ -89,8 +89,8 @@ class Splash extends React.Component {
               </div>
               <div className="explore-location">
                 <img className="location-img" src={window.arch_city} alt="Location img" />
-                <Link to={`/listings/Boston`} className="explore-location-text">
-                  Boston
+                <Link to={`/listings/Miami`} className="explore-location-text">
+                  Miami
                 </Link>
               </div>
               <div className="explore-location">
