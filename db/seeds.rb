@@ -5,6 +5,10 @@ User.destroy_all
 Listing.destroy_all
 Booking.destroy_all
 Review.destroy_all
+ApplicationRecord.connection.reset_pk_sequence!('users')
+ApplicationRecord.connection.reset_pk_sequence!('listings')
+ApplicationRecord.connection.reset_pk_sequence!('bookings')
+ApplicationRecord.connection.reset_pk_sequence!('reviews')
 
 demo_user = User.create!(
     fname: "Demo",
