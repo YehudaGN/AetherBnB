@@ -25,6 +25,7 @@ const Footer = () => {
           <h3 className="footer-title-h3">Other Projects</h3>
           <div className='footer-info-container'>
           <a className='footer-link' href='https://yudagn.github.io/Desert-Runner/'>Desert Runner</a>
+          <a className='footer-link' href='https://yudagn.github.io/FracTree/'>FracTree</a>
           </div>
         </div>
         <div className="footer-technologies-container">
