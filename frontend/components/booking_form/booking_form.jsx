@@ -13,6 +13,14 @@ class CreateBooking extends React.Component {
     this.errors = {};
   }
 
+  componentDidUpdate() {
+    if (this.props.currentUserId && !this.state.guest_id) {
+      let booking = {...this.state};
+      booking.guest_id = this.props.currentUserId;
+      this.setState(booking)
+    }
+  }
+
   setAlreadyBooked() {
     let that = this;
     this.props.bookedDates.forEach(dateSet => {
@@ -30,27 +38,27 @@ class CreateBooking extends React.Component {
   }
 
   handleSubmit(e) {
-    let begin = `${this.state.start_date.getMonth()}/${this.state.start_date.getDate()}/${this.state.start_date.getFullYear()}`;
-    let end = `${this.state.end_date.getMonth()}/${this.state.end_date.getDate()}/${this.state.end_date.getFullYear()}`;
     e.preventDefault();
-    if (
-      this.state.num_guests === "" ||
-      this.state.start_date === "" ||
-      this.state.end_date === ""
-    ) {
-      this.errors[0] = (
-        <p className="booking-form-errors">
-          Please fill out all the required fields
-        </p>
-      );
-      this.setState(this.state);
-    } else if (begin === end) {
-      this.errors[1] = (
-        <p className="booking-form-errors">Please choose at least two days</p>
-      );
-      this.setState(this.state);
-    } else {
-      if (this.state.guest_id) {
+    if (this.props.currentUserId) {
+      let begin = `${this.state.start_date.getMonth()}/${this.state.start_date.getDate()}/${this.state.start_date.getFullYear()}`;
+      let end = `${this.state.end_date.getMonth()}/${this.state.end_date.getDate()}/${this.state.end_date.getFullYear()}`;
+      if (
+        this.state.num_guests === "" ||
+        this.state.start_date === "" ||
+        this.state.end_date === ""
+      ) {
+        this.errors[0] = (
+          <p className="booking-form-errors">
+            Please fill out all the required fields
+          </p>
+        );
+        this.setState(this.state);
+      } else if (begin === end) {
+        this.errors[1] = (
+          <p className="booking-form-errors">Please choose at least two days</p>
+        );
+        this.setState(this.state);
+      } else {
         this.props
           .createBooking(this.state)
           .then(res =>
@@ -59,9 +67,9 @@ class CreateBooking extends React.Component {
             )
           );
         this.errors = {};
-      } else {
-        this.props.openModal();
       }
+    } else {
+      this.props.openModal();
     }
   }
 
@@ -85,7 +93,6 @@ class CreateBooking extends React.Component {
 
   render() {
     let selectionRange;
-
     if (this.state.start_date === "") {
       selectionRange = {
         startDate: new Date(),
