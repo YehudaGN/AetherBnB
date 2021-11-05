@@ -70,9 +70,6 @@
   gap: 8px;
 }
 
-.main-photo-container {
-}
-
 .main-photo {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -91,6 +88,16 @@
   flex-direction: column;
   justify-content: space-between;
 
+}
+
+@media only screen and (max-width: 1200px) {
+  .secondary-photos-container {
+    display: none;
+  }
+
+  .main-photo {
+    border-radius: 10px;
+  }
 }
 
 .secondary-photos-top-container {
