@@ -90,16 +90,6 @@
 
 }
 
-@media only screen and (max-width: 1200px) {
-  .secondary-photos-container {
-    display: none;
-  }
-
-  .main-photo {
-    border-radius: 10px;
-  }
-}
-
 .secondary-photos-top-container {
   display: flex;
   gap: 8px;
@@ -331,4 +321,23 @@
   height: 700px;
   border-radius: 20px;
   box-shadow: 2px 2px 2px 2px rgba(104, 104, 104, 0.35);
+}
+
+@media only screen and (max-width: 1200px) {
+  .secondary-photos-container {
+    display: none;
+  }
+
+  .main-photo {
+    border-radius: 10px;
+  }
+
+  .host-info-booking-form-container {
+    flex-direction: column;
+  }
+
+  .booking-form-container {
+    margin-top: 20px;
+    width: 400px;
+  }
 }
