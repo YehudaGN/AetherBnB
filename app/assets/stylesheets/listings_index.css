@@ -2,6 +2,12 @@
     display: flex;
 }
 
+@media only screen and (max-width: 1200px) {
+    .listings-index-container {
+      justify-content: center;
+    }
+  }
+
 .listings {
     margin-top: 30px;
 }

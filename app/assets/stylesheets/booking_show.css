@@ -6,6 +6,7 @@
 
 .booking-show-map-container {
     display: flex;
+    width: 100vw;
     justify-content: space-between;
 }
 
@@ -217,4 +218,18 @@
     position: fixed;
     right: 0;
     border-radius: 10px;
+}
+
+@media only screen and (max-width: 1500px) {
+  #booking-map-container {
+    width: 700px;
+  }
+}
+@media only screen and (max-width: 1300px) {
+  #booking-map-container {
+    display: none;
+  }
+  .booking-show-map-container {
+    justify-content: center;
+  }
 }
