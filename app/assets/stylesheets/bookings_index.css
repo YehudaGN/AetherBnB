@@ -1,164 +1,166 @@
 .bookings-index-flex-container {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .bookings-index-container {
-    width: 76%;
-    display: flex;
-    align-self: center;
-    gap: 3%;
-    flex-wrap: wrap;
+  width: 76%;
+  display: flex;
+  align-self: center;
+  gap: 3%;
+  flex-wrap: wrap;
 }
 
 .trips-h3-container {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding-bottom: 30px;
-    width: 76%;
-    align-self: center;
-    border-bottom: 1px solid lightgray;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  width: 76%;
+  align-self: center;
+  border-bottom: 1px solid lightgray;
 }
 
 .trips-h3 {
-    font-size: 33px;
-    font-weight: 700;
-    color: rgb(44, 44, 44);
+  font-size: 33px;
+  font-weight: 700;
+  color: rgb(44, 44, 44);
 }
 
 .booking-container {
-    width: 31%;
-    color: black;
-    display: flex;
-    flex-direction: column;
+  width: 31%;
+  color: black;
+  display: flex;
+  flex-direction: column;
 }
 
 .booking-listing-index-photo {
-    width: 100%;
-    height: 180px;
-    /* overflow-y: hidden; */
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
+  width: 100%;
+  height: 180px;
+  /* overflow-y: hidden; */
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
 }
 
 .booking-index-info-container {
-    margin-top: 20px;
-    width: 90%;
-    align-self: center;
+  margin-top: 20px;
+  width: 90%;
+  align-self: center;
 }
 
 .booking-index-dates {
-    font-size: 14px;
-    font-weight: 500;
-    color: gray;
+  font-size: 14px;
+  font-weight: 500;
+  color: gray;
 }
 
 .booking-index-location-container {
-    margin-top: 7px;
+  margin-top: 7px;
 }
 
 .booking-index-location {
-    font-size: 25px;
-    font-weight: 500;
+  font-size: 25px;
+  font-weight: 500;
 }
 
 .booking-index-listing-info-container {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 10px;
-    align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  align-items: center;
 }
 
 .booking-index-listing-title-container {
-    display: flex;
-    justify-content: space-between;
-    /* border: 1px solid black; */
-    align-content: center;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid black; */
+  align-content: center;
+  width: 100%;
 }
 
-
 .booking-index-listing-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
 }
 
 .booking-index-listing-title {
-    font-size: 18px;
-    font-weight: 500;
-    color: rgb(73, 73, 73);
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(73, 73, 73);
 }
 
 .booking-index-listing-title-arrow-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .more-trip-plans-container {
-    border-top: 1px solid lightgray;
-    margin-top: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    border-bottom-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    font-weight: 600;
-    font-size: 15px;
+  border-top: 1px solid lightgray;
+  margin-top: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  font-weight: 600;
+  font-size: 15px;
 }
 
 .more-trip-plans-container:hover {
-    box-shadow: 0px 4px 0px 0px rgba(201, 201, 201, 0.64);
+  box-shadow: 0px 4px 0px 0px rgba(201, 201, 201, 0.64);
 }
 
 .no-bookings-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
 }
 
 .no-bookings {
-    border: 1px solid lightgray;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    height: 50%;
-    width: 40%;
-    background: rgb(121, 121, 121);
-}
-
-.no-bookings-text {
-    font-size: 50px;
-    font-weight: 700;
-    text-align: center;
-}
-
-.no-bookings-link {
-    font-size: 40px;
-    border-radius: 50px;
-    background: linear-gradient(
+  /* border: 1px solid lightgray;
+    border-radius: 20px; */
+  height: 60%;
+  width: 60%;
+  border-radius: 30px;
+  padding: 80px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: linear-gradient(
     to right,
     rgb(230, 30, 77) 0%,
     rgb(227, 28, 95) 50%,
     rgb(215, 4, 102) 100%
   );
+}
+
+.no-bookings-text {
+  font-size: 50px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.no-bookings-link {
+  font-size: 40px;
+  border-radius: 20px;
+  background: rgb(207, 207, 207);
   text-align: center;
   width: 30%;
-  padding: 10px 30px;
+  padding: 10px 0px;
   color: black;
+  box-shadow: 0 5px 8px 0 rgba(110, 110, 110, 0.507),
+    0 5px 10px 0 rgba(66, 66, 66, 0.37);
 }
 
 .no-bookings-link:hover {
-    box-shadow: 0 5px 8px 0 rgba(253, 1, 140, 0.507),
-    0 5px 10px 0 rgba(255, 1, 107, 0.37);
+  background: rgb(173, 173, 173);
 }
 
 .no-bookings-link:active {
-    transform: translateY(4px);
+  transform: translateY(4px);
+  box-shadow: none;
 }

@@ -41,6 +41,7 @@ const Footer = () => {
             <p className="footer-info">HTML</p>
             <p className="footer-info">CSS</p>
             <p className="footer-info">Mapbox</p>
+            <p className="footer-info">AWS</p>
           </div>
         </div>
       </div>
