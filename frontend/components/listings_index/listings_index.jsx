@@ -23,6 +23,7 @@ class ListingIndex extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.city !== this.props.match.params.city) {
+      
       this.props
         .fetchListings({
           city: this.props.match.params.city,
@@ -30,6 +31,8 @@ class ListingIndex extends React.Component {
         .then(listings => {
           if (Object.values(listings.listings).length === 0) {
             this.setState({ noListing: true });
+          } else {
+            this.setState({ noListing: false });
           }
         });
     }
@@ -37,7 +40,7 @@ class ListingIndex extends React.Component {
 
   render() {
     if (this.props.listings.length === 0 && !this.state.noListing) return null;
-
+    
     if (this.state.noListing) {
       return (
         <div className="no-listings-container">
