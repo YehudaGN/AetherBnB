@@ -80,7 +80,8 @@
 }
 
 #rounded-email {
-  border-top: 1px solid lightgray;
+  border-top: 1px solid rgb(173, 170, 170);
+  margin-top: 5px;
 }
 
 #rounded-email,
@@ -222,4 +223,9 @@ textarea {
 
 .listing-image-preview {
   border-radius: 10px;
+}
+
+
+.session-error-li {
+  margin-bottom: 5px;
 }

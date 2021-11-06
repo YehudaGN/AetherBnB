@@ -26,7 +26,7 @@ class SignupModal extends React.Component {
 
   renderErrors() {
     const mappedErrors = this.props.errors.map((error, i) => (
-      <li key={`error-${i}`}>{error}</li>
+      <li className='session-error-li' key={`error-${i}`}>{error}</li>
     ));
 
     return <ul className="errors-ul">{mappedErrors}</ul>;
