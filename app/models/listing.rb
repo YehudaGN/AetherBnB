@@ -9,11 +9,13 @@ class Listing < ApplicationRecord
 
     has_many :bookings,
         foreign_key: :listing_id,
-        class_name: :Booking
+        class_name: :Booking,
+        dependent: :destroy
 
     has_many :reviews,
         foreign_key: :listing_id,
-        class_name: :Review
+        class_name: :Review,
+        dependent: :destroy
 
 
 end
