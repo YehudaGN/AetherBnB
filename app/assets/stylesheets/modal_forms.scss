@@ -14,7 +14,9 @@
   background-color: white;
   border-radius: 10px;
   min-height: 50vh;
-  min-width: 30vw;
+  width: 40vw;
+  overflow: auto;
+  max-height: 80vh;
 }
 
 .login-form,
@@ -143,8 +145,9 @@
 .create-listing-h3 {
   text-align: center;
   font-size: 28px;
-  margin-top: 12%;
-  margin-bottom: 10%;
+  font-weight: 600;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .signup-welcome {
@@ -199,6 +202,8 @@ textarea {
   gap: 2px;
   width: 95%;
   align-self: center;
+  justify-content: center;
+  position: relative;
 }
 
 .remove-preview-image-x {
