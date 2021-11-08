@@ -181,6 +181,12 @@
   font-weight: 500;
 }
 
+.cancel-booking-container {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+}
+
 .cancel-booking-button {
   margin-top: 20px;
   background: linear-gradient(to right, rgb(255, 0, 0) 0%, rgb(255, 0, 85) 50%, rgb(255, 5, 151) 100%);
@@ -209,6 +215,14 @@
   width: 25%;
 
 }
+
+.review-not-available-container {
+  margin-top: 20px;
+}
+
+.review-not-available-h3 {
+  font-size: 18px;
+} 
 
 
 

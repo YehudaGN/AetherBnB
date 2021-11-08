@@ -6,7 +6,7 @@ class BookingShow extends React.Component {
   constructor(props) {
     super(props);
     this.bookingMap;
-    this.state = {listingId: null}
+    this.state = { listingId: null };
   }
 
   componentDidMount() {
@@ -42,7 +42,7 @@ class BookingShow extends React.Component {
       .deleteBooking(this.props.match.params.bookingId)
       .then(this.props.history.push("/"));
   }
-  
+
   render() {
     if (!this.props.booking) return null;
     if (!this.props.booking.guest) return null;
@@ -78,15 +78,7 @@ class BookingShow extends React.Component {
     } else {
       cancelButtonDiv = <div></div>;
     }
-    // temp beneath
-    // let createReviewButton = (
-    //   <li
-    //     className="create-review-li"
-    //     onClick={() => this.props.openModal("create review")}
-    //   >
-    //     Leave Review
-    //   </li>
-    // );
+    
     let createReviewButton;
     if (
       booking.guest_id === this.props.session &&
@@ -101,7 +93,11 @@ class BookingShow extends React.Component {
         </li>
       );
     } else {
-      createReviewButton = <div></div>
+      createReviewButton = (
+        <div className='review-not-available-container'>
+          <h3 className='review-not-available-h3'>Review form will become available after your trip has ended</h3>
+        </div>
+      );
     }
     return (
       <div className="booking-show-container-container">
