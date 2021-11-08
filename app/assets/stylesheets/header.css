@@ -97,6 +97,7 @@
   padding-top: 8px;
   padding-bottom: 5px;
   background: rgb(255, 0, 76);
+  cursor: pointer;
 }
 
 .search-icon {
