@@ -34,7 +34,7 @@ class CreateListing extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    
+
     if (
       this.state.title === "" ||
       this.state.description === "" ||
@@ -59,8 +59,12 @@ class CreateListing extends React.Component {
           <LoopIcon className="listings-spinner" sx={{ fontSize: 300 }} />
         </div>
       );
-      this.setState({ spinner: spinner, loading: 'loading', containerLoading: 'container-loading' });
-      if (this.state.errors) this.setState({errors: false});
+      this.setState({
+        spinner: spinner,
+        loading: "loading",
+        containerLoading: "container-loading",
+      });
+      if (this.state.errors) this.setState({ errors: false });
       mapboxgl.accessToken =
         "pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA";
       const geocoder = mbxGeocoding({
@@ -100,13 +104,23 @@ class CreateListing extends React.Component {
 
   render() {
     return (
-      <div className={`create-listing-container ${this.state.containerLoading}`}>
+      <div
+        className={`create-listing-container ${this.state.containerLoading}`}
+      >
         {this.state.spinner}
-        <div onClick={this.props.closeModal} className={`close-x ${this.state.loading}`}>
+        <div
+          onClick={this.props.closeModal}
+          className={`close-x ${this.state.loading}`}
+        >
           X
         </div>
-        <h3 className={`create-listing-h3 ${this.state.loading}`}>Create your new Listing</h3>
-        <form className={`listing-form ${this.state.loading}`} onSubmit={this.handleSubmit}>
+        <h3 className={`create-listing-h3 ${this.state.loading}`}>
+          Create your new Listing
+        </h3>
+        <form
+          className={`listing-form ${this.state.loading}`}
+          onSubmit={this.handleSubmit}
+        >
           <input
             id="rounded-title"
             className={`listing-input ${this.state.loading}`}
@@ -167,7 +181,7 @@ class CreateListing extends React.Component {
           <div className={`file-input-container ${this.state.loading}`}>
             <label htmlFor="file-input-listing">
               <div className={`input-label-listing ${this.state.loading}`}>
-                <BackupIcon className={`${this.state.loading}`}/>
+                <BackupIcon className={`${this.state.loading}`} />
                 <p className={`${this.state.loading}`}>Upload Photos</p>
               </div>
             </label>
@@ -190,7 +204,9 @@ class CreateListing extends React.Component {
                   data-index={idx}
                   onClick={e => this.removeImage(e)}
                 >
-                  <DeleteRoundedIcon className={`listing-preview-delete-icon ${this.state.loading}`} />
+                  <DeleteRoundedIcon
+                    className={`listing-preview-delete-icon ${this.state.loading}`}
+                  />
                 </span>
                 <img
                   className={`listing-image-preview ${this.state.loading}`}
@@ -203,7 +219,9 @@ class CreateListing extends React.Component {
           </div>
 
           {this.state.errors}
-          <button className={`create-listing-button ${this.state.loading}`}>Create Listing</button>
+          <button className={`create-listing-button ${this.state.loading}`}>
+            Create Listing
+          </button>
         </form>
       </div>
     );
