@@ -17,6 +17,49 @@
   width: 40vw;
   overflow: auto;
   max-height: 80vh;
+  position: relative;
+}
+
+.listings-spinner-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.listings-spinner {
+  animation-name: rotate;
+  animation-duration: 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  margin-right: 4%;
+  margin-bottom: 2%;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  display: none;
+}
+
+.container-loading {
+  background: linear-gradient(
+    to right,
+    rgb(230, 30, 77) 0%,
+    rgb(227, 28, 95) 50%,
+    rgb(215, 4, 102) 100%
+  );
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
 }
 
 .login-form,
@@ -229,7 +272,6 @@ textarea {
 .listing-image-preview {
   border-radius: 10px;
 }
-
 
 .session-error-li {
   margin-bottom: 5px;
