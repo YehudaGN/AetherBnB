@@ -54,6 +54,7 @@ class CreateListing extends React.Component {
         ),
       });
     } else {
+      
       let spinner = (
         <div className="listings-spinner-container">
           <LoopIcon className="listings-spinner" sx={{ fontSize: 300 }} />
