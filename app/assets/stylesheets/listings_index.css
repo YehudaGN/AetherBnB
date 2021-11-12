@@ -17,6 +17,7 @@
     text-align: center;
     color: black;
     padding: 3%;
+    border-bottom: 1px solid lightgray;
 }
 
 .listings-index-title {

@@ -23,6 +23,7 @@
   position: fixed;
   transition: .5s;
   background-color: white;
+  border-bottom: .5px solid lightgray;
 }
 
 .header-container {
@@ -128,6 +129,10 @@
   justify-content: space-between;
   gap: 5px;
 }
+
+/* .menu-button:hover {
+  color: gray;
+} */
 
 .header-menu-icon {
   margin-left: 3px;

@@ -15,9 +15,9 @@ class CreateBooking extends React.Component {
 
   componentDidUpdate() {
     if (this.props.currentUserId && !this.state.guest_id) {
-      let booking = {...this.state};
+      let booking = { ...this.state };
       booking.guest_id = this.props.currentUserId;
-      this.setState(booking)
+      this.setState(booking);
     }
   }
 
@@ -39,9 +39,13 @@ class CreateBooking extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    let begin;
+    let end;
     if (this.props.currentUserId) {
-      let begin = `${this.state.start_date.getMonth()}/${this.state.start_date.getDate()}/${this.state.start_date.getFullYear()}`;
-      let end = `${this.state.end_date.getMonth()}/${this.state.end_date.getDate()}/${this.state.end_date.getFullYear()}`;
+      if (this.state.start_date && this.state.end) {
+        begin = `${this.state.start_date.getMonth()}/${this.state.start_date.getDate()}/${this.state.start_date.getFullYear()}`;
+        end = `${this.state.end_date.getMonth()}/${this.state.end_date.getDate()}/${this.state.end_date.getFullYear()}`;
+      }
       if (
         this.state.num_guests === "" ||
         this.state.start_date === "" ||
