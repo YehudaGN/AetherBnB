@@ -42,7 +42,7 @@ class CreateBooking extends React.Component {
     let begin;
     let end;
     if (this.props.currentUserId) {
-      if (this.state.start_date && this.state.end) {
+      if (this.state.start_date && this.state.end_date) {
         begin = `${this.state.start_date.getMonth()}/${this.state.start_date.getDate()}/${this.state.start_date.getFullYear()}`;
         end = `${this.state.end_date.getMonth()}/${this.state.end_date.getDate()}/${this.state.end_date.getFullYear()}`;
       }
