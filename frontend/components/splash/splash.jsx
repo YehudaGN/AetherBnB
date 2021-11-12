@@ -41,7 +41,7 @@ class Splash extends React.Component {
         <div className="splash-container">
           <div>
             <div className="bg-img-container">
-              <img className="bg-img" src={splash_bg} alt="Splash BG"  />
+              <img className="bg-img" src={splash_bg} alt="Splash BG" />
 
               <div className="flexible-container">
                 <div className="flexible-text-container">
@@ -61,58 +61,86 @@ class Splash extends React.Component {
             </div>
             <div className="explore-container">
               <div className="explore-location">
-                <img className="location-img" src={window.city_ocean} alt="Location img" />
                 <Link
                   to={`/listings/New York`}
                   className="explore-location-text"
                 >
+                  <img
+                    className="location-img"
+                    src={window.city_ocean}
+                    alt="Location img"
+                  />
                   New York
                 </Link>
               </div>
               <div className="explore-location">
-                <img className="location-img" src={window.clouds} alt="Location img" />
                 <Link
                   to={`/listings/Anchorage`}
                   className="explore-location-text"
                 >
+                  <img
+                    className="location-img"
+                    src={window.clouds}
+                    alt="Location img"
+                  />
                   Anchorage
                 </Link>
               </div>
               <div className="explore-location">
-                <img className="location-img" src={window.city_river} alt="Location img" />
                 <Link
                   to={`/listings/Philadelphia`}
                   className="explore-location-text"
                 >
+                  <img
+                    className="location-img"
+                    src={window.city_river}
+                    alt="Location img"
+                  />
                   Philadelphia
                 </Link>
               </div>
               <div className="explore-location">
-                <img className="location-img" src={window.arch_city} alt="Location img" />
                 <Link to={`/listings/Miami`} className="explore-location-text">
+                  <img
+                    className="location-img"
+                    src={window.arch_city}
+                    alt="Location img"
+                  />
                   Miami
                 </Link>
               </div>
               <div className="explore-location">
-                <img className="location-img" src={window.tree_city} alt="Location img" />
                 <Link
                   to={`/listings/Arlington`}
                   className="explore-location-text"
                 >
+                  <img
+                    className="location-img"
+                    src={window.tree_city}
+                    alt="Location img"
+                  />
                   Arlington
                 </Link>
               </div>
               <div className="explore-location">
-                <img className="location-img" src={window.city_beach} alt="Location img" />
                 <Link
                   to={`/listings/Virginia Beach`}
                   className="explore-location-text"
                 >
+                  <img
+                    className="location-img"
+                    src={window.city_beach}
+                    alt="Location img"
+                  />
                   Virginia Beach
                 </Link>
               </div>
               <div className="explore-location">
-                <img className="location-img" src={window.warm_city_beach} alt="Location img" />
+                <img
+                  className="location-img"
+                  src={window.warm_city_beach}
+                  alt="Location img"
+                />
                 <Link
                   to={`/listings/San Diego`}
                   className="explore-location-text"
@@ -121,8 +149,12 @@ class Splash extends React.Component {
                 </Link>
               </div>
               <div className="explore-location">
-                <img className="location-img" src={window.night_sky} alt="Location img" />
                 <Link to={`/listings/Austin`} className="explore-location-text">
+                  <img
+                    className="location-img"
+                    src={window.night_sky}
+                    alt="Location img"
+                  />
                   Austin
                 </Link>
               </div>
@@ -131,7 +163,11 @@ class Splash extends React.Component {
           <div className="try-hosting-container-container">
             <div className="try-hosting-container">
               <div className="try-hosting-img-container">
-                <img className="try-hosting-img" src={try_hosting} alt="Location img" />
+                <img
+                  className="try-hosting-img"
+                  src={try_hosting}
+                  alt="Location img"
+                />
               </div>
 
               <div className="try-hosting-text-container">
