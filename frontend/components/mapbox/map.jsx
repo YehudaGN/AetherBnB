@@ -24,7 +24,7 @@ class Map extends React.Component {
       container: "map",
       style: "mapbox://styles/mapbox/streets-v11",
       center: [-74.0060, 40.7128],
-      zoom: 7,
+      zoom: 10,
     });
     const nav = new mapboxgl.NavigationControl();
     this.map.addControl(nav, "top-right");
@@ -58,7 +58,7 @@ class Map extends React.Component {
               this.mapMarkers.push(mapMarker);
             }
           });
-          if (this.state.city) {
+          if (this.props.match.params.city) {
             mapboxgl.accessToken =
               "pk.eyJ1IjoieXVkYWduIiwiYSI6ImNrdGRkcWJpazJmM2gybnBnZXE3dzQzcmgifQ.W_-afZ__2dCOr7xvF3QYBA";
             const geocoder = mbxGeocoding({
@@ -67,7 +67,7 @@ class Map extends React.Component {
 
             geocoder
               .forwardGeocode({
-                query: this.state.city,
+                query: this.props.match.params.city,
                 limit: 1,
               })
               .send()
