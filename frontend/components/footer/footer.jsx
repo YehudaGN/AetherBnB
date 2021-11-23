@@ -7,9 +7,9 @@ const Footer = () => {
         <div className="footer-about-me-container">
           <h3 className="footer-title-h3">About Me</h3>
           <div className="footer-info-container">
-            <a className='footer-link' href='https://github.com/yudagn'>Github</a>
-            <a className='footer-link' href='https://www.linkedin.com/in/yehuda-goldschein-79872199/'>Linkedin</a>
-            <a className='footer-link' href='#'>Personal Site</a>
+            <a className='footer-link' target='_blank' href='https://github.com/yudagn'>Github</a>
+            <a className='footer-link' target='_blank' href='https://www.linkedin.com/in/yehuda-goldschein-79872199/'>Linkedin</a>
+            <a className='footer-link' target='_blank' href='https://yudagn.github.io/Portfolio/#'>Personal Site</a>
             
           </div>
         </div>
@@ -24,8 +24,9 @@ const Footer = () => {
         <div className="footer-other-projects-container">
           <h3 className="footer-title-h3">Other Projects</h3>
           <div className='footer-info-container'>
-          <a className='footer-link' href='https://yudagn.github.io/Desert-Runner/'>Desert Runner</a>
-          <a className='footer-link' href='https://yudagn.github.io/FracTree/'>FracTree</a>
+          <a className='footer-link' target='_blank' href='https://moviefridays.herokuapp.com/#/'>Movie Fridays</a>
+          <a className='footer-link' target='_blank' href='https://yudagn.github.io/Desert-Runner/'>Desert Runner</a>
+          <a className='footer-link' target='_blank' href='https://yudagn.github.io/FracTree/'>FracTree</a>
           </div>
         </div>
         <div className="footer-technologies-container">
