@@ -45,7 +45,7 @@ AetherBnb is a clone of the website Airbnb that implements many of the features 
 ## Challenges 
 - In order to have the option to search for listings by a city, but also to have the option to just search through all the listings, I decided to add optional data to the backend containing the search params. If the params contained a city, I would fetch all the listings with that city. If the params did not contain a city, I would fetch all the listings.
 
-```
+``` Javascript
 def index 
     if !params[:searchParams]     
         @listings = Listing.with_attached_photos.all    
